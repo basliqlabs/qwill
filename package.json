@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "vite dev --port=34519",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -35,6 +35,9 @@
 		"vitest": "^2.0.4"
 	},
 	"dependencies": {
-		"@inlang/paraglide-sveltekit": "^0.11.1"
+		"@fontsource/montserrat": "^5.1.0",
+		"@fontsource/ubuntu-mono": "^5.1.0",
+		"@inlang/paraglide-sveltekit": "^0.11.1",
+		"lucide-svelte": "^0.454.0"
 	}
 }

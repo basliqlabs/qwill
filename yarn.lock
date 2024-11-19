@@ -183,6 +183,16 @@
   dependencies:
     levn "^0.4.1"
 
+"@fontsource/montserrat@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/montserrat/-/montserrat-5.1.0.tgz#3a73a60be1ecd247ff879287f63acda43962cece"
+  integrity sha512-HB4+rWP9Y8g6T9RGRVJk2SvAJtx2eBAXuivvPOqQdD806/9WESUfucfH9LqFj3bGgdhNCfh0Rv0NGuwEmBLRiw==
+
+"@fontsource/ubuntu-mono@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/ubuntu-mono/-/ubuntu-mono-5.1.0.tgz#748ee1997108fbb7b649014f4c1300a3da6be2c3"
+  integrity sha512-sz2MEGFaT9pab73zBGatJDenDr0PFDxzchhINwIsDAH4/9YMIGXXMfngfClPAT2BXF0ZK5FEBCP/t4EEX/j5Jw==
+
 "@humanfs/core@^0.19.1":
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/@humanfs/core/-/core-0.19.1.tgz#17c55ca7d426733fe3c561906b8173c336b40a77"
@@ -1868,6 +1878,11 @@ lru-cache@^10.0.0:
   version "10.4.3"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-10.4.3.tgz#410fc8a17b70e598013df257c2446b7f3383f119"
   integrity sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==
+
+lucide-svelte@^0.454.0:
+  version "0.454.0"
+  resolved "https://registry.yarnpkg.com/lucide-svelte/-/lucide-svelte-0.454.0.tgz#5d154c1c05f6caa8dce14589c5d69cf55bc39873"
+  integrity sha512-TgW17HI7M8LeFZ3NpaDp1LwPGBGMVjx/x81TtK+AacEQvmJcqetqeJNeBT18NMEJP9+zi/Wt+Zc8mo44K5Uszw==
 
 magic-string@^0.30.11, magic-string@^0.30.12, magic-string@^0.30.5:
   version "0.30.12"
