@@ -1,6 +1,6 @@
 import * as m from '$lib/paraglide/messages.js'
 
-type Author = {
+export type Author = {
 	readonly display_name: string
 	first_name: string | null
 	last_name: string | null

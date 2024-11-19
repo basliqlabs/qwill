@@ -1,14 +1,12 @@
 import { json } from '@sveltejs/kit'
-import type { Post } from '../../../content/config/posts'
+import type { Post } from '../../../../../content/config/posts'
 
-async function getPosts() {
+async function getPosts(categoryName: string, language: string) {
 	let posts: Post[] = []
 
-	const paths = import.meta.glob('/src/content/posts/**/*.md', {
+	const paths = import.meta.glob(`/src/content/posts/**/*.md`, {
 		eager: true
 	})
-
-	console.log(paths)
 
 	for (const path in paths) {
 		const file = paths[path]
@@ -19,7 +17,7 @@ async function getPosts() {
 		if (file && typeof file === 'object' && 'metadata' in file && slug && category && lang) {
 			const metadata = file.metadata as Omit<Post, 'slug'>
 			const post = { ...metadata, category, slug, lang } satisfies Post
-			if (!post.draft) posts.push(post)
+			if (!post.draft && categoryName === category && language === lang) posts.push(post)
 		}
 	}
 
@@ -31,7 +29,7 @@ async function getPosts() {
 	return posts
 }
 
-export async function GET() {
-	const posts = await getPosts()
+export async function GET(req) {
+	const posts = await getPosts(req.params.name, req.params.lang)
 	return json(posts)
 }

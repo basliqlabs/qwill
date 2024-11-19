@@ -2,7 +2,7 @@
 	import * as config from '$lib/config'
 	import { getURL } from '$lib/navigation/url'
 
-	let { data } = $props();
+	let { data } = $props()
 </script>
 
 <svelte:head>

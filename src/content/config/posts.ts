@@ -3,6 +3,11 @@ import type { Series } from './series'
 
 export type AmbientColors = 'purple'
 
+export type FeaturedOn = {
+	firstFold?: boolean
+	category?: boolean
+}
+
 export type Post = {
 	title: string
 	description: string
@@ -11,13 +16,13 @@ export type Post = {
 	publishDate: DateString
 	updatedDate: DateString
 	coverImage: Image
-	series: Series
+	series: Series | null
 	category: string
 	collections: string[]
 	authors: string[]
 	draft: boolean
 	outdated: boolean
 	external: boolean
-	fire: boolean
 	ambientColor: AmbientColors | null
+	featuredOn: FeaturedOn | null
 }
