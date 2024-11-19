@@ -1,5 +1,6 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages'
+	import SwitchLanguageButton from '../switch-language-button/SwitchLanguageButton.svelte'
 
 	let name = 'Svelte'
 </script>
@@ -21,5 +22,7 @@
 		</ul>
 	</nav>
 
-	<div class="actions"></div>
+	<div class="actions">
+		<SwitchLanguageButton />
+	</div>
 </header>
