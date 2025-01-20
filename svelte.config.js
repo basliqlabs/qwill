@@ -15,6 +15,9 @@ const config = {
 		adapter: adapter({
 			fallback: '404.html'
 		}),
+		alias: {
+			'content/*': 'src/content/*'
+		},
 		paths: {
 			base: process.argv.includes('dev') ? '' : ''
 		},

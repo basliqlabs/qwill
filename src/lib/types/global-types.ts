@@ -13,3 +13,4 @@ export type ShortMonth =
 	| 'Dec'
 export type DateString = `${number} ${ShortMonth} ${number}`
 export type Image = { src: string; alt: string | null }
+export type PaginationLinkStructure = `${string}/${number}`

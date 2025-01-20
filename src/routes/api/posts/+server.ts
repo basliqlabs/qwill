@@ -1,5 +1,5 @@
 import { json } from '@sveltejs/kit'
-import type { Post } from '../../../content/config/posts'
+import type { Post } from 'content/config/posts'
 
 async function getPosts() {
 	let posts: Post[] = []

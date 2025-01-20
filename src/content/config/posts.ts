@@ -1,4 +1,4 @@
-import type { DateString, Image } from '../../lib/types/generic-types'
+import type { DateString, Image } from '$lib/types/global-types'
 import type { Series } from './series'
 
 export type AmbientColors = 'purple'

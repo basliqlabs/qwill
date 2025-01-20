@@ -1,27 +1,41 @@
 <script lang="ts">
+	import { goto } from '$app/navigation'
+	import type { PaginationLinkStructure } from '$lib/types/global-types'
+
 	type Props = {
 		totalPages: number
 		currentPage: number
+		baseLink: string
 		boundaries?: number
 		withControls?: boolean
 		withEdges?: boolean
-		handlePagination: (pageNumber: number) => void
+		/**
+		 * You can pass your own pagination function into the component.
+		 * Runs before the default goto() function.
+		 */
+		paginationFn?: ((pageNumber: number) => void) | null
+		/**
+		 * Enables SSG adapter to crawl through all links at once.
+		 */
+		ssgLinkDiscovery?: boolean
 	}
 
 	let {
 		totalPages,
 		currentPage,
+		baseLink,
 		boundaries = 3,
 		withControls = true,
 		withEdges = true,
-		handlePagination
+		paginationFn = null,
+		ssgLinkDiscovery = true
 	}: Props = $props()
 
-	let beginningEdgeIsInBoundaries = $derived(currentPage - boundaries <= 1)
-	let endEdgeIsInBoundaries = $derived(totalPages <= currentPage + boundaries)
-	let isOnFirstPage = $derived(currentPage === 1)
-	let isOnLastPage = $derived(currentPage === totalPages)
-	let visiblePages = $derived.by(() => {
+	const beginningEdgeIsInBoundaries = $derived(currentPage - boundaries <= 1)
+	const endEdgeIsInBoundaries = $derived(totalPages <= currentPage + boundaries)
+	const isOnFirstPage = $derived(currentPage === 1)
+	const isOnLastPage = $derived(currentPage === totalPages)
+	const visiblePages = $derived.by(() => {
 		const pages: number[] = []
 		const boundaryStart = currentPage - boundaries < 1 ? 1 : currentPage - boundaries
 		const boundaryEnd =
@@ -31,6 +45,16 @@
 		}
 		return pages
 	})
+	const allDiscoverablePageNumbers = $derived(Array.from({ length: totalPages }, (_, i) => i + 1))
+
+	function handlePagination(page: number) {
+		if (paginationFn !== null) {
+			paginationFn(page)
+		} else {
+			const link: PaginationLinkStructure = `${baseLink}/${page}`
+			goto(link)
+		}
+	}
 </script>
 
 <nav>
@@ -57,4 +81,16 @@
 			next
 		</button>
 	{/if}
+
+	{#if ssgLinkDiscovery}
+		{#each allDiscoverablePageNumbers as pageNumber}
+			<a href="{baseLink}/{pageNumber}" class="ssg-discoverable-link">{pageNumber}</a>
+		{/each}
+	{/if}
 </nav>
+
+<style>
+	.ssg-discoverable-link {
+		display: none;
+	}
+</style>

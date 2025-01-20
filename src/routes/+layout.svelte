@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '$lib/styles/typography.css'
+	import '$lib/styles/global.css'
 
 	import Header from '$lib/components/header/Header.svelte'
 	import { i18n } from '$lib/i18n'
