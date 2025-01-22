@@ -7,7 +7,7 @@
 </script>
 
 {#each categories as category}
-	<a href="/categories/{category}">{category}</a>
+	<a href="/categories/{category}">{category.display_title}</a>
 {/each}
 
 <Pagination {totalPages} currentPage={1} baseLink="/categories/page" />

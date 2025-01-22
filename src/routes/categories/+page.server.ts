@@ -1,10 +1,9 @@
 import { i18n } from '$lib/i18n.js'
-import { getPageFromUrl, type PaginatedData } from '$lib/utils/pagination.js'
+import { type PaginatedData } from '$lib/utils/pagination.js'
+import type { Category } from 'content/config/categories.js'
 
 export async function load({ fetch, url }) {
-	const response = await fetch(
-		`/api/${i18n.getLanguageFromUrl(new URL(url))}/categories/page/${getPageFromUrl(url, 'categories')}`
-	)
-	const categories: PaginatedData<string> = await response.json()
+	const response = await fetch(`/api/${i18n.getLanguageFromUrl(new URL(url))}/categories/page/1`)
+	const categories: PaginatedData<Category> = await response.json()
 	return { categories }
 }

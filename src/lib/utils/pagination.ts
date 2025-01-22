@@ -5,12 +5,16 @@ export type PaginatedData<T> = {
 	perPage: number
 }
 
-export function getPaginatedData<T>(data: T[], page: number, perPage: number): PaginatedData<T> {
-	const totalPages = Math.ceil(data.length / perPage)
-	const slicedData = data.slice((page - 1) * perPage, page * perPage)
+export function getPaginatedResponse<T>(
+	data: T[],
+	itemCount: number,
+	page: number,
+	perPage: number
+): PaginatedData<T> {
+	const totalPages = Math.ceil(itemCount / perPage)
 	return {
+		data: data,
 		totalPages,
-		data: slicedData,
 		page,
 		perPage
 	}
@@ -23,4 +27,8 @@ export function getPageFromUrl(url: string | URL, key: string): number {
 	const slashIndex = path.indexOf('/', keyIndex + length)
 	const page = path.substring(keyIndex + length, slashIndex === -1 ? undefined : slashIndex)
 	return Number(page)
+}
+
+export function getPaginatedList<T>(list: T[], page: number, size: number): T[] {
+	return list.slice((page - 1) * size, page * size)
 }
