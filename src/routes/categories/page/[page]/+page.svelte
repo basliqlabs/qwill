@@ -5,12 +5,11 @@
 	let { data } = $props()
 	const categories = $derived(data.categories.data)
 	const totalPages = $derived(data.categories.totalPages)
-	const pageNumber = page.data
-	console.log(pageNumber)
+	let	pageNumber = $derived(Number.parseInt(page.params['page']))
 </script>
 
 {#each categories as category}
 	<a href="/categories/{category}">{category.display_title}</a><br>
 {/each}
 
-<Pagination {totalPages} currentPage={1} baseLink="/categories/page" />
+<Pagination {totalPages} currentPage={pageNumber} baseLink="/categories/page" />

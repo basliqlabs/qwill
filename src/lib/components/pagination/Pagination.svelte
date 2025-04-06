@@ -69,7 +69,7 @@
 	{/if}
 
 	{#each visiblePages as visiblePage}
-		<button onclick={() => handlePagination(visiblePage)}>{visiblePage}</button>
+		<button onclick={() => handlePagination(visiblePage)} disabled={currentPage === visiblePage}>{visiblePage}</button>
 	{/each}
 
 	{#if withEdges && !endEdgeIsInBoundaries}
