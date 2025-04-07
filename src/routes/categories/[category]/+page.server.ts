@@ -5,6 +5,6 @@ import type {Post} from "content/config/posts";
 
 export async function load({ fetch, url, params }) {
 	const response = await fetch(`/api/${i18n.getLanguageFromUrl(new URL(url))}/categories/${params.category}`)
-	const category: {posts: Post[]} = await response.json()
+	const category: {info: Category; posts: Post[]} = await response.json()
 	return { category }
 }

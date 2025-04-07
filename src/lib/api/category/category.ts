@@ -14,8 +14,7 @@ export async function getCategories(lang: string, page: number): Promise<Categor
 		promisedPaths.push(readCategoryConfig(CategoryTargetDirectory, category, lang))
 	})
 	const categories = await Promise.all(promisedPaths)
-	const filteredCategories = categories.filter((item) => item !== null) as Category[]
-	return filteredCategories
+	return categories.filter((item) => item !== null) as Category[]
 }
 
 // TODO - see if this operation can be cached to prevent unnecessary os file reads

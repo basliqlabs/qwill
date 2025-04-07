@@ -12,4 +12,4 @@
 	<a href="/categories/{category.id}">{category.display_title}</a><br>
 {/each}
 
-<Pagination {totalPages} currentPage={pageNumber} baseLink="/categories/page" />
+<Pagination {totalPages} currentPage={pageNumber} baseLink="/categories/list" />

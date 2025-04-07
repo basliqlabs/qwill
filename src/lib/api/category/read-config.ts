@@ -10,8 +10,8 @@ export async function readCategoryConfig(
 	try {
 		const data = await fs.readFile(`${targetDirectory}/${categoryId}/${lang}.json`, 'utf8')
 		const jsonData = JSON.parse(data) as Category
-		const category = { ...jsonData, id: categoryId }
-		return category
+		return { ...jsonData, id: categoryId }
+
 	} catch (err) {
 		if (isNodeError(err) && err.code === 'ENOENT') {
 			console.warn('File not found:', err.message)

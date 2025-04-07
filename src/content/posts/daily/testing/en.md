@@ -5,7 +5,6 @@ publishDate: '11 Dec 2024'
 updatedDate: null
 coverImage: null
 series: null
-category: 'daily'
 collections: ['testttt']
 authors: ['atareversei']
 draft: false
