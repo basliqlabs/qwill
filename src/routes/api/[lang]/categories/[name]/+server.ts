@@ -1,35 +1,20 @@
-import { json } from '@sveltejs/kit'
-import type { Post } from 'content/config/posts'
+import {json} from "@sveltejs/kit";
+import {readCategoryConfig} from "$lib/api/category/read-config";
+import {CategoryTargetDirectory} from "$lib/api/category/category";
+import {getPosts} from "$lib/api/post";
 
-async function getPosts(categoryName: string, language: string) {
-	let posts: Post[] = []
+async function getConfigData(categoryId: string, language: string) {
+  const configData = readCategoryConfig(CategoryTargetDirectory, categoryId, language)
+  return configData
+}
 
-	const paths = import.meta.glob(`/src/content/posts/**/*.md`, {
-		eager: true
-	})
-
-	for (const path in paths) {
-		const file = paths[path]
-		const category = path.split('/').at(-3)
-		const slug = path.split('/').at(-2)
-		const lang = path.split('/').at(-1)?.replace('.md', '')
-
-		if (file && typeof file === 'object' && 'metadata' in file && slug && category && lang) {
-			const metadata = file.metadata as Omit<Post, 'slug'>
-			const post = { ...metadata, category, slug, lang } satisfies Post
-			if (!post.draft && categoryName === category && language === lang) posts.push(post)
-		}
-	}
-
-	posts = posts.sort(
-		(first, second) =>
-			new Date(second.updatedDate).getTime() - new Date(first.updatedDate).getTime()
-	)
-
-	return posts
+async function getCategoryPosts(categoryId: string, language: string) {
+  const posts = await getPosts()
+  return posts
 }
 
 export async function GET(req) {
-	const posts = await getPosts(req.params.name, req.params.lang)
-	return json(posts)
+  const configData = await getConfigData(req.params.name, req.params.lang)
+  const posts = await getCategoryPosts(req.params.name, req.params.lang)
+  return json({info: configData, posts})
 }
