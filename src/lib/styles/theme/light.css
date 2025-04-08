@@ -1,0 +1,68 @@
+/*
+// This is the default themes so we also put the variables in the
+// :root to guarantee that our application is going to display
+// properly if something goes wrong.
+*/
+
+:root, :root[data-theme='basliq-light'] {
+  --t-color-primary-50: var(--raw-color-violet-50);
+  --t-color-primary-100: var(--raw-color-violet-100);
+  --t-color-primary-200: var(--raw-color-violet-200);
+  --t-color-primary-300: var(--raw-color-violet-300);
+  --t-color-primary-400: var(--raw-color-violet-400);
+  --t-color-primary-500: var(--raw-color-violet-500);
+  --t-color-primary-600: var(--raw-color-violet-600);
+  --t-color-primary-700: var(--raw-color-violet-700);
+  --t-color-primary-800: var(--raw-color-violet-800);
+  --t-color-primary-900: var(--raw-color-violet-900);
+  --t-color-primary-950: var(--raw-color-violet-950);
+
+  --t-color-bg: var(--t-color-neutral-100);
+  --t-color-on-bg: var(--t-color-neutral-50);
+
+  --t-color-text: var(--t-color-neutral-800);
+  --t-color-text-muted: var(--t-color-neutral-500);
+  --t-color-highlight-background: var(--t-color-primary-600);
+  --t-color-highlight-text: var(--t-color-neutral-50);
+  --t-color-underline: var(--t-color-primary-600);
+  --t-color-brand-text: var(--t-color-primary-600);
+
+  --t-color-selection-text: var(--t-color-primary-900);
+  --t-color-selection-bg: var(--t-color-primary-200);
+
+  --t-color-scrollbar-thumb-hover: var(--t-color-neutral-600);
+  --t-color-scrollbar-thumb: var(--t-color-neutral-500);
+  --t-color-scrollbar-track: var(--t-color-neutral-200);
+
+  --t-color-bullet-point: var(--t-color-primary-600);
+
+  --t-color-btn-overlay: hsl(0deg 0% 0%);
+  --t-color-btn-primary-bg: var(--t-color-primary-500);
+  --t-color-btn-primary-text: var(--t-color-primary-50);
+  --t-color-btn-secondary-bg: var(--t-color-primary-100);
+  --t-color-btn-secondary-text: var(--t-color-primary-900);
+  --t-color-btn-tertiary-bg: transparent;
+  --t-color-btn-tertiary-text: var(--t-color-text);
+  --t-color-btn-danger-bg: var(--t-color-danger-100);
+  --t-color-btn-danger-text: var(--t-color-danger-900);
+  --t-color-btn-disabled-bg: var(--t-color-neutral-300);
+  --t-color-btn-disabled-text: var(--t-color-neutral-500);
+
+  --t-color-border-divider-dim: var(--t-color-neutral-100);
+  --t-color-border-divider: var(--t-color-neutral-200);
+  --t-color-focus-outline: var(--t-color-primary-300);
+
+  --t-color-shadow-close: color-mix(in hsl, var(--t-color-neutral-900) 10%, transparent);
+  --t-color-shadow-distant: color-mix(in hsl, var(--t-color-neutral-900) 5%, transparent);
+
+  --t-opacity-popover: 90%;
+  --t-color-popover-bg: color-mix(in hsl, var(--t-color-neutral-900) var(--t-opacity-popover), transparent);
+  --t-color-text-popover: var(--t-color-neutral-100);
+
+  --t-header-background-color: 0;
+  --t-navbar-background-color: 0;
+  --t-navbar-inline-size: 10px;
+  --t-navbar-border-radius: 10px;
+  --t-navbar-margin-inline: auto;
+  --t-navbar-margin-block: 0;
+}

@@ -1,0 +1,43 @@
+/*
+ * TODO: '::-webkit' prefixes are not recommended. Try removing them when browser support
+    is high enough.
+
+ * The colors contrast between adjacent items must be 3:1 at least. Here we take the
+ * track and thumb as adjacent elements and ensure that they reach that specified
+ * ratio.
+ * References:
+ * https://adrianroselli.com/2019/01/baseline-rules-for-scrollbar-usability.html
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color
+*/
+
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--t-color-scrollbar-thumb) var(--t-color-scrollbar-track);
+}
+
+*::-webkit-scrollbar {
+  width: var(--ws-3);
+  height: var(--ws-3);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--t-color-scrollbar-track);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--t-color-scrollbar-thumb);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--t-color-scrollbar-thumb-hover);
+}
+
+:root {
+  scroll-behavior: smooth;
+}
+
+/* TODO: Not recommended to be widely used. */
+.tiny-scrollbar::-webkit-scrollbar {
+  width: var(--ws-1);
+  height: var(--ws-1);
+}

@@ -1,0 +1,17 @@
+:root {
+  --radius-xs: 0.5rem;
+  --radius-sm: 1rem;
+  --radius-md: 1.5rem;
+  --radius-lg: 2rem;
+  --radius-xl: 2.5rem;
+  --radius-circle: 50%;
+
+  --border-stroke-thin: 1px;
+  --border-stroke-medium: 2px;
+  --border-stroke-thick: 3px;
+
+  --divider-medium-dim: var(--t-color-border-divider-dim) solid
+  var(--border-stroke-medium);
+  --divider-medium: var(--t-color-border-divider) solid
+  var(--border-stroke-medium);
+}

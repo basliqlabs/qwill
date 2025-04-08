@@ -1,0 +1,4 @@
+::selection {
+  background-color: var(--t-color-selection-bg);
+  color: var(--t-color-selection-text);
+}

@@ -1,25 +1,37 @@
 <script lang="ts">
-	import '$lib/styles/global.css'
+  import '$lib/styles/global.css'
 
-	import Header from '$lib/components/header/Header.svelte'
-	import { i18n } from '$lib/i18n'
-	import { ParaglideJS } from '@inlang/paraglide-sveltekit'
-	let { children } = $props()
+  import Header from '$lib/components/header/Header.svelte'
+  import {i18n} from '$lib/i18n'
+  import {ParaglideJS} from '@inlang/paraglide-sveltekit'
+
+  let {children} = $props()
 </script>
 
 <svelte:head>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<!-- TODO - research subset=latin's effectiveness -->
-	<link
-		href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Fira+Sans:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap&subset=latin"
-		rel="stylesheet"
-	/>
+    <!-- TODO: Research 'subset="latin"' property's effectiveness -->
+    {#if i18n.config.textDirection[i18n.config.runtime.languageTag()] === 'ltr'}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap"
+              rel="stylesheet">
+    {/if}
+
+    {#if i18n.config.textDirection[i18n.config.runtime.languageTag()] === 'rtl'}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;700&display=swap"
+              rel="stylesheet">
+    {/if}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
 </svelte:head>
 
 <ParaglideJS {i18n}>
-	<Header />
-	<main>
-		{@render children()}
-	</main>
+    <Header/>
+    <main>
+        {@render children()}
+    </main>
 </ParaglideJS>

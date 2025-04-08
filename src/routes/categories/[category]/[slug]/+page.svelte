@@ -1,29 +1,28 @@
 <script lang="ts">
+  import type {Post} from "content/config/posts";
+
   export let data
+  const post = data.meta as Post
 </script>
 
-<!-- SEO -->
 <svelte:head>
-    <title>{data.meta.title}</title>
+    <title>{post.title}</title>
     <meta property="og:type" content="article" />
-    <meta property="og:title" content={data.meta.title} />
+    <meta property="og:title" content={post.title} />
 </svelte:head>
 
 <article>
-    <!-- Title -->
     <hgroup>
-        <h1>{data.meta.title}</h1>
-        <p>Published at {data.meta.publishDate}</p>
+        <h1>{post.title}</h1>
+        <p>Published at {post.publishDate}</p>
     </hgroup>
 
-    <!-- Tags -->
-    <div class="tags">
-        {#each data.meta.category as category}
-            <span class="surface-4">&num;{category}</span>
+    <div class="collections">
+        {#each post.collections as collection}
+            <span class="surface-4">&num;{collection}</span>
         {/each}
     </div>
 
-    <!-- Post -->
     <div class="prose">
         <svelte:component this={data.content} />
     </div>

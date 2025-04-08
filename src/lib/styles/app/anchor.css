@@ -1,0 +1,15 @@
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--t-color-text);
+}
+
+a:visited {
+  color: var(--t-color-text);
+}
+
+a:active {
+  color: var(--t-color-text-muted);
+}
