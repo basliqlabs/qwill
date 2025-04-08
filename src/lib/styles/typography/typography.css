@@ -1,13 +1,15 @@
 /* TODO: Add more fallback fonts */
-:root, :root[dir='ltr'] {
-	--font-family-body: 'Fira Sans', sans-serif;
-	--font-family-code: 'Fira Code', monospace;
-
+html {
+	--font-family-code: 'Fira Code';
 	font-size: 62.5%;
 }
 
-:root[dir='rtl'] {
-	--font-family-body: "IBM Plex Sans Arabic", sans-serif;
+html[dir='ltr'] {
+	--font-family-body: 'Fira Sans';
+}
+
+html[dir='rtl'] {
+	--font-family-body: "IBM Plex Sans Arabic";
 }
 
 

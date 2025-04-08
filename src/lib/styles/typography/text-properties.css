@@ -36,12 +36,12 @@ h3 {
 
 p {
   font-size: var(--font-size-6);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-regular);
 }
 
 li {
   font-size: var(--font-size-6);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-regular);
 }
 
 .paragraph {
