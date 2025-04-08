@@ -69,4 +69,8 @@
   --t-navbar-box-shadow: none;
   --t-navbar-link-bg: var(--t-color-btn-primary-bg);
   --t-navbar-link-text: var(--t-color-primary-900);
+
+  --t-post-article-inline-size: 120rem;
+  --t-blog-post-gutter-size: 3rem;
+  --t-blog-post-sidebar-size: 30rem;
 }

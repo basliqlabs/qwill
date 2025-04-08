@@ -12,3 +12,7 @@ img {
   font-style: italic;
   color: var(--t-color-neutral-600);
 }
+
+body {
+  position: relative;
+}

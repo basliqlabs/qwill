@@ -31,6 +31,8 @@
 
 <style>
   header {
+    position: sticky;
+    inset-block-start: 0;
     display: grid;
     place-items: center;
     background-color: var(--t-header-background-color);
@@ -81,7 +83,7 @@
       color: var(--t-navbar-link-text);
       background-color: hsl(from var(--t-navbar-link-bg) h s l / 0);
       transition: all var(--transition-xs) ease-in-out;
-      border-radius: var(--radius-xs);
+      border-radius: var(--radius-sm);
       padding: var(--ws-2);
     }
 
