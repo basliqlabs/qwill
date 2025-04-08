@@ -18,5 +18,5 @@
 </script>
 
 <div>
-	<button onclick={() => switchToLanguage()}>en</button>
+	<button onclick={() => switchToLanguage()}>🌐</button>
 </div>

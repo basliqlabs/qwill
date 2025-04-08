@@ -34,6 +34,16 @@ h3 {
   padding-block-start: var(--ws-2);
 }
 
+h4 {
+  font-size: var(--font-size-8);
+  line-height: var(--line-height-3);
+}
+
+h5 {
+  font-size: var(--font-size-7);
+  line-height: var(--line-height-3);
+}
+
 p {
   font-size: var(--font-size-6);
   font-weight: var(--font-weight-regular);

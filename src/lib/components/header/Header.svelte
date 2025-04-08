@@ -2,7 +2,7 @@
   import * as m from '$lib/paraglide/messages'
   import SwitchLanguageButton from '../switch-language-button/SwitchLanguageButton.svelte'
 
-  let name = 'maqal'
+  let name = m.site_name()
 </script>
 
 <header>

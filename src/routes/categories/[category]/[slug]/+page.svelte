@@ -1,4 +1,5 @@
 <script lang="ts">
+  import * as m from '$lib/paraglide/messages'
   import type {Post} from "content/config/posts";
 
   export let data
@@ -13,18 +14,18 @@
 
 <article>
     <main>
-    <header>
-        <hgroup>
-            <h1>{post.title}</h1>
-            <p>Published at {post.publishDate}</p>
-        </hgroup>
+        <header>
+            <hgroup>
+                <h1>{post.title}</h1>
+                <!--            <p>{m.published_at({date: post.publishDate})}</p>-->
+            </hgroup>
 
-        <div class="collections">
-            {#each post.collections as collection}
-                <span class="surface-4">&num;{collection}</span>
-            {/each}
-        </div>
-    </header>
+            <!--        <div class="collections">-->
+            <!--            {#each post.collections as collection}-->
+            <!--                <span class="surface-4">&num;{collection}</span>-->
+            <!--            {/each}-->
+            <!--        </div>-->
+        </header>
         <div class="content">
             <svelte:component this={data.content}/>
         </div>
@@ -38,6 +39,7 @@
   article {
     max-inline-size: var(--t-post-article-inline-size);
     margin-inline: auto;
+    margin-block: var(--ws-10);
     display: grid;
     grid-template-columns: 1fr var(--t-blog-post-sidebar-size);
   }
@@ -76,7 +78,7 @@
         grid-column: indented;
       }
 
-      :global(h2, h3, p, ul) {
+      :global(h2, h3, h4, p, ul, ol) {
         grid-column: content;
       }
 
@@ -84,11 +86,11 @@
         grid-column: extended;
       }
 
-      :global(h2, h3) {
+      :global(h2, h3, h4) {
         margin-block-end: var(--ws-4);
       }
 
-      :global(ul) {
+      :global(ul, ol) {
         display: flex;
         flex-direction: column;
         gap: var(--ws-4);
@@ -123,6 +125,7 @@
         border-radius: var(--radius-sm);
         font-size: var(--font-size-4);
         overflow-x: auto;
+        direction: ltr;
       }
     }
   }
