@@ -16,74 +16,92 @@ ambientColor: null
 
 ## مقدمه: چرا کاهش خطاها حیاتی است؟
 
-خطاهای نرمافزاری میتوانند منجر به:
-- از دست رفتن دادههای کاربران
-- آسیب به اعتبار کسبوکار
-- هزینههای گزاف برای رفع مشکلات
+
+خطاهای نرم‌افزاری می‌توانند منجر به:
+- از دست رفتن داده‌های کاربران
+- آسیب به اعتبار کسب‌وکار
+- هزینه‌های گزاف برای رفع مشکلات
 - اتلاف وقت تیم توسعه
 
-با پیادهسازی روشهای سیستماتیک، میتوان کیفیت کد را بهبود بخشید و از بسیاری از خطاها قبل از رسیدن به محیط تولید جلوگیری کرد.
+با پیاده‌سازی روش‌های سیستماتیک، می‌توان کیفیت کد را بهبود بخشید و از بسیاری از خطاها قبل از رسیدن به محیط اجرا (Production Environment) جلوگیری کرد.
 
-## ۱. لینتینگ (Linting): اولین خط دفاعی
+## لینتینگ (Linting): اولین خط دفاعی
 
 ### ابزارهای لینتینگ
 - **ESLint**: برای جاوااسکریپت و TypeScript
 - **Pylint**: برای پایتون
-- **RuboCop**: برای روبی
 - **Checkstyle**: برای جاوا
 
 ### مزایای لینتینگ:
 - شناسایی خطاهای نحوی قبل از اجرا
 - اعمال استانداردهای کدنویسی
-- کشتن مشکلات بالقوه عملکردی
-- یکدست کردن سبک کدنویسی در تیم
+- یک‌دست کردن سبک کدنویسی در تیم
 
 ### نمونه تنظیمات ESLint:
 ```javascript
 module.exports = {
-  env: { // [!code --]
-    browser: true,
+  env: {
+    browser: true, // [!code highlight]
     es2021: true,
   }, 
     
-  // [!code highlight:3]
   extends: ['airbnb-base', 'prettier'],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
+
   rules: {
-    'no-console': 'warn',
-    'no-unused-vars': 'error', // [!code error]
-    'import/prefer-default-export': 'off', // [!code warning]
+    'no-console': 'warn', // [!code highlight]
+    'no-unused-vars': 'error', // [!code highlight]
+    'import/prefer-default-export': 'off',
   },
 };
+
+
+
+// Example
+let name = "atereversei";
+let studies = "ce" // no-unused-vars // [!code error]
+
+console.log() // no-console // [!code warning]
 ```
 
-## ۲. فرمتینگ خودکار: جلوگیری از جنگهای فورمتینگ
+## فرمتینگ (Formatting) خودکار: جلوگیری از جنگ‌های مقدس فرمتینگ
 
 ### ابزارهای محبوب:
 - **Prettier**: پشتیبانی از چندین زبان
 - **Black**: برای پایتون
-- **gofmt**: برای گو
+- **gofmt**: برای گولنگ
 
 ### چرا فرمتینگ مهم است؟
-- کاهش اختلاف نظرهای بیاهمیت در تیم
+- کاهش اختلاف نظرهای بی‌اهمیت در تیم
 - خوانایی بهتر کد
 - جلوگیری از commitهای غیرضروری فقط برای تغییر فرمت
 
 ### نمونه تنظیمات Prettier:
-```json [!code highlight:2]
-{
-  "printWidth": 80,
-  "tabWidth": 2,
-  "useTabs": false,
-  "semi": true,
-  "singleQuote": true,
-  "trailingComma": "es5",
-  "bracketSpacing": true,
-  "arrowParens": "always"
+```js
+const prettierRc = {
+  printWidth: 80,
+  useTabs: false,
+  tabWidth: 2, // [!code highlight]
+  semi: true, // [!code highlight]
+  singleQuote: true, // [!code highlight]
+  bracketSpacing: false,
+  trailingComma: "es5",
+  arrowParens: "always",
 }
+
+
+
+// Example
+
+// ❌ inconsistent formatting
+if (name === 'atareversei') { // [!code --]
+        name = "ata" // [!code --]
+} // [!code --]
+
+// ✅ consistent formatting
+if (name === 'atareversei') { // [!code ++]
+  name = 'ata'; // [!code ++]
+} // [!code ++] 
+
 ```
 
 ## ۳. بررسی کد (Code Review) با Git

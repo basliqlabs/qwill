@@ -23,9 +23,9 @@
             <li><a href="/series">{m.header_series()}</a></li>
         </ul>
 
-        <div class="actions">
-            <SwitchLanguageButton/>
-        </div>
+<!--        <div class="actions">-->
+<!--            <SwitchLanguageButton/>-->
+<!--        </div>-->
     </nav>
 </header>
 
@@ -35,8 +35,10 @@
     inset-block-start: 0;
     display: grid;
     place-items: center;
-    background-color: var(--t-header-background-color);
+    /* TODO: 'backdrop-filter: blur()' is not working as expected */
+    /*backdrop-filter: blur(10px);*/
     z-index: 999;
+
   }
 
   nav {
@@ -49,7 +51,6 @@
     padding: var(--t-navbar-padding);
     border-radius: var(--t-navbar-border-radius);
     margin-block: var(--t-navbar-margin-block);
-    backdrop-filter: blur(20px);
   }
 
   div.logo {

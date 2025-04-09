@@ -1,12 +1,12 @@
 pre {
   *::selection {
-    background-color: rgba(101, 117, 133, .28);
+    background-color: rgba(101, 117, 133, .20);
     color: currentColor;
   }
 }
 
-.line.highlighted {
-  background-color: rgba(101, 117, 133, .28);
+.line.highlighted, .line.diff {
+  background-color: rgba(101, 117, 133, .20);
   transition: background-color .5s;
   margin: 0 -12px 0 -44px;
   padding: 0 12px 0 44px;
@@ -14,12 +14,16 @@ pre {
   display: inline-block;
 }
 
-.line.highlighted.error {
-  background-color: rgba(244, 63, 94, .28);;
+.line.highlighted.error, .line.diff.remove {
+  background-color: rgba(244, 63, 94, .20);;
+}
+
+.line.diff.add {
+  background-color: rgba(16, 185, 129, .20);
 }
 
 .line.highlighted.warning {
-  background-color: rgba(234, 179, 8, .28);;
+  background-color: rgba(234, 179, 8, .20);;
 }
 
 pre.line-numbers {
@@ -32,7 +36,41 @@ pre.line-numbers {
 
 .line-numbers-rows {
   text-align: right;
+  user-select: none;
+}
+
+.line-number {
   opacity: 0.4;
   mix-blend-mode: hard-light;
-  user-select: none;
+}
+
+.line-number.diff.remove {
+  color: var(--t-color-danger-400);
+  mix-blend-mode: normal;
+  opacity: 1;
+}
+
+
+.line-number.diff.add {
+  color: var(--t-color-success-300);
+  mix-blend-mode: normal;
+  opacity: 1;
+}
+
+.highlighted-word {
+  background-color: #202127;;
+  border: 1px solid #3c3f44;
+  padding: 1px 3px;
+  margin: -1px -3px;
+  border-radius: 4px;
+}
+
+.line.diff.add .highlighted-word {
+  background-color: rgba(16, 185, 129, .20);
+  border-color: rgba(16, 185, 129, .20);
+}
+
+.line.diff.remove .highlighted-word {
+  background-color: rgba(244, 63, 94, .20);
+  border-color: rgba(244, 63, 94, .20);
 }

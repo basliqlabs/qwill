@@ -7,9 +7,9 @@ import {createHighlighter} from 'shiki'
 import toc from '@jsdevtools/rehype-toc'
 import rehypeHighlightLines from "rehype-highlight-code-lines";
 import {
-    transformerCompactLineOptions,
+    transformerCompactLineOptions, transformerMetaWordHighlight, transformerNotationDiff,
     transformerNotationErrorLevel,
-    transformerNotationHighlight
+    transformerNotationHighlight, transformerNotationWordHighlight
 } from "@shikijs/transformers";
 import {transformerColorizedBrackets} from "@shikijs/colorized-brackets";
 
@@ -34,15 +34,22 @@ const mdsvexOptions = {
                     theme: highlightTheme,
                     lineNumbers: true,
                     transformers: [
-                        transformerNotationHighlight(),
+                        transformerNotationHighlight({matchAlgorithm: 'v3'}),
+                        transformerNotationErrorLevel({matchAlgorithm: 'v3'}),
+                        transformerNotationDiff({matchAlgorithm: 'v3'}),
+                        transformerNotationWordHighlight({matchAlgorithm: 'v3'}),
                         transformerColorizedBrackets(),
-                        transformerNotationErrorLevel(),
                     ],
                 }
             ))
 
             const lines = code.split('\n')
-            const lineNumbers = lines.map((_, i) => `<span class="line-number">${i + 1}</span>`).join('\n')
+            const lineNumbers = lines.map((line, i) => {
+                if (line.includes("[!code --]")) return '<span class="line-number diff remove">-</span>'
+                if (line.includes("[!code ++]")) return '<span class="line-number diff add">+</span>'
+
+                return `<span class="line-number">${i + 1}</span>`
+            }).join('\n')
 
             const lineHtml = html.replace('<pre class="shiki', `<pre class="shiki line-numbers`)
                 .replace('<code>', `<span class="line-numbers-rows">${lineNumbers}</span><code>`)
