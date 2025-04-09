@@ -1,15 +1,27 @@
 a {
-  text-decoration: none;
+  --anchor-underline-opacity: 0.2;
+  text-decoration: underline;
+  text-decoration-color: hsl(from currentColor h s l / var(--anchor-underline-opacity));
+  color: var(--t-color-anchor);
+  transition: all var(--transition-sm) ease-in-out;
 }
 
 a:hover {
-  color: var(--t-color-text);
+  --anchor-underline-opacity: 0.8;
+  color: var(--t-color-anchor-hover);
 }
 
 a:visited {
-  color: var(--t-color-text);
+  color: var(--t-color-anchor-visited);
 }
 
 a:active {
-  color: var(--t-color-text-muted);
+  --anchor-underline-opacity: 1;
+  color: var(--t-color-anchor-active);
+}
+
+a:focus-visible {
+  --anchor-underline-opacity: 0.8;
+  color: var(--t-color-anchor-focus);
+  outline-color: var(--t-color-anchor-focus);
 }

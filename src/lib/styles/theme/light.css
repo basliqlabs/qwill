@@ -48,6 +48,12 @@
   --t-color-btn-disabled-bg: var(--t-color-neutral-300);
   --t-color-btn-disabled-text: var(--t-color-neutral-500);
 
+  --t-color-anchor: var(--t-color-primary-600);
+  --t-color-anchor-hover: var(--t-color-primary-800);
+  --t-color-anchor-visited: var(--t-color-primary-700);
+  --t-color-anchor-active: var(--t-color-primary-500);
+  --t-color-anchor-focus: var(--t-color-primary-500);
+
   --t-color-border-divider-dim: var(--t-color-neutral-100);
   --t-color-border-divider: var(--t-color-neutral-200);
   --t-color-focus-outline: var(--t-color-primary-300);

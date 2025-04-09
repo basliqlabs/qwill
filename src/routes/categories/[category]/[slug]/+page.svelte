@@ -26,13 +26,12 @@
             <!--            {/each}-->
             <!--        </div>-->
         </header>
+
         <div class="content">
             <svelte:component this={data.content}/>
         </div>
+
     </main>
-    <aside>
-        aside
-    </aside>
 </article>
 
 <style>
@@ -41,7 +40,7 @@
     margin-inline: auto;
     margin-block: var(--ws-10);
     display: grid;
-    grid-template-columns: 1fr var(--t-blog-post-sidebar-size);
+    grid-template-columns: 1fr;
   }
 
   main {
@@ -68,17 +67,18 @@
 
     :global(section) {
       display: grid;
-      grid-template-columns: [extended-start] var(--t-blog-post-gutter-size) [content-start] var(--t-blog-post-gutter-size) [indented-start] 1fr [indented-end] var(--t-blog-post-gutter-size) [content-end] var(--t-blog-post-gutter-size) [extended-end];
+      grid-template-columns: [extended-start] var(--t-blog-post-gutter-size) [content-start] var(--t-blog-post-gutter-size) [indented-start] 1fr [indented-end] var(--t-blog-post-gutter-size) [content-end] var(--t-blog-post-gutter-size) [extended-end] var(--t-blog-post-sidebar-size) [sidebar-end];
+      row-gap: var(--ws-6);
 
       border-inline-start: 2px solid var(--t-color-border-divider-dim);
       padding-inline-start: var(--ws-2);
 
       :global(section) {
         padding-block-start: var(--ws-6);
-        grid-column: indented;
+        grid-column: indented-start / sidebar-end;
       }
 
-      :global(h2, h3, h4, p, ul, ol) {
+      :global(h2, h3, h4, p, ul, ol, blockquote) {
         grid-column: content;
       }
 
@@ -87,23 +87,23 @@
       }
 
       :global(h2, h3, h4) {
-        margin-block-end: var(--ws-4);
+        /*margin-block-end: var(--ws-4);*/
       }
 
       :global(ul, ol) {
         display: flex;
         flex-direction: column;
         gap: var(--ws-4);
-        margin-block-end: var(--ws-6);
+        /*margin-block-end: var(--ws-6);*/
       }
 
       :global(p) {
         line-height: var(--line-height-5);
-        margin-block-end: var(--ws-4);
+        /*margin-block-end: var(--ws-4);*/
       }
 
       :global(figure) {
-        margin-block: var(--ws-8);
+        /*margin-block: var(--ws-8);*/
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -120,12 +120,17 @@
       }
 
       :global(pre) {
-        padding: var(--ws-4);
-        margin-block: var(--ws-8);
-        border-radius: var(--radius-sm);
-        font-size: var(--font-size-4);
-        overflow-x: auto;
-        direction: ltr;
+
+      }
+
+      :global(blockquote) {
+        /*grid-column: extended-end / sidebar-end;*/
+        opacity: 0.6;
+        transition: opacity var(--transition-sm) ease-in-out;
+      }
+
+      :global(blockquote:hover) {
+        opacity: 1;
       }
     }
   }

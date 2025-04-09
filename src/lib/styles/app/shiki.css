@@ -1,4 +1,9 @@
 pre {
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-4);
+  overflow-x: auto;
+  direction: ltr;
+
   *::selection {
     background-color: rgba(101, 117, 133, .20);
     color: currentColor;
@@ -26,12 +31,27 @@ pre {
   background-color: rgba(234, 179, 8, .20);;
 }
 
-pre.line-numbers {
+pre.line-numbers .content {
   font-family: var(--font-family-code), monospace;
+  padding: var(--ws-4);
 
   display: grid;
   grid-template-columns: 20px 1fr;
   gap: var(--ws-4);
+}
+
+pre.file-name .code-block-file-name {
+  padding: var(--ws-4);
+
+  display: flex;
+  align-items: center;
+  gap: var(--ws-2);
+
+  background-color: hsl(from var(--t-color-neutral-100) h s l / 0.05);
+
+  .file-name-icon {
+    inline-size: 20px;
+  }
 }
 
 .line-numbers-rows {

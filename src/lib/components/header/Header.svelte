@@ -81,6 +81,7 @@
 
   ul, .logo {
     a, a:visited {
+      text-decoration: none;
       display: flex;
       color: var(--t-navbar-link-text);
       background-color: hsl(from var(--t-navbar-link-bg) h s l / 0);
