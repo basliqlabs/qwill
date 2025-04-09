@@ -41,10 +41,12 @@ ambientColor: null
 ### نمونه تنظیمات ESLint:
 ```javascript
 module.exports = {
-  env: {
+  env: { // [!code --]
     browser: true,
     es2021: true,
-  },
+  }, 
+    
+  // [!code highlight:3]
   extends: ['airbnb-base', 'prettier'],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -52,8 +54,8 @@ module.exports = {
   },
   rules: {
     'no-console': 'warn',
-    'no-unused-vars': 'error',
-    'import/prefer-default-export': 'off',
+    'no-unused-vars': 'error', // [!code error]
+    'import/prefer-default-export': 'off', // [!code warning]
   },
 };
 ```
@@ -71,7 +73,7 @@ module.exports = {
 - جلوگیری از commitهای غیرضروری فقط برای تغییر فرمت
 
 ### نمونه تنظیمات Prettier:
-```json
+```json [!code highlight:2]
 {
   "printWidth": 80,
   "tabWidth": 2,

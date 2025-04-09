@@ -777,6 +777,13 @@
   resolved "https://registry.npmjs.org/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.24.3.tgz"
   integrity sha512-HGZgRFFYrMrP3TJlq58nR1xy8zHKId25vhmm5S9jETEfDf6xybPxsavFTJaufe2zgOGYJBskGlj49CwtEuFhWQ==
 
+"@shikijs/colorized-brackets@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@shikijs/colorized-brackets/-/colorized-brackets-3.2.1.tgz#200ab38277d9ae083ea4e4de6ecd44fd4a6d5b4b"
+  integrity sha512-LBDMLqmp+sZQCmIDxAMykNjAd000VooqLY7vQlOM00MWawzT8yXfqFzc+ccbjJFmTSqjVT12xDzBSfVYAo+wEg==
+  dependencies:
+    shiki "3.2.1"
+
 "@shikijs/core@3.2.1":
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/@shikijs/core/-/core-3.2.1.tgz#87b9255c469a5097fcec23ecba5a99ce073e8601"
@@ -816,6 +823,14 @@
   resolved "https://registry.yarnpkg.com/@shikijs/themes/-/themes-3.2.1.tgz#93d9c5fcc16649ec1e017217c0a88209cc619731"
   integrity sha512-k5DKJUT8IldBvAm8WcrDT5+7GA7se6lLksR+2E3SvyqGTyFMzU2F9Gb7rmD+t+Pga1MKrYFxDIeyWjMZWM6uBQ==
   dependencies:
+    "@shikijs/types" "3.2.1"
+
+"@shikijs/transformers@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@shikijs/transformers/-/transformers-3.2.1.tgz#062e8eac6260fb85728e52f085d839517132d9fd"
+  integrity sha512-oIT40p8LOPV/6XLnUrVPeRtJtbu0Mpl+BjGFuMXw870eX9zTSQlidg7CsksFDVyUiSAOC/CH1RQm+ldZp0/6eQ==
+  dependencies:
+    "@shikijs/core" "3.2.1"
     "@shikijs/types" "3.2.1"
 
 "@shikijs/types@3.2.1":
@@ -2275,6 +2290,11 @@ parent-module@^1.0.0:
   dependencies:
     callsites "^3.0.0"
 
+parse-numeric-range@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/parse-numeric-range/-/parse-numeric-range-1.3.0.tgz#7c63b61190d61e4d53a1197f0c83c47bb670ffa3"
+  integrity sha512-twN+njEipszzlMJd4ONUYgSfZPDxgHhT9Ahed5uTigpQn90FggW4SA/AIPq/6a149fTbE9qBEcSwE3FAEp6wQQ==
+
 path-exists@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/path-exists/-/path-exists-4.0.0.tgz"
@@ -2436,6 +2456,15 @@ regex@^6.0.1:
   dependencies:
     regex-utilities "^2.3.0"
 
+rehype-highlight-code-lines@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/rehype-highlight-code-lines/-/rehype-highlight-code-lines-1.1.3.tgz#ee34670cc6dd986574da7d1c2c5648e30dd20bca"
+  integrity sha512-Kq63wvBTkaQn5d5eqVJsqkpAW2fmqwbyGRervWtH32fTY6+cFqzVU5NTBZH/fe9PjjRUTyZfWinEDu7Ewvr+lw==
+  dependencies:
+    "@types/hast" "^3.0.4"
+    parse-numeric-range "^1.3.0"
+    unist-util-visit "^5.0.0"
+
 rehype-slug@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/rehype-slug/-/rehype-slug-6.0.0.tgz#1d21cf7fc8a83ef874d873c15e6adaee6344eaf1"
@@ -2565,7 +2594,7 @@ shebang-regex@^3.0.0:
   resolved "https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
-shiki@^3.2.1:
+shiki@3.2.1, shiki@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/shiki/-/shiki-3.2.1.tgz#6b27ee9e7742e6c95f432031b78a8337e4be74ff"
   integrity sha512-VML/2o1/KGYkEf/stJJ+s9Ypn7jUKQPomGLGYso4JJFMFxVDyPNsjsI3MB3KLjlMOeH44gyaPdXC6rik2WXvUQ==

@@ -1,0 +1,38 @@
+pre {
+  *::selection {
+    background-color: rgba(101, 117, 133, .28);
+    color: currentColor;
+  }
+}
+
+.line.highlighted {
+  background-color: rgba(101, 117, 133, .28);
+  transition: background-color .5s;
+  margin: 0 -12px 0 -44px;
+  padding: 0 12px 0 44px;
+  width: calc(100% + 12px + 44px);
+  display: inline-block;
+}
+
+.line.highlighted.error {
+  background-color: rgba(244, 63, 94, .28);;
+}
+
+.line.highlighted.warning {
+  background-color: rgba(234, 179, 8, .28);;
+}
+
+pre.line-numbers {
+  font-family: var(--font-family-code), monospace;
+
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: var(--ws-4);
+}
+
+.line-numbers-rows {
+  text-align: right;
+  opacity: 0.4;
+  mix-blend-mode: hard-light;
+  user-select: none;
+}

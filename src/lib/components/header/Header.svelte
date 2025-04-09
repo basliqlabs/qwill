@@ -36,6 +36,7 @@
     display: grid;
     place-items: center;
     background-color: var(--t-header-background-color);
+    z-index: 999;
   }
 
   nav {

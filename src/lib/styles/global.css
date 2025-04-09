@@ -3,6 +3,7 @@
 @import './app/reset.css';
 @import './app/scrollbar.css';
 @import './app/selection.css';
+@import './app/shiki.css';
 @import './color/default.css';
 @import './color/tailwind-colors.css';
 @import './elevation/shadows.css';

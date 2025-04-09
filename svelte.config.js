@@ -2,34 +2,52 @@ import {mdsvex, escapeSvelte} from 'mdsvex'
 import adapter from '@sveltejs/adapter-static'
 import {vitePreprocess} from '@sveltejs/vite-plugin-svelte'
 import sectionize from 'remark-sectionize'
-import rehypeUnwrapImages from 'rehype-unwrap-images'
 import rehypeSlug from 'rehype-slug'
 import {createHighlighter} from 'shiki'
 import toc from '@jsdevtools/rehype-toc'
-import unwrapImages from 'remark-unwrap-images'
+import rehypeHighlightLines from "rehype-highlight-code-lines";
+import {
+    transformerCompactLineOptions,
+    transformerNotationErrorLevel,
+    transformerNotationHighlight
+} from "@shikijs/transformers";
+import {transformerColorizedBrackets} from "@shikijs/colorized-brackets";
 
-const highlightTheme = 'github-dark'
+const highlightTheme = 'night-owl'
 const highlightedLanguages = ['javascript', 'typescript', 'go', 'html', 'css', 'python', 'json', 'yaml']
+const highlighter = await createHighlighter({
+    themes: [highlightTheme],
+    langs: highlightedLanguages,
+})
+
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
     extensions: ['.md'],
-    rehypePlugins: [rehypeUnwrapImages, rehypeSlug, [toc, {headings: ['h2']}]],
+    rehypePlugins: [rehypeSlug, [toc, {headings: ['h2']}], rehypeHighlightLines],
     remarkPlugins: [sectionize],
     highlight: {
         highlighter: async (code, lang = 'text') => {
-            const highlighter = await createHighlighter({
-                themes: [highlightTheme],
-                langs: highlightedLanguages
-            })
 
-            await highlighter.loadLanguage(...highlightedLanguages)
 
             const html = escapeSvelte(highlighter.codeToHtml(code, {
                     lang,
                     theme: highlightTheme,
+                    lineNumbers: true,
+                    transformers: [
+                        transformerNotationHighlight(),
+                        transformerColorizedBrackets(),
+                        transformerNotationErrorLevel(),
+                    ],
                 }
             ))
-            return `{@html \`${html}\` }`
+
+            const lines = code.split('\n')
+            const lineNumbers = lines.map((_, i) => `<span class="line-number">${i + 1}</span>`).join('\n')
+
+            const lineHtml = html.replace('<pre class="shiki', `<pre class="shiki line-numbers`)
+                .replace('<code>', `<span class="line-numbers-rows">${lineNumbers}</span><code>`)
+
+            return `{@html \`${lineHtml}\` }`
         }
     },
 }
