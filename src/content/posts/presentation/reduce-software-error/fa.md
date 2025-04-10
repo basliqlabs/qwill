@@ -68,15 +68,15 @@ Production Environment) جلوگیری کرد. برای پروژه‌های کو
 موقع ران‌تایم چک بشن.
 
 ```python fileName="example.py"
-name = 12
 name = "amirata"
+name = 12
 name = True
 ```
 
-```go fileName="example.go"
-name := 12
-name = "amirata" // [!code error]
-name = true // [!code error]
+```java fileName="example.java"
+public String name = "amirata";
+name = 12; // [!code error]
+name = true; // [!code error]
 ```
 
 این قسمت رو عاشقان پایتون و جاوااسکریپت از من نشنیده بگیرن، ولی بهتره که واسه پروژه‌های بزرگ از زبانی استفاده کنیم که یه
@@ -382,9 +382,10 @@ const UserList = () => {
         <input name='name'/> {/* [!code highlight]*/}
         <label htmlFor='email'>Email</label> {/* [!code highlight]*/}
         <input name='email'/> {/* [!code highlight]*/}
-        <button onClick={() => handleAddUser()}>Add User</button> {/* [!code highlight]*/}
+        <button onClick={() => handleAddUser()}>Add User</button>
+        {/* [!code highlight]*/}
       </form>
-      
+
       <p>{user.name}</p>
     </div>
   )
@@ -392,17 +393,17 @@ const UserList = () => {
 ```
 
 ```js fileName="mocks.js"
-import { rest } from 'msw';
+import {rest} from 'msw';
 
 export const handlers = [
-  rest.get(`${API_BASE_URL}/users`, (req, res, ctx) => {
-    return res(ctx.json([]));
-  }),
+    rest.get(`${API_BASE_URL}/users`, (req, res, ctx) => {
+        return res(ctx.json([]));
+    }),
 ];
 ```
 
 ```js fileName="jest.config.js"
-import { server } from './mocks/server';
+import {server} from './mocks/server';
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
@@ -478,29 +479,29 @@ func TestRichError_GetKind(t *testing.T) {
 
 ## تست‌های اضافی برای کیفیت بهتر
 
+### تست دسترسی‌پذیری (Accessibility Testing)
+
+- ابزارها: Axe, Lighthouse
+
 ### تست عملکرد (Performance Testing)
 
 - Load testing
 - Stress testing
 - ابزارها: k6, JMeter
 
-### تست امنیتی (Security Testing)
+### تست امنیت (Security Testing)
 
-- اسکن وابستگیها (Dependabot)
+- اسکن وابستگی‌ها (Dependabot)
 - اسکن کد (SonarQube, Snyk)
 - تست نفوذ
 
-### تست دسترسی‌پذیری (Accessibility Testing)
-
-- ابزارها: Axe, Lighthouse
-
 ## مانیتورینگ در محیط عملیاتی
 
-حتی با تمام این تدابیر، برخی خطاها فقط در محیط تولید ظاهر میشوند. ابزارهای مانیتورینگ:
+حتی با تمام این تدابیر، برخی خطاها فقط در محیط تولید ظاهر میشون. ابزارهای مانیتورینگ:
 
-- **Sentry**: برای خطاهای فرانت‌اند و بک‌اند
-- **Datadog**: مانیتورینگ جامع
-- **New Relic**: مانیتورینگ عملکرد
-- **LogRocket**: ضبط sessionهای کاربر
+- Sentry
+- Datadog
+- New Relic
+- LogRocket
 
 ## نتیجه‌گیری

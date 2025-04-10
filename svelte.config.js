@@ -14,7 +14,7 @@ import {
 import {transformerColorizedBrackets} from "@shikijs/colorized-brackets";
 
 const highlightTheme = 'night-owl'
-const highlightedLanguages = ['javascript', 'typescript', 'tsx', 'go', 'html', 'css', 'python', 'json', 'yaml']
+const highlightedLanguages = ['javascript', 'typescript', 'tsx', 'go', 'java', 'html', 'css', 'python', 'json', 'yaml']
 const highlighter = await createHighlighter({
     themes: [highlightTheme],
     langs: highlightedLanguages,
