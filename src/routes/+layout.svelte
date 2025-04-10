@@ -6,6 +6,27 @@
   import {ParaglideJS} from '@inlang/paraglide-sveltekit'
 
   let {data, children} = $props()
+
+
+  $effect(() => {
+    const handler = (event) => {
+      const elm = event.currentTarget
+      const prevText = elm.innerText
+      elm.innerText = "copied!"
+      elm.classList.add("copied")
+      const code = elm.dataset.code
+      navigator.clipboard.writeText(code)
+
+      setTimeout(() => {
+        elm.innerText = prevText
+        elm.classList.remove("copied")
+      }, 2_000)
+    }
+
+    document.querySelectorAll("button.copy-code").forEach((btn) => {
+      btn.addEventListener('click', handler)
+    })
+  })
 </script>
 
 <svelte:head>

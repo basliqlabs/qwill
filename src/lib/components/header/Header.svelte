@@ -31,7 +31,6 @@
 
 <style>
   header {
-    position: sticky;
     inset-block-start: 0;
     display: grid;
     place-items: center;

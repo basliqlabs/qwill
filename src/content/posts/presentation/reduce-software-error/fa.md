@@ -366,24 +366,21 @@ it('should handle adding a new user', async () => {
 const UserList = () => {
   const handleAddUser = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch(`${API_BASE_URL}/users`, { /* [!code highlight]*/
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(newUser),
-      });
-    }
+    const response = await fetch(`${API_BASE_URL}/users`, { /* [!code highlight]*/
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(newUser),
+    });
   }
 
   return (
     <div>
       <form>
-        <label htmlFor='name'>Name</label> {/* [!code highlight]*/}
-        <input name='name'/> {/* [!code highlight]*/}
-        <label htmlFor='email'>Email</label> {/* [!code highlight]*/}
-        <input name='email'/> {/* [!code highlight]*/}
+        <label htmlFor='name'>Name</label> {/*[!code highlight:5]*/}
+        <input name='name'/>
+        <label htmlFor='email'>Email</label>
+        <input name='email'/>
         <button onClick={() => handleAddUser()}>Add User</button>
-        {/* [!code highlight]*/}
       </form>
 
       <p>{user.name}</p>

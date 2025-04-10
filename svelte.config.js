@@ -76,7 +76,8 @@ function setupHighlighter(code, lang, metastring) {
     html = addFileNameToHtml(html, meta)
     html = addTerminalHeader(html, meta)
     html = highlightTerminal(html, code, meta)
-    return html
+    html = addCopyButton(html, code)
+    return escapeSvelte(html)
 
     function getMeta(meta) {
         let fileName = ""
@@ -160,10 +161,6 @@ function setupHighlighter(code, lang, metastring) {
 
     function highlightTerminal(html, code, meta) {
         if (meta.terminal) {
-            console.log('-'.repeat(40))
-            console.log(html)
-            console.log('-'.repeat(40))
-            console.log(code)
             const lines = code.split("\n")
             const newCode = []
             for (const line of lines) {
@@ -191,6 +188,20 @@ function setupHighlighter(code, lang, metastring) {
             return html
         }
 
+        return html
+    }
+
+    function escapeHtml(unsafe) {
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function addCopyButton(html, code) {
+        html = html.replace("</pre>", `<button data-code="${escapeHtml(code)}" class="copy-code">copy</button>`)
         return html
     }
 }

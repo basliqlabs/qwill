@@ -148,3 +148,29 @@ pre.terminal .code-block-terminal {
   background-color: rgba(244, 63, 94, .20);
   border-color: rgba(244, 63, 94, .20);
 }
+
+.copy-code {
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-end: 10px;
+
+  padding: var(--ws-2);
+  background-color: hsl(from var(--t-color-primary-100) h s l / 0.15);
+  color: var(--t-color-neutral-100);
+  outline: none;
+  border: none;
+  border-radius: var(--radius-xs);
+  opacity: 0.6;
+  transition: all var(--transition-xs) ease-in-out;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.copy-code:hover {
+  opacity: 1;
+}
+
+.copy-code.copied {
+  opacity: 1;
+}
+

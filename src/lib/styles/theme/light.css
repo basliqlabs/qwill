@@ -72,11 +72,12 @@
   --t-navbar-border-radius: var(--radius-xl);
   --t-navbar-margin-block: var(--ws-4);
   --t-navbar-padding: var(--ws-4);
-  --t-navbar-box-shadow: var(--shadow-close);
+  --t-navbar-box-shadow: none;
   --t-navbar-link-bg: var(--t-color-btn-primary-bg);
   --t-navbar-link-text: var(--t-color-primary-900);
 
   --t-post-article-inline-size: 120rem;
-  --t-blog-post-gutter-size: 3rem;
+  --t-blog-post-gutter-size: 1rem;
   --t-blog-post-sidebar-size: 30rem;
 }
+
