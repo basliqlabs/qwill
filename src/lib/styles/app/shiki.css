@@ -1,4 +1,5 @@
 pre {
+  position: relative;
   border-radius: var(--radius-sm);
   font-size: var(--font-size-4);
   overflow-x: auto;
@@ -38,6 +39,8 @@ pre.line-numbers .content {
   display: grid;
   grid-template-columns: 20px 1fr;
   gap: var(--ws-4);
+
+  overflow-x: auto;
 }
 
 pre.file-name .code-block-file-name {

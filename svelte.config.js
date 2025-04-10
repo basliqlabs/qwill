@@ -14,7 +14,7 @@ import {
 import {transformerColorizedBrackets} from "@shikijs/colorized-brackets";
 
 const highlightTheme = 'night-owl'
-const highlightedLanguages = ['javascript', 'typescript', 'go', 'html', 'css', 'python', 'json', 'yaml']
+const highlightedLanguages = ['javascript', 'typescript', 'tsx', 'go', 'html', 'css', 'python', 'json', 'yaml']
 const highlighter = await createHighlighter({
     themes: [highlightTheme],
     langs: highlightedLanguages,
@@ -53,7 +53,10 @@ const mdsvexOptions = {
                         const ext = fileName.split(".").at(-1)
                         if (ext === "js") icon = '<img class="file-name-icon" src="/icons/icons8-javascript.svg" alt=""/>'
                         if (ext === "ts") icon = '<img class="file-name-icon" src="/icons/icons8-typescript.svg" alt=""/>'
+                        if (ext === "tsx") icon = '<img class="file-name-icon" src="/icons/icons8-react.svg" alt=""/>'
                         if (ext === "go") icon = '<img class="file-name-icon" src="/icons/icons8-golang.svg" alt=""/>'
+                        if (ext === "java") icon = '<img class="file-name-icon" src="/icons/icons8-java.svg" alt=""/>'
+                        if (ext === "py") icon = '<img class="file-name-icon" src="/icons/icons8-python.svg" alt=""/>'
                     }
                 }
             }
