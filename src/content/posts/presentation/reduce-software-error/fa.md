@@ -505,3 +505,7 @@ func TestRichError_GetKind(t *testing.T) {
 - LogRocket
 
 ## نتیجه‌گیری
+
+```text terminal
+npm install --save-dev react react-dom
+```
