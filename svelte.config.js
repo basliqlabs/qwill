@@ -61,12 +61,26 @@ function setupHighlighter(code, lang, metastring) {
     const fileNameKey = "fileName"
     const terminalKey = "terminal"
     const extIcon = {
+        "c": '/icons/icons8-c.svg',
+        "cpp": '/icons/icons8-cpp.svg',
+        "cs": '/icons/icons8-cs.svg',
+        "lua": '/icons/icons8-lua.svg',
+        "rs": '/icons/icons8-rust.svg',
+        "rb": '/icons/icons8-ruby.svg',
+        "sh": '/icons/icons8-bash.svg',
+        "svelte": '/icons/svelte.svg',
+        "php": '/icons/php.svg',
+        "dart": '/icons/icons8-dart.svg',
+        "kt": '/icons/icons8-kotlin.svg',
+        "sql": '/icons/icons8-postgresql.svg',
+        "swift": '/icons/icons8-swift.svg',
         "js": '/icons/icons8-javascript.svg',
         "ts": '/icons/icons8-typescript.svg',
         "tsx": '/icons/icons8-react.svg',
         "go": '/icons/icons8-golang.svg',
         "java": '/icons/icons8-java.svg',
         "py": '/icons/icons8-python.svg',
+        "file": '/icons/icons8-doc-edited.svg'
     }
 
     const meta = getMeta(metastring)
@@ -94,9 +108,7 @@ function setupHighlighter(code, lang, metastring) {
                 if (m.startsWith(fileNameKey)) {
                     fileName = m.substring(10, m.length - 1)
                     const ext = fileName.split(".").at(-1)
-                    if (ext) {
-                        icon = extIcon[ext]
-                    }
+                    icon = extIcon[ext] || extIcon['file']
                 }
             }
             return {fileName, icon, terminal}
