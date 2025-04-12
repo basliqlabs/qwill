@@ -111,8 +111,9 @@ function setupHighlighter(code, lang, metastring) {
                     icon = extIcon[ext] || extIcon['file']
                 }
             }
-            return {fileName, icon, terminal}
         }
+
+        return {fileName, icon, terminal}
     }
 
     function getHtml(highlighter, code, lang, theme) {
@@ -172,7 +173,7 @@ function setupHighlighter(code, lang, metastring) {
     }
 
     function highlightTerminal(html, code, meta) {
-        if (meta.terminal) {
+        if (meta && meta.terminal) {
             const lines = code.split("\n")
             const newCode = []
             for (const line of lines) {
@@ -203,8 +204,8 @@ function setupHighlighter(code, lang, metastring) {
         return html
     }
 
-    function escapeHtml(unsafe) {
-        return unsafe
+    function escapeHtml(html) {
+        return html
             .replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
             .replace(/>/g, "&gt;")

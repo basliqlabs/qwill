@@ -3,7 +3,7 @@ import { getPaginatedList } from '$lib/utils/pagination'
 import type { Category } from 'content/config/categories'
 import { readCategoryConfig } from './read-config'
 
-export const CategoryListPageSize = 1
+export const CategoryListPageSize = 10
 export const CategoryTargetDirectory = './src/content/posts'
 
 export async function getCategories(lang: string, page: number): Promise<Category[]> {

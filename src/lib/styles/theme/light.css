@@ -79,5 +79,7 @@
   --t-post-article-inline-size: 120rem;
   --t-blog-post-gutter-size: 1rem;
   --t-blog-post-sidebar-size: 30rem;
+
+  --t-container-inline-size: 120rem;
 }
 

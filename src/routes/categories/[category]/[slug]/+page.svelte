@@ -1,37 +1,36 @@
 <script lang="ts">
   import * as m from '$lib/paraglide/messages'
-  import type {Post} from "content/config/posts";
+  import type { Post } from 'content/config/posts'
 
   export let data
   const post = data.meta as Post
 </script>
 
 <svelte:head>
-    <title>{post.title}</title>
-    <meta property="og:type" content="article"/>
-    <meta property="og:title" content={post.title}/>
+  <title>{post.title}</title>
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content={post.title} />
 </svelte:head>
 
 <article>
-    <main>
-        <header>
-            <hgroup>
-                <h1>{post.title}</h1>
-                <!--            <p>{m.published_at({date: post.publishDate})}</p>-->
-            </hgroup>
+  <main>
+    <header>
+      <hgroup>
+        <h1>{post.title}</h1>
+        <!--            <p>{m.published_at({date: post.publishDate})}</p>-->
+      </hgroup>
 
-            <!--        <div class="collections">-->
-            <!--            {#each post.collections as collection}-->
-            <!--                <span class="surface-4">&num;{collection}</span>-->
-            <!--            {/each}-->
-            <!--        </div>-->
-        </header>
+      <!--        <div class="collections">-->
+      <!--            {#each post.collections as collection}-->
+      <!--                <span class="surface-4">&num;{collection}</span>-->
+      <!--            {/each}-->
+      <!--        </div>-->
+    </header>
 
-        <div class="content">
-            <svelte:component this={data.content}/>
-        </div>
-
-    </main>
+    <div class="content">
+      <svelte:component this={data.content} />
+    </div>
+  </main>
 </article>
 
 <style>
@@ -45,10 +44,15 @@
 
   main {
     display: grid;
-    grid-template-columns: [extended-start] var(--t-blog-post-gutter-size) [content-start] var(--t-blog-post-gutter-size) [indented-start] var(--t-blog-post-gutter-size) [indented2-start] 1fr [indented2-end] var(--t-blog-post-gutter-size) [indented-end] var(--t-blog-post-gutter-size) [content-end] var(--t-blog-post-gutter-size) [extended-end];
+    grid-template-columns: [extended-start] var(--t-blog-post-gutter-size) [content-start] var(
+        --t-blog-post-gutter-size
+      ) [indented-start] var(--t-blog-post-gutter-size) [indented2-start] 1fr [indented2-end] var(
+        --t-blog-post-gutter-size
+      ) [indented-end] var(--t-blog-post-gutter-size) [content-end] var(--t-blog-post-gutter-size) [extended-end];
   }
 
-  header, .content {
+  header,
+  .content {
     grid-column: content;
   }
 
@@ -67,7 +71,11 @@
 
     :global(section) {
       display: grid;
-      grid-template-columns: [extended-start] var(--t-blog-post-gutter-size) [content-start] var(--t-blog-post-gutter-size) [indented-start] 1fr [indented-end] var(--t-blog-post-gutter-size) [content-end] var(--t-blog-post-gutter-size) [extended-end] var(--t-blog-post-sidebar-size) [sidebar-end];
+      grid-template-columns: [extended-start] var(--t-blog-post-gutter-size) [content-start] var(
+          --t-blog-post-gutter-size
+        ) [indented-start] 1fr [indented-end] var(--t-blog-post-gutter-size) [content-end] var(
+          --t-blog-post-gutter-size
+        ) [extended-end] var(--t-blog-post-sidebar-size) [sidebar-end];
       row-gap: var(--ws-6);
 
       border-inline-start: 2px solid var(--t-color-border-divider-dim);
@@ -89,7 +97,6 @@
       :global(h2, h3, h4) {
         /*margin-block-end: var(--ws-4);*/
       }
-
 
       :global(ul, ol) {
         display: flex;
@@ -121,7 +128,6 @@
       }
 
       :global(pre) {
-
       }
 
       :global(blockquote) {
