@@ -9,30 +9,18 @@
   let id = $derived(page.params.id)
 </script>
 
-<section class="container">
-  <div class="header">
-    <h1>{info.display_title}</h1>
-    <p class="description">{info.description}</p>
-  </div>
+<div class="header">
+  <h1>{info.display_title}</h1>
+  <p class="description">{info.description}</p>
+</div>
 
-  <div class="post-list">
-    {#each posts as post}
-      <BlogPostCard {post} />
-    {/each}
-  </div>
-</section>
+<div class="post-list">
+  {#each posts as post}
+    <BlogPostCard {post} />
+  {/each}
+</div>
 
 <style>
-  .container {
-    max-inline-size: var(--t-container-inline-size);
-    margin-inline: auto;
-    margin-block: var(--ws-8);
-
-    display: flex;
-    flex-direction: column;
-    gap: var(--ws-8);
-  }
-
   .header {
     display: flex;
     flex-direction: column;

@@ -1,0 +1,14 @@
+button {
+  font-family: inherit;
+  padding: var(--t-btn-padding);
+  background-color: transparent;
+  color: var(--t-color-text);
+  font-size: var(--font-size-5);
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

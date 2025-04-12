@@ -36,6 +36,7 @@
 
   --t-color-bullet-point: var(--t-color-primary-600);
 
+  --t-btn-padding: var(--ws-2) var(--ws-4);
   --t-color-btn-overlay: hsl(0deg 0% 0%);
   --t-color-btn-primary-bg: var(--t-color-primary-500);
   --t-color-btn-primary-text: var(--t-color-primary-50);
