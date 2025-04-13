@@ -17,8 +17,11 @@ jobs:
           node-version: 20
           cache: npm
 
+      - name: Remove lock file
+        run: rm -f package-lock.json yarn.lock || true
+
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: build
         env:

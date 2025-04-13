@@ -596,15 +596,6 @@
   resolved "https://registry.npmjs.org/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.24.3.tgz"
   integrity sha512-HGZgRFFYrMrP3TJlq58nR1xy8zHKId25vhmm5S9jETEfDf6xybPxsavFTJaufe2zgOGYJBskGlj49CwtEuFhWQ==
 
-"@rollup/wasm-node@*":
-  version "4.40.0"
-  resolved "https://registry.npmjs.org/@rollup/wasm-node/-/wasm-node-4.40.0.tgz"
-  integrity sha512-TrH9Uwkd+ZAZIaZAceS842hZFig6s7cWJTFmrj/VqMgCmqgkxFjpMqlk8s3cdrIrsCXRshxWlKeys8xpqqA6xg==
-  dependencies:
-    "@types/estree" "1.0.7"
-  optionalDependencies:
-    fsevents "~2.3.2"
-
 "@shikijs/colorized-brackets@^3.2.1":
   version "3.2.2"
   resolved "https://registry.npmjs.org/@shikijs/colorized-brackets/-/colorized-brackets-3.2.2.tgz"
@@ -754,11 +745,6 @@
   version "1.0.6"
   resolved "https://registry.npmjs.org/@types/estree/-/estree-1.0.6.tgz"
   integrity sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==
-
-"@types/estree@1.0.7":
-  version "1.0.7"
-  resolved "https://registry.npmjs.org/@types/estree/-/estree-1.0.7.tgz"
-  integrity sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==
 
 "@types/hast@^3.0.0", "@types/hast@^3.0.4":
   version "3.0.4"
