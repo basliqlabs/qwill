@@ -23,9 +23,9 @@
       <!--            <li><a href="/series">{m.header_series()}</a></li>-->
     </ul>
 
-    <!--        <div class="actions">-->
-    <!--            <SwitchLanguageButton/>-->
-    <!--        </div>-->
+    <div class="actions">
+      <SwitchLanguageButton />
+    </div>
   </nav>
 </header>
 
@@ -85,7 +85,7 @@
       display: flex;
       color: var(--t-navbar-link-text);
       background-color: hsl(from var(--t-navbar-link-bg) h s l / 0);
-      transition: all var(--transition-xs) ease-in-out;
+      transition: all var(--transition-sm) ease-in-out;
       border-radius: var(--radius-sm);
       padding: var(--ws-2);
     }

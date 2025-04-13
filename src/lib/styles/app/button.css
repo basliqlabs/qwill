@@ -6,9 +6,19 @@ button {
   font-size: var(--font-size-5);
   cursor: pointer;
   border-radius: var(--radius-xs);
+  border: none;
+  transition: all var(--transition-sm) ease-in-out;
 }
 
 button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
+}
+
+button.subtle {
+  background-color: transparent;
+
+  &:hover {
+    background-color: hsl(from var(--t-color-btn-primary-bg) h s l / 0.1);
+  }
 }

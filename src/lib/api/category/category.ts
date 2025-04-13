@@ -14,12 +14,14 @@ type Config = {
 
 export async function getCategories(config: Config): Promise<Category[]> {
   const allPaths = await getDirectories(CategoryTargetDirectory)
-  const promisedPaths: Promise<Category | null>[] = []
-  allPaths.forEach((category) => {
-    promisedPaths.push(readCategoryConfig(CategoryTargetDirectory, category, config.language))
-  })
-  const categories = await Promise.all(promisedPaths)
-  return categories.filter((item) => item !== null) as Category[]
+  const categories: Category[] = []
+  for (const path of allPaths) {
+    const categoryConfig = await readCategoryConfig(CategoryTargetDirectory, path, config.language)
+    if (categoryConfig && !categoryConfig.archive) {
+      categories.push(categoryConfig)
+    }
+  }
+  return categories
 }
 
 // TODO - see if this operation can be cached to prevent unnecessary os file reads
