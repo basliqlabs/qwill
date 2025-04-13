@@ -3,7 +3,7 @@ import { type PaginatedData } from '$lib/utils/pagination.js'
 import type { Category } from 'content/config/categories.js'
 
 export async function load({ fetch, url }) {
-	const response = await fetch(`/api/${i18n.getLanguageFromUrl(new URL(url))}/categories/page/1`)
+	const response = await fetch(`/api/${i18n.getLanguageFromUrl(new URL(url))}/categories/list/1`)
 	const categories: PaginatedData<Category> = await response.json()
 	return { categories }
 }

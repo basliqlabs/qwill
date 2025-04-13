@@ -1,4 +1,4 @@
-import type { Image } from '../../src/lib/types/generic-types'
+import type { Image } from '$lib/types/global-types'
 
 export type Series = {
 	id: string

@@ -1,9 +1,15 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"hello_world": "Hello, {name} from fa!",
+
+	"site_name": "مقال",
+
+	"published_at": "منتشر شده در {date}",
+
 	"header_all_blog_posts": "همه",
-	"header_categories": "دسته‌بندی‌",
+	"header_categories": "دسته‌بندی‌ها‌",
 	"header_collections": "مجموعه‌",
 	"header_series": "‌سری",
+
 	"atareversei_bio": "بیو بیو"
 }

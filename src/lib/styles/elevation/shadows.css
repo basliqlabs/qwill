@@ -1,0 +1,4 @@
+:root {
+  --shadow-close: 0 5px 35px 0px var(--t-color-shadow-close);
+  --shadow-distant: 0 5px 35px 0px var(--t-color-shadow-distant);
+}

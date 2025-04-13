@@ -1,0 +1,59 @@
+/*
+ * These colors are predefined so they don't have to be redefined every time
+ * when a theme is created, though they could be overwritten while creating
+ * the theme.
+*/
+
+:root {
+  /* neutral */
+  --t-color-neutral-50: var(--raw-color-neutral-50);
+  --t-color-neutral-100: var(--raw-color-neutral-100);
+  --t-color-neutral-200: var(--raw-color-neutral-200);
+  --t-color-neutral-300: var(--raw-color-neutral-300);
+  --t-color-neutral-400: var(--raw-color-neutral-400);
+  --t-color-neutral-500: var(--raw-color-neutral-500);
+  --t-color-neutral-600: var(--raw-color-neutral-600);
+  --t-color-neutral-700: var(--raw-color-neutral-700);
+  --t-color-neutral-800: var(--raw-color-neutral-800);
+  --t-color-neutral-900: var(--raw-color-neutral-900);
+  --t-color-neutral-950: var(--raw-color-neutral-950);
+
+  /* danger */
+  --t-color-danger-50: var(--raw-color-red-50);
+  --t-color-danger-100: var(--raw-color-red-100);
+  --t-color-danger-200: var(--raw-color-red-200);
+  --t-color-danger-300: var(--raw-color-red-300);
+  --t-color-danger-400: var(--raw-color-red-400);
+  --t-color-danger-500: var(--raw-color-red-500);
+  --t-color-danger-600: var(--raw-color-red-600);
+  --t-color-danger-700: var(--raw-color-red-700);
+  --t-color-danger-800: var(--raw-color-red-800);
+  --t-color-danger-900: var(--raw-color-red-900);
+  --t-color-danger-950: var(--raw-color-red-950);
+
+  /* warning */
+  --t-color-warning-50: var(--raw-color-amber-50);
+  --t-color-warning-100: var(--raw-color-amber-100);
+  --t-color-warning-200: var(--raw-color-amber-200);
+  --t-color-warning-300: var(--raw-color-amber-300);
+  --t-color-warning-400: var(--raw-color-amber-400);
+  --t-color-warning-500: var(--raw-color-amber-500);
+  --t-color-warning-600: var(--raw-color-amber-600);
+  --t-color-warning-700: var(--raw-color-amber-700);
+  --t-color-warning-800: var(--raw-color-amber-800);
+  --t-color-warning-900: var(--raw-color-amber-900);
+  --t-color-warning-950: var(--raw-color-amber-950);
+
+  /* success */
+  --t-color-success-50: var(--raw-color-emerald-50);
+  --t-color-success-100: var(--raw-color-emerald-100);
+  --t-color-success-200: var(--raw-color-emerald-200);
+  --t-color-success-300: var(--raw-color-emerald-300);
+  --t-color-success-400: var(--raw-color-emerald-400);
+  --t-color-success-500: var(--raw-color-emerald-500);
+  --t-color-success-600: var(--raw-color-emerald-600);
+  --t-color-success-700: var(--raw-color-emerald-700);
+  --t-color-success-800: var(--raw-color-emerald-800);
+  --t-color-success-900: var(--raw-color-emerald-900);
+  --t-color-success-950: var(--raw-color-emerald-950);
+}

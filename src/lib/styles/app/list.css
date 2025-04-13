@@ -1,0 +1,8 @@
+ul, ol {
+  padding-inline-start: var(--ws-7);
+}
+
+ul li::marker, ol li::marker {
+  color: var(--t-color-bullet-point);
+  font-size: var(--font-size-6);
+}

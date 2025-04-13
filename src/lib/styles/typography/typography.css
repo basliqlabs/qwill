@@ -1,7 +1,22 @@
+/* TODO: Add more fallback fonts */
+html {
+	--font-family-code: 'Fira Code';
+	font-size: 62.5%;
+}
+
+html[dir='ltr'] {
+	--font-family-body: 'Fira Sans';
+}
+
+html[dir='rtl'] {
+	--font-family-body: "IBM Plex Sans Arabic";
+}
+
+
 body {
-	font-family: 'Fira Sans', sans-serif;
+	font-family: var(--font-family-body), sans-serif;
 }
 
 code {
-	font-family: 'Fira Code', monospace;
+	font-family: var(--font-family-code), monospace;
 }

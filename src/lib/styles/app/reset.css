@@ -1,0 +1,18 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+  font-style: italic;
+  color: var(--t-color-neutral-600);
+}
+
+body {
+  position: relative;
+}

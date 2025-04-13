@@ -1,0 +1,297 @@
+/*
+ * These colors are picked from tailwind's colors palette.
+ * Reference: https://tailwindcss.com/docs/customizing-colors#default-color-palette
+
+ * colors are converted into hsl for higher readability and easier edits if needed.
+
+ * Some colors might have an extra tint or shade which is not present in the standard
+ * tailwind design system. These colors are suffixed with `-extended`.
+*/
+
+:root {
+  /* neutral - default neutral colors */
+  --raw-color-neutral-50: hsl(0deg 0% 98%);
+  --raw-color-neutral-100: hsl(0deg 0% 96%);
+  --raw-color-neutral-200: hsl(0deg 0% 90%);
+  --raw-color-neutral-300: hsl(0deg 0% 83%);
+  --raw-color-neutral-400: hsl(0deg 0% 64%);
+  --raw-color-neutral-500: hsl(0deg 0% 45%);
+  --raw-color-neutral-600: hsl(0deg 0% 32%);
+  --raw-color-neutral-700: hsl(0deg 0% 25%);
+  --raw-color-neutral-800: hsl(0deg 0% 15%);
+  --raw-color-neutral-900: hsl(0deg 0% 9%);
+  --raw-color-neutral-950: hsl(0deg 0% 4%);
+
+  /* slate */
+  --raw-color-slate-50: hsl(210deg 40% 98%);
+  --raw-color-slate-100: hsl(210deg 40% 96%);
+  --raw-color-slate-200: hsl(214deg 32% 91%);
+  --raw-color-slate-300: hsl(213deg 27% 84%);
+  --raw-color-slate-400: hsl(215deg 20% 65%);
+  --raw-color-slate-500: hsl(215deg 16% 47%);
+  --raw-color-slate-600: hsl(215deg 19% 35%);
+  --raw-color-slate-700: hsl(215deg 25% 27%);
+  --raw-color-slate-800: hsl(217deg 33% 17%);
+  --raw-color-slate-900: hsl(222deg 47% 11%);
+  --raw-color-slate-950: hsl(229deg 84% 5%);
+
+  /* gray */
+  --raw-color-gray-50: hsl(210deg 20% 98%);
+  --raw-color-gray-100: hsl(220deg 14% 96%);
+  --raw-color-gray-200: hsl(220deg 13% 91%);
+  --raw-color-gray-300: hsl(216deg 12% 84%);
+  --raw-color-gray-400: hsl(218deg 11% 65%);
+  --raw-color-gray-500: hsl(220deg 9% 46%);
+  --raw-color-gray-600: hsl(215deg 14% 34%);
+  --raw-color-gray-700: hsl(217deg 19% 27%);
+  --raw-color-gray-800: hsl(215deg 28% 17%);
+  --raw-color-gray-900: hsl(221deg 39% 11%);
+  --raw-color-gray-950: hsl(224deg 71% 4%);
+
+  /* zinc */
+  --raw-color-zinc-50: hsl(0deg 0% 98%);
+  --raw-color-zinc-100: hsl(240deg 5% 96%);
+  --raw-color-zinc-200: hsl(240deg 6% 90%);
+  --raw-color-zinc-300: hsl(240deg 5% 84%);
+  --raw-color-zinc-400: hsl(240deg 5% 65%);
+  --raw-color-zinc-500: hsl(240deg 4% 46%);
+  --raw-color-zinc-600: hsl(240deg 5% 34%);
+  --raw-color-zinc-700: hsl(240deg 5% 26%);
+  --raw-color-zinc-800: hsl(240deg 4% 16%);
+  --raw-color-zinc-900: hsl(240deg 6% 10%);
+  --raw-color-zinc-950: hsl(240deg 10% 4%);
+
+  /* stone */
+  --raw-color-stone-50: hsl(60deg 9% 98%);
+  --raw-color-stone-100: hsl(60deg 5% 96%);
+  --raw-color-stone-200: hsl(20deg 6% 90%);
+  --raw-color-stone-300: hsl(24deg 6% 83%);
+  --raw-color-stone-400: hsl(24deg 5% 64%);
+  --raw-color-stone-500: hsl(25deg 5% 45%);
+  --raw-color-stone-600: hsl(33deg 5% 32%);
+  --raw-color-stone-700: hsl(30deg 6% 25%);
+  --raw-color-stone-800: hsl(12deg 6% 15%);
+  --raw-color-stone-900: hsl(24deg 10% 10%);
+  --raw-color-stone-950: hsl(20deg 14% 4%);
+
+  /* red - default danger raw-colors */
+  --raw-color-red-50: hsl(0deg 86% 97%);
+  --raw-color-red-100: hsl(0deg 93% 94%);
+  --raw-color-red-200: hsl(0deg 96% 89%);
+  --raw-color-red-300: hsl(0deg 94% 82%);
+  --raw-color-red-400: hsl(0deg 91% 71%);
+  --raw-color-red-500: hsl(0deg 84% 60%);
+  --raw-color-red-600: hsl(0deg 72% 51%);
+  --raw-color-red-700: hsl(0deg 74% 42%);
+  --raw-color-red-800: hsl(0deg 70% 35%);
+  --raw-color-red-900: hsl(0deg 63% 31%);
+  --raw-color-red-950: hsl(0deg 75% 15%);
+
+  /* orange */
+  --raw-color-orange-50: hsl(33deg 100% 96%);
+  --raw-color-orange-100: hsl(34deg 100% 92%);
+  --raw-color-orange-200: hsl(32deg 98% 83%);
+  --raw-color-orange-300: hsl(31deg 97% 72%);
+  --raw-color-orange-400: hsl(27deg 96% 61%);
+  --raw-color-orange-500: hsl(25deg 95% 53%);
+  --raw-color-orange-600: hsl(21deg 90% 48%);
+  --raw-color-orange-700: hsl(17deg 88% 40%);
+  --raw-color-orange-800: hsl(15deg 79% 34%);
+  --raw-color-orange-900: hsl(15deg 75% 28%);
+  --raw-color-orange-950: hsl(13deg 81% 15%);
+
+  /* amber - default warning raw-colors */
+  --raw-color-amber-50: hsl(48deg 100% 96%);
+  --raw-color-amber-100: hsl(48deg 96% 89%);
+  --raw-color-amber-200: hsl(48deg 97% 77%);
+  --raw-color-amber-300: hsl(46deg 97% 65%);
+  --raw-color-amber-400: hsl(43deg 96% 56%);
+  --raw-color-amber-500: hsl(38deg 92% 50%);
+  --raw-color-amber-600: hsl(32deg 95% 44%);
+  --raw-color-amber-700: hsl(26deg 90% 37%);
+  --raw-color-amber-800: hsl(23deg 83% 31%);
+  --raw-color-amber-900: hsl(22deg 78% 26%);
+  --raw-color-amber-950: hsl(21deg 92% 14%);
+
+  /* yellow */
+  --raw-color-yellow-50: hsl(55deg 92% 95%);
+  --raw-color-yellow-100: hsl(55deg 97% 88%);
+  --raw-color-yellow-200: hsl(53deg 98% 77%);
+  --raw-color-yellow-300: hsl(50deg 98% 64%);
+  --raw-color-yellow-400: hsl(48deg 96% 53%);
+  --raw-color-yellow-500: hsl(45deg 93% 47%);
+  --raw-color-yellow-600: hsl(41deg 96% 40%);
+  --raw-color-yellow-700: hsl(35deg 92% 33%);
+  --raw-color-yellow-800: hsl(32deg 81% 29%);
+  --raw-color-yellow-900: hsl(28deg 73% 26%);
+  --raw-color-yellow-950: hsl(26deg 83% 14%);
+
+  /* lime */
+  --raw-color-lime-50: hsl(78deg 92% 95%);
+  --raw-color-lime-100: hsl(80deg 89% 89%);
+  --raw-color-lime-200: hsl(81deg 88% 80%);
+  --raw-color-lime-300: hsl(82deg 85% 67%);
+  --raw-color-lime-400: hsl(83deg 78% 55%);
+  --raw-color-lime-500: hsl(84deg 81% 44%);
+  --raw-color-lime-600: hsl(85deg 85% 35%);
+  --raw-color-lime-700: hsl(86deg 78% 27%);
+  --raw-color-lime-800: hsl(86deg 69% 23%);
+  --raw-color-lime-900: hsl(88deg 61% 20%);
+  --raw-color-lime-950: hsl(89deg 80% 10%);
+
+  /* green */
+  --raw-color-green-50: hsl(138deg 76% 97%);
+  --raw-color-green-100: hsl(141deg 84% 93%);
+  --raw-color-green-200: hsl(141deg 79% 85%);
+  --raw-color-green-300: hsl(142deg 77% 73%);
+  --raw-color-green-400: hsl(142deg 69% 58%);
+  --raw-color-green-500: hsl(142deg 71% 45%);
+  --raw-color-green-600: hsl(142deg 76% 36%);
+  --raw-color-green-700: hsl(142deg 72% 29%);
+  --raw-color-green-800: hsl(143deg 64% 24%);
+  --raw-color-green-900: hsl(144deg 61% 20%);
+  --raw-color-green-950: hsl(145deg 80% 10%);
+
+  /* emerald - default success raw-colors */
+  --raw-color-emerald-50: hsl(152deg 81% 96%);
+  --raw-color-emerald-100: hsl(149deg 80% 90%);
+  --raw-color-emerald-200: hsl(152deg 76% 80%);
+  --raw-color-emerald-300: hsl(156deg 72% 67%);
+  --raw-color-emerald-400: hsl(158deg 64% 52%);
+  --raw-color-emerald-500: hsl(160deg 84% 39%);
+  --raw-color-emerald-600: hsl(161deg 94% 30%);
+  --raw-color-emerald-700: hsl(163deg 94% 24%);
+  --raw-color-emerald-800: hsl(163deg 88% 20%);
+  --raw-color-emerald-900: hsl(164deg 86% 16%);
+  --raw-color-emerald-950: hsl(166deg 91% 9%);
+
+  /* teal */
+  --raw-color-teal-50: hsl(166deg 76% 97%);
+  --raw-color-teal-100: hsl(167deg 85% 89%);
+  --raw-color-teal-200: hsl(168deg 84% 78%);
+  --raw-color-teal-300: hsl(171deg 77% 64%);
+  --raw-color-teal-400: hsl(172deg 66% 50%);
+  --raw-color-teal-500: hsl(173deg 80% 40%);
+  --raw-color-teal-600: hsl(175deg 84% 32%);
+  --raw-color-teal-700: hsl(175deg 77% 26%);
+  --raw-color-teal-800: hsl(176deg 69% 22%);
+  --raw-color-teal-900: hsl(176deg 61% 19%);
+  --raw-color-teal-950: hsl(179deg 84% 10%);
+
+  /* cyan */
+  --raw-color-cyan-50: hsl(183deg 100% 96%);
+  --raw-color-cyan-100: hsl(185deg 96% 90%);
+  --raw-color-cyan-200: hsl(186deg 94% 82%);
+  --raw-color-cyan-300: hsl(187deg 92% 69%);
+  --raw-color-cyan-400: hsl(188deg 86% 53%);
+  --raw-color-cyan-500: hsl(189deg 94% 43%);
+  --raw-color-cyan-600: hsl(192deg 91% 36%);
+  --raw-color-cyan-700: hsl(193deg 82% 31%);
+  --raw-color-cyan-800: hsl(194deg 70% 27%);
+  --raw-color-cyan-900: hsl(196deg 64% 24%);
+  --raw-color-cyan-950: hsl(197deg 79% 15%);
+
+  /* sky */
+  --raw-color-sky-50: hsl(204deg 100% 97%);
+  --raw-color-sky-100: hsl(204deg 94% 94%);
+  --raw-color-sky-200: hsl(201deg 94% 86%);
+  --raw-color-sky-300: hsl(199deg 95% 74%);
+  --raw-color-sky-400: hsl(198deg 93% 60%);
+  --raw-color-sky-500: hsl(199deg 89% 48%);
+  --raw-color-sky-600: hsl(200deg 98% 39%);
+  --raw-color-sky-700: hsl(201deg 96% 32%);
+  --raw-color-sky-800: hsl(201deg 90% 27%);
+  --raw-color-sky-900: hsl(202deg 80% 24%);
+  --raw-color-sky-950: hsl(204deg 80% 16%);
+
+  /* blue */
+  --raw-color-blue-50: hsl(214deg 100% 97%);
+  --raw-color-blue-100: hsl(214deg 95% 93%);
+  --raw-color-blue-200: hsl(213deg 97% 87%);
+  --raw-color-blue-300: hsl(212deg 96% 78%);
+  --raw-color-blue-400: hsl(213deg 94% 68%);
+  --raw-color-blue-500: hsl(217deg 91% 60%);
+  --raw-color-blue-600: hsl(221deg 83% 53%);
+  --raw-color-blue-700: hsl(224deg 76% 48%);
+  --raw-color-blue-800: hsl(226deg 71% 40%);
+  --raw-color-blue-900: hsl(224deg 64% 33%);
+  --raw-color-blue-950: hsl(226deg 57% 21%);
+
+  /* indigo */
+  --raw-color-indigo-50: hsl(226deg 100% 97%);
+  --raw-color-indigo-100: hsl(226deg 100% 94%);
+  --raw-color-indigo-200: hsl(228deg 96% 89%);
+  --raw-color-indigo-300: hsl(230deg 94% 82%);
+  --raw-color-indigo-400: hsl(234deg 89% 74%);
+  --raw-color-indigo-500: hsl(239deg 84% 67%);
+  --raw-color-indigo-600: hsl(243deg 75% 59%);
+  --raw-color-indigo-700: hsl(245deg 58% 51%);
+  --raw-color-indigo-800: hsl(244deg 55% 41%);
+  --raw-color-indigo-900: hsl(242deg 47% 34%);
+  --raw-color-indigo-950: hsl(244deg 47% 20%);
+
+  /* violet - primary colors of Basliq */
+  --raw-color-violet-50: hsl(250deg 100% 98%);
+  --raw-color-violet-100: hsl(251deg 91% 95%);
+  --raw-color-violet-200: hsl(251deg 95% 92%);
+  --raw-color-violet-300: hsl(252deg 95% 85%);
+  --raw-color-violet-400: hsl(255deg 92% 76%);
+  --raw-color-violet-500: hsl(258deg 90% 66%);
+  --raw-color-violet-600: hsl(262deg 83% 58%);
+  --raw-color-violet-700: hsl(263deg 70% 50%);
+  --raw-color-violet-800: hsl(263deg 69% 42%);
+  --raw-color-violet-900: hsl(264deg 67% 35%);
+  --raw-color-violet-950: hsl(261deg 73% 23%);
+
+  /* purple */
+  --raw-color-purple-50: hsl(270deg 100% 98%);
+  --raw-color-purple-100: hsl(269deg 100% 95%);
+  --raw-color-purple-200: hsl(269deg 100% 92%);
+  --raw-color-purple-300: hsl(269deg 97% 85%);
+  --raw-color-purple-400: hsl(270deg 95% 75%);
+  --raw-color-purple-500: hsl(271deg 91% 65%);
+  --raw-color-purple-600: hsl(271deg 81% 56%);
+  --raw-color-purple-700: hsl(272deg 72% 47%);
+  --raw-color-purple-800: hsl(273deg 67% 39%);
+  --raw-color-purple-900: hsl(274deg 66% 32%);
+  --raw-color-purple-950: hsl(274deg 87% 21%);
+
+  /* fuchesia */
+  --raw-color-fuchesia-50: hsl(289deg 100% 98%);
+  --raw-color-fuchesia-100: hsl(287deg 100% 95%);
+  --raw-color-fuchesia-200: hsl(288deg 96% 91%);
+  --raw-color-fuchesia-300: hsl(291deg 93% 83%);
+  --raw-color-fuchesia-400: hsl(292deg 91% 73%);
+  --raw-color-fuchesia-500: hsl(292deg 84% 61%);
+  --raw-color-fuchesia-600: hsl(293deg 69% 49%);
+  --raw-color-fuchesia-700: hsl(295deg 72% 40%);
+  --raw-color-fuchesia-800: hsl(295deg 70% 33%);
+  --raw-color-fuchesia-900: hsl(297deg 64% 28%);
+  --raw-color-fuchesia-950: hsl(297deg 90% 16%);
+
+  /* pink */
+  --raw-color-pink-50: hsl(327deg 73% 97%);
+  --raw-color-pink-100: hsl(326deg 78% 95%);
+  --raw-color-pink-200: hsl(326deg 85% 90%);
+  --raw-color-pink-300: hsl(327deg 87% 82%);
+  --raw-color-pink-400: hsl(329deg 86% 70%);
+  --raw-color-pink-500: hsl(330deg 81% 60%);
+  --raw-color-pink-600: hsl(333deg 71% 51%);
+  --raw-color-pink-700: hsl(335deg 78% 42%);
+  --raw-color-pink-800: hsl(336deg 74% 35%);
+  --raw-color-pink-900: hsl(336deg 69% 30%);
+  --raw-color-pink-950: hsl(336deg 84% 17%);
+
+  /* rose */
+  --raw-color-rose-50: hsl(356deg 100% 97%);
+  --raw-color-rose-100: hsl(356deg 100% 95%);
+  --raw-color-rose-200: hsl(353deg 96% 90%);
+  --raw-color-rose-300: hsl(353deg 96% 82%);
+  --raw-color-rose-400: hsl(351deg 95% 71%);
+  --raw-color-rose-500: hsl(350deg 89% 60%);
+  --raw-color-rose-600: hsl(347deg 77% 50%);
+  --raw-color-rose-700: hsl(345deg 83% 41%);
+  --raw-color-rose-800: hsl(343deg 80% 35%);
+  --raw-color-rose-900: hsl(342deg 75% 30%);
+  --raw-color-rose-950: hsl(343deg 88% 16%);
+}

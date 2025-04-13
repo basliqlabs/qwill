@@ -1,0 +1,7 @@
+:root {
+  --transition-xs: 75ms;
+  --transition-sm: 150ms;
+  --transition-md: 250ms;
+  --transition-lg: 350ms;
+  --transition-xl: 500ms;
+}

@@ -12,7 +12,7 @@ export type Post = {
 	title: string
 	description: string
 	slug: string
-	lang: string
+	language: string
 	publishDate: DateString
 	updatedDate: DateString
 	coverImage: Image

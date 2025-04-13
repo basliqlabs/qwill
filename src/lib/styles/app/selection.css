@@ -1,0 +1,4 @@
+::selection {
+  background-color: hsl(from var(--t-color-selection-bg) h s l / 0.6);
+  color: var(--t-color-selection-text);
+}
