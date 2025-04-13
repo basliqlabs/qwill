@@ -89,16 +89,3 @@ things differently. You might choose your stack differently and take an old-scho
 Every project has different users. Some might have users who mainly use old versions of Chrome, and some applications
 might have worldwide scopes in which their users use all kinds of browsers. A wise front-end engineer should consider
 these factors and test their software before releasing it into the market.
-
-```ts
-export function tenderStageToText(stage: TenderStageType) {
-  if (stage === 'one_stage') return l.cont.tend.oneStage;
-  return l.cont.tend.twoStage;
-}
-
-export function tenderEvaluationToText(evaluation: TenderEvaluationIndicators) {
-  if (evaluation === 'limited') l.dash.tend.restrictive;
-  return l.dash.tend.nonRestrictive;
-}
-
-```

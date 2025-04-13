@@ -1,15 +1,18 @@
-import { error } from '@sveltejs/kit'
-import {i18n} from "$lib/i18n";
+import { i18n } from '$lib/i18n'
+import type { Post } from 'content/config/posts'
 
 export async function load({ url, params }) {
-  try {
-    const post = await import(`/src/content/posts/${params.category}/${params.slug}/${i18n.getLanguageFromUrl(new URL(url))}.md`)
-
-    return {
-      content: post.default,
-      meta: post.metadata
+  const mdFiles = import.meta.glob(`/src/content/posts/**/*.md`, {
+    eager: true,
+    query: {
+      viteFrontmatter: true
     }
-  } catch (e) {
-    error(404, `Could not find ${params.slug}`)
-  }
+  })
+
+  const md = mdFiles[
+    `/src/content/posts/${params.category}/${params.slug}/${i18n.getLanguageFromUrl(new URL(url))}.md`
+  ] as { metadata: Post; default: () => void }
+
+  const post = { meta: md.metadata, content: md.default }
+  return { post }
 }

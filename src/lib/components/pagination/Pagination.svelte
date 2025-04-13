@@ -57,8 +57,8 @@
   }
 </script>
 
-{#if totalPages >= 2}
-  <nav>
+<nav>
+  {#if totalPages >= 2}
     {#if withControls}
       <button disabled={isOnFirstPage} onclick={() => handlePagination(currentPage - 1)}>
         prev
@@ -84,14 +84,14 @@
         next
       </button>
     {/if}
+  {/if}
 
-    {#if ssgLinkDiscovery}
-      {#each allDiscoverablePageNumbers as pageNumber}
-        <a href="{baseLink}/{pageNumber}" class="ssg-discoverable-link">{pageNumber}</a>
-      {/each}
-    {/if}
-  </nav>
-{/if}
+  {#if ssgLinkDiscovery}
+    {#each allDiscoverablePageNumbers as pageNumber}
+      <a href="{baseLink}/{pageNumber}" class="ssg-discoverable-link">{pageNumber}</a>
+    {/each}
+  {/if}
+</nav>
 
 <style>
   .ssg-discoverable-link {

@@ -1,9 +1,10 @@
 <script lang="ts">
   import * as m from '$lib/paraglide/messages'
-  import type { Post } from 'content/config/posts'
+  import { page } from '$app/state'
 
   const { data } = $props()
-  const post = data.meta as Post
+  const post = $derived(data.post.meta)
+  const content = $derived(data.post.content)
 
   $effect(() => {
     const handler = (event) => {
@@ -48,7 +49,7 @@
     </header>
 
     <div class="content">
-      <svelte:component this={data.content} />
+      <svelte:component this={content} />
     </div>
   </main>
 </article>
