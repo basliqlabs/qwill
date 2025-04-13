@@ -14,6 +14,9 @@
 		"test": "npm run test:unit -- --run && npm run test:e2e",
 		"test:e2e": "playwright test"
 	},
+	"optionalDependencies": {
+		"@rollup/rollup-linux-x64-gnu": "^3.0.0"
+	},
 	"devDependencies": {
 		"@playwright/test": "^1.45.3",
 		"@shikijs/colorized-brackets": "^3.2.1",
