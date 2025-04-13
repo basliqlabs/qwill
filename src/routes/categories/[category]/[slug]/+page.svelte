@@ -2,8 +2,28 @@
   import * as m from '$lib/paraglide/messages'
   import type { Post } from 'content/config/posts'
 
-  export let data
+  const { data } = $props()
   const post = data.meta as Post
+
+  $effect(() => {
+    const handler = (event) => {
+      const elm = event.currentTarget
+      const prevText = elm.innerText
+      elm.innerText = 'copied!'
+      elm.classList.add('copied')
+      const code = elm.dataset.code
+      navigator.clipboard.writeText(code)
+
+      setTimeout(() => {
+        elm.innerText = prevText
+        elm.classList.remove('copied')
+      }, 2_000)
+    }
+
+    document.querySelectorAll('button.copy-code').forEach((btn) => {
+      btn.addEventListener('click', handler)
+    })
+  })
 </script>
 
 <svelte:head>
@@ -44,11 +64,12 @@
 
   main {
     display: grid;
-    grid-template-columns: [extended-start] var(--t-blog-post-gutter-size) [content-start] var(
+    grid-template-columns:
+      [extended-start] var(--t-blog-post-gutter-size) [content-start] var(--t-blog-post-gutter-size)
+      [indented-start] var(--t-blog-post-gutter-size) [indented2-start] 1fr [indented2-end] var(
         --t-blog-post-gutter-size
-      ) [indented-start] var(--t-blog-post-gutter-size) [indented2-start] 1fr [indented2-end] var(
-        --t-blog-post-gutter-size
-      ) [indented-end] var(--t-blog-post-gutter-size) [content-end] var(--t-blog-post-gutter-size) [extended-end];
+      )
+      [indented-end] var(--t-blog-post-gutter-size) [content-end] var(--t-blog-post-gutter-size) [extended-end];
   }
 
   header,
@@ -71,11 +92,14 @@
 
     :global(section) {
       display: grid;
-      grid-template-columns: [extended-start] var(--t-blog-post-gutter-size) [content-start] var(
+      grid-template-columns:
+        [extended-start] var(--t-blog-post-gutter-size) [content-start] var(
           --t-blog-post-gutter-size
-        ) [indented-start] 1fr [indented-end] var(--t-blog-post-gutter-size) [content-end] var(
+        )
+        [indented-start] 1fr [indented-end] var(--t-blog-post-gutter-size) [content-end] var(
           --t-blog-post-gutter-size
-        ) [extended-end] var(--t-blog-post-sidebar-size) [sidebar-end];
+        )
+        [extended-end] var(--t-blog-post-sidebar-size) [sidebar-end];
       row-gap: var(--ws-6);
 
       border-inline-start: 2px solid var(--t-color-border-divider-dim);

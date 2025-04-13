@@ -6,27 +6,27 @@
 </script>
 
 <header>
-    <nav>
-        <div class="logo">
-            <a href="/">
-                <figure>
-                    <img src="/logo.svg" alt=""/>
-                </figure>
-                <p>{name}</p>
-            </a>
-        </div>
+  <nav>
+    <div class="logo">
+      <a href="/">
+        <figure>
+          <img src="/logo.svg" alt="" />
+        </figure>
+        <p>{name}</p>
+      </a>
+    </div>
 
-        <ul>
-            <li><a href="/blog">{m.header_all_blog_posts()}</a></li>
-            <li><a href="/categories">{m.header_categories()}</a></li>
-            <li><a href="/collections">{m.header_collections()}</a></li>
-            <li><a href="/series">{m.header_series()}</a></li>
-        </ul>
+    <ul>
+      <!--            <li><a href="/blog">{m.header_all_blog_posts()}</a></li>-->
+      <li><a href="/categories">{m.header_categories()}</a></li>
+      <!--            <li><a href="/collections">{m.header_collections()}</a></li>-->
+      <!--            <li><a href="/series">{m.header_series()}</a></li>-->
+    </ul>
 
-<!--        <div class="actions">-->
-<!--            <SwitchLanguageButton/>-->
-<!--        </div>-->
-    </nav>
+    <!--        <div class="actions">-->
+    <!--            <SwitchLanguageButton/>-->
+    <!--        </div>-->
+  </nav>
 </header>
 
 <style>
@@ -37,7 +37,6 @@
     /* TODO: 'backdrop-filter: blur()' is not working as expected */
     /*backdrop-filter: blur(10px);*/
     z-index: 999;
-
   }
 
   nav {
@@ -78,8 +77,10 @@
     padding: 0;
   }
 
-  ul, .logo {
-    a, a:visited {
+  ul,
+  .logo {
+    a,
+    a:visited {
       text-decoration: none;
       display: flex;
       color: var(--t-navbar-link-text);
@@ -96,7 +97,6 @@
     a:active {
       background-color: hsl(from var(--t-navbar-link-bg) h s l / 0.2);
       transform: scale(0.93);
-
     }
   }
 </style>

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { Post } from 'content/config/posts'
   import { i18n } from '$lib/i18n'
   import type { Category } from 'content/config/categories'
 
@@ -8,7 +7,7 @@
   }
 
   let { category }: Props = $props()
-  const link = i18n.route(`/categories/${category.id}`)
+  const link = $derived(i18n.route(`/categories/${category.id}`))
 </script>
 
 <article>

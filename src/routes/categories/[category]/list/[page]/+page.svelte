@@ -10,8 +10,6 @@
   const pageNumber = $derived(data.category.posts.page)
   const category = $derived(page.params.category)
 
-  console.log(totalPages, pageNumber)
-
   let id = $derived(page.params.id)
 </script>
 

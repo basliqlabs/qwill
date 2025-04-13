@@ -1,11 +1,14 @@
-import type {Post} from "content/config/posts";
+import type { Post } from 'content/config/posts'
+import { getPaginatedResponse } from '$lib/utils/pagination'
 
 type Config = {
   language?: string
   categories?: string[]
-  skip?: number
-  pick?: number
+  page?: number
+  pageSize?: number
 }
+
+export const PostPageSize = 12
 
 export async function getPosts(config?: Config) {
   let posts: Post[] = []
@@ -20,16 +23,18 @@ export async function getPosts(config?: Config) {
     const slug = path.split('/').at(-2)
     const language = path.split('/').at(-1)?.replace('.md', '')
 
-    if (file &&
+    if (
+      file &&
       typeof file === 'object' &&
-      'metadata' in file && slug &&
+      'metadata' in file &&
+      slug &&
       category &&
       checkCategory(config, category) &&
       language &&
       checkLanguage(config, language)
     ) {
       const metadata = file.metadata as Omit<Post, 'slug' | 'category' | 'lang'>
-      const post = {...metadata, category, slug, language} satisfies Post
+      const post = { ...metadata, category, slug, language } satisfies Post
       if (!post.draft) posts.push(post)
     }
   }
@@ -39,9 +44,8 @@ export async function getPosts(config?: Config) {
       new Date(second.updatedDate).getTime() - new Date(first.updatedDate).getTime()
   )
 
-  return posts
+  return getPaginatedResponse(posts, config?.page ?? 1, config?.pageSize ?? PostPageSize)
 }
-
 
 function checkCategory(config: Config | undefined, category: string | undefined): boolean {
   if (!category) return false

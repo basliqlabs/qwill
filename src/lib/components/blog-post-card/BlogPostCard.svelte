@@ -7,7 +7,7 @@
   }
 
   let { post }: Props = $props()
-  const link = i18n.route(`/categories/${post.category}/${post.slug}`)
+  const link = $derived(i18n.route(`/categories/${post.category}/${post.slug}`))
 </script>
 
 <article>
