@@ -1,6 +1,7 @@
 <script lang="ts">
   import { goto } from '$app/navigation'
   import type { PaginationLinkStructure } from '$lib/types/global-types'
+  import Anchor from '$lib/components/anchor/Anchor.svelte'
 
   type Props = {
     totalPages: number
@@ -87,9 +88,11 @@
   {/if}
 
   {#if ssgLinkDiscovery}
-    {#each allDiscoverablePageNumbers as pageNumber}
-      <a href="{baseLink}/{pageNumber}" class="ssg-discoverable-link">{pageNumber}</a>
-    {/each}
+    <div class="ssg-discoverable-link">
+      {#each allDiscoverablePageNumbers as pageNumber}
+        <Anchor href="{baseLink}/{pageNumber}">{pageNumber}</Anchor>
+      {/each}
+    </div>
   {/if}
 </nav>
 

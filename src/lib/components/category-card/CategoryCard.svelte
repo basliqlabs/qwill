@@ -1,6 +1,7 @@
 <script lang="ts">
   import { i18n } from '$lib/i18n'
   import type { Category } from 'content/config/categories'
+  import Anchor from '$lib/components/anchor/Anchor.svelte'
 
   type Props = {
     category: Category
@@ -12,7 +13,7 @@
 
 <article>
   <section class="content">
-    <h1><a href={link}>{category.display_title}</a></h1>
+    <h1><Anchor noBase href={link}>{category.display_title}</Anchor></h1>
     <p>{category.description}</p>
   </section>
 </article>
