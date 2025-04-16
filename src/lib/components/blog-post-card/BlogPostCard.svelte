@@ -13,7 +13,7 @@
 
 <article>
   <section class="content">
-    <h1><Anchor href={link}>{post.title}</Anchor></h1>
+    <h1><Anchor noBase href={link}>{post.title}</Anchor></h1>
     <p>{post.description}</p>
   </section>
 </article>

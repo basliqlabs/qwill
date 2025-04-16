@@ -4,10 +4,12 @@
 
   type Props = {
     href: string
+    noBase?: boolean
     children: Snippet
   }
 
-  let { href, children }: Props = $props()
+  let { href, noBase, children }: Props = $props()
+  const link = $derived((noBase ? '' : base) + href)
 </script>
 
-<a href={base + href} data-sveltekit-reload>{@render children()}</a>
+<a href={link} data-sveltekit-reload>{@render children()}</a>

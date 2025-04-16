@@ -5,5 +5,6 @@ export type Category = {
   display_title: string
   description: string | null
   cover_image: Image | null
+  lang: string | null
   archive?: boolean
 }

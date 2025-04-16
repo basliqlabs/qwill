@@ -53,7 +53,7 @@
   }
 
   div.logo {
-    a {
+    :global(a) {
       align-items: center;
       gap: var(--ws-2);
       padding: var(--ws-3);
@@ -80,8 +80,7 @@
 
   ul,
   .logo {
-    a,
-    a:visited {
+    :global(a, a:visited) {
       text-decoration: none;
       display: flex;
       color: var(--t-navbar-link-text);
@@ -91,11 +90,11 @@
       padding: var(--ws-2);
     }
 
-    a:hover {
+    :global(a:hover) {
       background-color: hsl(from var(--t-navbar-link-bg) h s l / 0.1);
     }
 
-    a:active {
+    :global(a:active) {
       background-color: hsl(from var(--t-navbar-link-bg) h s l / 0.2);
       transform: scale(0.93);
     }
