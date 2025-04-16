@@ -1,6 +1,7 @@
 <script lang="ts">
   import * as m from '$lib/paraglide/messages'
   import SwitchLanguageButton from '../switch-language-button/SwitchLanguageButton.svelte'
+  import Anchor from '$lib/components/anchor/Anchor.svelte'
 
   let name = m.site_name()
 </script>
@@ -8,17 +9,17 @@
 <header>
   <nav>
     <div class="logo">
-      <a href="/">
+      <Anchor href="/">
         <figure>
           <img src="/logo.svg" alt="" />
         </figure>
         <p>{name}</p>
-      </a>
+      </Anchor>
     </div>
 
     <ul>
       <!--            <li><a href="/blog">{m.header_all_blog_posts()}</a></li>-->
-      <li><a href="/categories">{m.header_categories()}</a></li>
+      <li><Anchor href="/categories">{m.header_categories()}</Anchor></li>
       <!--            <li><a href="/collections">{m.header_collections()}</a></li>-->
       <!--            <li><a href="/series">{m.header_series()}</a></li>-->
     </ul>
@@ -52,7 +53,7 @@
   }
 
   div.logo {
-    a {
+    :global(a) {
       align-items: center;
       gap: var(--ws-2);
       padding: var(--ws-3);
@@ -79,8 +80,7 @@
 
   ul,
   .logo {
-    a,
-    a:visited {
+    :global(a, a:visited) {
       text-decoration: none;
       display: flex;
       color: var(--t-navbar-link-text);
@@ -90,11 +90,11 @@
       padding: var(--ws-2);
     }
 
-    a:hover {
+    :global(a:hover) {
       background-color: hsl(from var(--t-navbar-link-bg) h s l / 0.1);
     }
 
-    a:active {
+    :global(a:active) {
       background-color: hsl(from var(--t-navbar-link-bg) h s l / 0.2);
       transform: scale(0.93);
     }

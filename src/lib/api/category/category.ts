@@ -4,7 +4,7 @@ import type { Category } from 'content/config/categories'
 import { readCategoryConfig } from './read-config'
 
 export const CategoryListPageSize = 10
-export const CategoryTargetDirectory = './src/content/posts'
+export const CategoryTargetDirectory = process.cwd() + '/src/content/posts'
 
 type Config = {
   language: string
@@ -16,8 +16,8 @@ export async function getCategories(config: Config): Promise<Category[]> {
   const allPaths = await getDirectories(CategoryTargetDirectory)
   const categories: Category[] = []
   for (const path of allPaths) {
-    const categoryConfig = await readCategoryConfig(CategoryTargetDirectory, path, config.language)
-    if (categoryConfig && !categoryConfig.archive) {
+    const categoryConfig = await readCategoryConfig(path, config.language)
+    if (categoryConfig && categoryConfig.lang == config.language && !categoryConfig.archive) {
       categories.push(categoryConfig)
     }
   }

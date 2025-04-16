@@ -1,24 +1,40 @@
-import fs from 'fs/promises'
-import { isNodeError } from '$lib/types/node'
 import type { Category } from 'content/config/categories'
+import type { Post } from 'content/config/posts'
 
-export async function readCategoryConfig(
-  targetDirectory: string,
-  categoryId: string,
-  lang: string
-): Promise<Category | null> {
-  try {
-    const data = await fs.readFile(`${targetDirectory}/${categoryId}/${lang}.json`, 'utf8')
-    const jsonData = JSON.parse(data) as Category
-    return { ...jsonData, id: categoryId }
-  } catch (err) {
-    if (isNodeError(err) && err.code === 'ENOENT') {
-      console.warn('File not found:', err.message)
-    } else if (err instanceof SyntaxError) {
-      console.error('Error parsing category config JSON:', err)
-    } else {
-      console.error('Error reading the category config file:', err)
+export async function readCategoryConfig(categoryId: string, lang: string): Promise<Category> {
+  const configFiles = import.meta.glob(`/src/content/posts/*/*.json`, {
+    eager: true,
+    query: {
+      viteFrontmatter: true
     }
-    return null
+  })
+
+  const configKey = `/src/content/posts/${categoryId}`
+
+  const json = configFiles[`${configKey}/${lang}.json`] as {
+    metadata: Post
+    default: () => void
   }
+
+  if (!json) {
+    const entries = Object.entries(configFiles)
+    for (let i = 0; i < entries.length; i++) {
+      const [k, v] = entries[i]
+      const langCode = k.match(/([^/]+)\.json$/)?.[1]
+      if (k.startsWith(configKey)) {
+        return {
+          ...(v as { default: Exclude<Category, 'id'> }).default,
+          id: categoryId,
+          lang: langCode || null
+        } satisfies Category
+      }
+    }
+  }
+
+  return {
+    // @ts-expect-error: TODO: sveltkit is inferring the wrong type
+    ...(json as { default: Exclude<Category, 'id'> }).default,
+    id: categoryId,
+    lang
+  } satisfies Category
 }
