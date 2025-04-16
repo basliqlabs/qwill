@@ -57,7 +57,7 @@ const config = {
       'content/*': 'src/content/*'
     },
     paths: {
-      base: process.argv.includes('dev') ? '' : '/experiences'
+      base: process.argv.includes('dev') ? '/experiences' : '/experiences'
     },
     prerender: {
       handleHttpError: 'ignore'
@@ -171,7 +171,7 @@ function setupHighlighter(code, lang, metastring) {
       return html.replace('<pre class="shiki', '<pre class="shiki file-name').replace(
         '<div class="content"',
         `<div class='code-block-file-name'>
-                        <img class="file-name-icon" alt="Downloaded from Icons8" src="${meta.icon}" />
+                        <img class="file-name-icon" alt="Downloaded from Icons8" src="${process.argv.includes('dev') ? '/experiences' : '/experiences'}${meta.icon}" />
                         <span class="file-name-text">${meta.fileName}</span>
                 </div><div class="content"`
       )

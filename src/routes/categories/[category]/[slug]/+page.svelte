@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { base } from '$app/paths'
+
   const { data } = $props()
   const post = $derived(data.post.meta)
   const content = $derived(data.post.content)
@@ -20,6 +22,12 @@
 
     document.querySelectorAll('button.copy-code').forEach((btn) => {
       btn.addEventListener('click', handler)
+    })
+
+    document.querySelectorAll('img').forEach((img) => {
+      if (img.src.includes('/src')) {
+        img.src = img.src.replace('/src', `${base}/src`)
+      }
     })
   })
 </script>
