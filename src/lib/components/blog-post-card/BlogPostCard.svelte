@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Post } from 'content/config/posts'
   import { i18n } from '$lib/i18n'
+  import Anchor from '$lib/components/anchor/Anchor.svelte'
 
   type Props = {
     post: Post
@@ -12,7 +13,7 @@
 
 <article>
   <section class="content">
-    <h1><a href={link}>{post.title}</a></h1>
+    <h1><Anchor href={link}>{post.title}</Anchor></h1>
     <p>{post.description}</p>
   </section>
 </article>

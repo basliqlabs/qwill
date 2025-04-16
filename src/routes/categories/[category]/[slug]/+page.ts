@@ -9,10 +9,22 @@ export async function load({ url, params }) {
     }
   })
 
-  const md = mdFiles[
-    `/src/content/posts/${params.category}/${params.slug}/${i18n.getLanguageFromUrl(new URL(url))}.md`
-  ] as { metadata: Post; default: () => void }
+  const mdKey = `/src/content/posts/${params.category}/${params.slug}`
 
-  const post = { meta: md.metadata, content: md.default }
-  return { post }
+  const md = mdFiles[`${mdKey}/${i18n.getLanguageFromUrl(new URL(url))}.md`] as {
+    metadata: Post
+    default: () => void
+  }
+
+  if (!md) {
+    const entries = Object.entries(mdFiles)
+    for (let i = 0; i < entries.length; i++) {
+      const [k, v] = entries[i]
+      if (k.startsWith(mdKey)) {
+        return { post: { meta: (v as { metadata: Post }).metadata, content: null } }
+      }
+    }
+  }
+
+  return { post: { meta: md.metadata, content: md.default } }
 }

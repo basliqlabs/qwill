@@ -1,6 +1,7 @@
 <script lang="ts">
   import * as m from '$lib/paraglide/messages'
   import SwitchLanguageButton from '../switch-language-button/SwitchLanguageButton.svelte'
+  import Anchor from '$lib/components/anchor/Anchor.svelte'
 
   let name = m.site_name()
 </script>
@@ -8,17 +9,17 @@
 <header>
   <nav>
     <div class="logo">
-      <a href="/">
+      <Anchor href="/">
         <figure>
           <img src="/logo.svg" alt="" />
         </figure>
         <p>{name}</p>
-      </a>
+      </Anchor>
     </div>
 
     <ul>
       <!--            <li><a href="/blog">{m.header_all_blog_posts()}</a></li>-->
-      <li><a href="/categories">{m.header_categories()}</a></li>
+      <li><Anchor href="/categories">{m.header_categories()}</Anchor></li>
       <!--            <li><a href="/collections">{m.header_collections()}</a></li>-->
       <!--            <li><a href="/series">{m.header_series()}</a></li>-->
     </ul>

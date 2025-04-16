@@ -1,7 +1,4 @@
 <script lang="ts">
-  import * as m from '$lib/paraglide/messages'
-  import { page } from '$app/state'
-
   const { data } = $props()
   const post = $derived(data.post.meta)
   const content = $derived(data.post.content)
@@ -38,19 +35,14 @@
     <header>
       <hgroup>
         <h1>{post.title}</h1>
-        <!--            <p>{m.published_at({date: post.publishDate})}</p>-->
       </hgroup>
-
-      <!--        <div class="collections">-->
-      <!--            {#each post.collections as collection}-->
-      <!--                <span class="surface-4">&num;{collection}</span>-->
-      <!--            {/each}-->
-      <!--        </div>-->
     </header>
 
-    <div class="content">
-      <svelte:component this={content} />
-    </div>
+    {#if content}
+      <div class="content">
+        <svelte:component this={content} />
+      </div>
+    {/if}
   </main>
 </article>
 

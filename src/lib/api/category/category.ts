@@ -4,7 +4,7 @@ import type { Category } from 'content/config/categories'
 import { readCategoryConfig } from './read-config'
 
 export const CategoryListPageSize = 10
-export const CategoryTargetDirectory = './src/content/posts'
+export const CategoryTargetDirectory = process.cwd() + '/src/content/posts'
 
 type Config = {
   language: string
