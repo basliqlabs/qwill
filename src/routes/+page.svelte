@@ -26,6 +26,7 @@
     max-inline-size: var(--t-container-inline-size);
     margin-inline: auto;
     margin-block: var(--ws-8);
+    padding-inline: var(--ws-5);
 
     display: flex;
     flex-direction: column;
