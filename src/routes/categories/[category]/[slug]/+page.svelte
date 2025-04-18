@@ -1,4 +1,7 @@
 <script lang="ts">
+  import './page.css'
+  import { base } from '$app/paths'
+
   const { data } = $props()
   const post = $derived(data.post.meta)
   const content = $derived(data.post.content)
@@ -21,6 +24,16 @@
     document.querySelectorAll('button.copy-code').forEach((btn) => {
       btn.addEventListener('click', handler)
     })
+
+    document.querySelectorAll('img').forEach((img) => {
+      if (img.src.includes('/src')) {
+        img.src = img.src.replace('/src', `${base}/src`)
+      }
+    })
+
+    document.querySelectorAll('span.icon.icon-link').forEach((elm) => {
+      elm.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="M11 17H7q-2.075 0-3.537-1.463T2 12t1.463-3.537T7 7h4v2H7q-1.25 0-2.125.875T4 12t.875 2.125T7 15h4zm-3-4v-2h8v2zm5 4v-2h4q1.25 0 2.125-.875T20 12t-.875-2.125T17 9h-4V7h4q2.075 0 3.538 1.463T22 12t-1.463 3.538T17 17z"/></svg>`
+    })
   })
 </script>
 
@@ -31,13 +44,12 @@
 </svelte:head>
 
 <article>
+  <header>
+    <hgroup>
+      <h1>{post.title}</h1>
+    </hgroup>
+  </header>
   <main>
-    <header>
-      <hgroup>
-        <h1>{post.title}</h1>
-      </hgroup>
-    </header>
-
     {#if content}
       <div class="content">
         <svelte:component this={content} />
@@ -45,117 +57,3 @@
     {/if}
   </main>
 </article>
-
-<style>
-  article {
-    max-inline-size: var(--t-post-article-inline-size);
-    margin-inline: auto;
-    margin-block: var(--ws-10);
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  main {
-    display: grid;
-    grid-template-columns:
-      [extended-start] var(--t-blog-post-gutter-size) [content-start] var(--t-blog-post-gutter-size)
-      [indented-start] var(--t-blog-post-gutter-size) [indented2-start] 1fr [indented2-end] var(
-        --t-blog-post-gutter-size
-      )
-      [indented-end] var(--t-blog-post-gutter-size) [content-end] var(--t-blog-post-gutter-size) [extended-end];
-  }
-
-  header,
-  .content {
-    grid-column: content;
-  }
-
-  header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--ws-5);
-
-    padding-block-end: var(--ws-10);
-  }
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--ws-10);
-
-    :global(section) {
-      display: grid;
-      grid-template-columns:
-        [extended-start] var(--t-blog-post-gutter-size) [content-start] var(
-          --t-blog-post-gutter-size
-        )
-        [indented-start] 1fr [indented-end] var(--t-blog-post-gutter-size) [content-end] var(
-          --t-blog-post-gutter-size
-        )
-        [extended-end] var(--t-blog-post-sidebar-size) [sidebar-end];
-      row-gap: var(--ws-6);
-
-      border-inline-start: 2px solid var(--t-color-border-divider-dim);
-      padding-inline-start: var(--ws-2);
-
-      :global(section) {
-        padding-block-start: var(--ws-6);
-        grid-column: indented-start / sidebar-end;
-      }
-
-      :global(h2, h3, h4, p, ul, ol, blockquote) {
-        grid-column: content;
-      }
-
-      :global(figure, pre) {
-        grid-column: extended;
-      }
-
-      :global(h2, h3, h4) {
-        /*margin-block-end: var(--ws-4);*/
-      }
-
-      :global(ul, ol) {
-        display: flex;
-        flex-direction: column;
-        gap: var(--ws-4);
-        /*margin-block-end: var(--ws-6);*/
-      }
-
-      :global(p) {
-        line-height: var(--line-height-5);
-        /*margin-block-end: var(--ws-4);*/
-      }
-
-      :global(figure) {
-        /*margin-block: var(--ws-8);*/
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: var(--ws-4);
-
-        :global(img) {
-          border-radius: var(--radius-sm);
-        }
-
-        :global(figcaption) {
-          font-size: var(--font-size-4);
-          text-align: center;
-        }
-      }
-
-      :global(pre) {
-      }
-
-      :global(blockquote) {
-        /*grid-column: extended-end / sidebar-end;*/
-        opacity: 0.6;
-        transition: opacity var(--transition-sm) ease-in-out;
-      }
-
-      :global(blockquote:hover) {
-        opacity: 1;
-      }
-    }
-  }
-</style>

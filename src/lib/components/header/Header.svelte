@@ -2,8 +2,19 @@
   import * as m from '$lib/paraglide/messages'
   import SwitchLanguageButton from '../switch-language-button/SwitchLanguageButton.svelte'
   import Anchor from '$lib/components/anchor/Anchor.svelte'
+  import { base } from '$app/paths'
 
   let name = m.site_name()
+
+  $effect(() => {
+    const anchor = document.querySelector('.logo a') as HTMLAnchorElement
+    if (anchor) {
+      const actualHref = anchor.href
+      if (actualHref.endsWith('/')) {
+        anchor.href = actualHref.substring(0, actualHref.length - 1)
+      }
+    }
+  })
 </script>
 
 <header>
@@ -11,7 +22,7 @@
     <div class="logo">
       <Anchor href="/">
         <figure>
-          <img src="/logo.svg" alt="" />
+          <img src="{base}/logo.svg" alt="" />
         </figure>
         <p>{name}</p>
       </Anchor>

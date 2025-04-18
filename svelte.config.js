@@ -6,6 +6,9 @@ import rehypeSlug from 'rehype-slug'
 import { createHighlighter } from 'shiki'
 import toc from '@jsdevtools/rehype-toc'
 import rehypeHighlightLines from 'rehype-highlight-code-lines'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import { rehypeFigure } from './rehype-figure.js'
+
 import {
   transformerNotationDiff,
   transformerNotationErrorLevel,
@@ -31,11 +34,16 @@ const highlighter = await createHighlighter({
   themes: [highlightTheme],
   langs: highlightedLanguages
 })
-
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
   extensions: ['.md'],
-  rehypePlugins: [rehypeSlug, [toc, { headings: ['h2'] }], rehypeHighlightLines],
+  rehypePlugins: [
+    rehypeFigure,
+    rehypeSlug,
+    [toc, { headings: ['h2'] }],
+    rehypeHighlightLines,
+    [rehypeAutolinkHeadings, { behavior: 'append' }]
+  ],
   remarkPlugins: [sectionize],
   highlight: {
     highlighter: async (code, lang = 'text', metastring) => {
@@ -43,6 +51,10 @@ const mdsvexOptions = {
       return `{@html \`${html}\` }`
     }
   }
+}
+
+function getProcess() {
+  return process.argv.includes('dev') ? '/experiences' : '/experiences'
 }
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -57,7 +69,7 @@ const config = {
       'content/*': 'src/content/*'
     },
     paths: {
-      base: process.argv.includes('dev') ? '' : '/experiences'
+      base: getProcess()
     },
     prerender: {
       handleHttpError: 'ignore'
@@ -171,7 +183,7 @@ function setupHighlighter(code, lang, metastring) {
       return html.replace('<pre class="shiki', '<pre class="shiki file-name').replace(
         '<div class="content"',
         `<div class='code-block-file-name'>
-                        <img class="file-name-icon" alt="Downloaded from Icons8" src="${meta.icon}" />
+                        <img class="file-name-icon" alt="Downloaded from Icons8" src="${getProcess()}${meta.icon}" />
                         <span class="file-name-text">${meta.fileName}</span>
                 </div><div class="content"`
       )
@@ -186,7 +198,7 @@ function setupHighlighter(code, lang, metastring) {
         `<div class='code-block-terminal'>
                         <div class="terminal-ui"><div class="terminal-ui-btn-1"></div><div class="terminal-ui-btn-2"></div><div class="terminal-ui-btn-3"></div></div>
                         <div class="terminal-name">
-                        <img class="terminal-icon" alt="Downloaded from Icons8" src="/icons/icons8-bash.svg" />
+                        <img class="terminal-icon" alt="Downloaded from Icons8" src="${getProcess()}/icons/icons8-bash.svg"     />
                         <span class="terminal-text">terminal</span></div>
                 </div><div class="content"`
       )
