@@ -6,13 +6,13 @@ pre {
   direction: ltr;
 
   *::selection {
-    background-color: rgba(101, 117, 133, .20);
+    background-color: var(--t-shiki-color-highlight);
     color: currentColor;
   }
 }
 
 .line.highlighted, .line.diff {
-  background-color: rgba(101, 117, 133, .20);
+  background-color: var(--t-shiki-color-highlight);
   transition: background-color .5s;
   margin: 0 -12px 0 -44px;
   padding: 0 12px 0 44px;
@@ -21,15 +21,15 @@ pre {
 }
 
 .line.highlighted.error, .line.diff.remove {
-  background-color: rgba(244, 63, 94, .20);
+  background-color: var(--t-shiki-color-highlight-danger);
 }
 
 .line.diff.add {
-  background-color: rgba(16, 185, 129, .20);
+  background-color: var(--t-shiki-color-highlight-success);
 }
 
 .line.highlighted.warning {
-  background-color: rgba(234, 179, 8, .20);
+  background-color: var(--t-shiki-color-highlight-warning);
 }
 
 pre.line-numbers .content {
@@ -50,7 +50,7 @@ pre.file-name .code-block-file-name {
   align-items: center;
   gap: var(--ws-2);
 
-  background-color: hsl(from var(--t-color-neutral-100) h s l / 0.05);
+  background-color: var(--t-shiki-color-header-background);
 
   .file-name-icon {
     inline-size: 20px;
@@ -66,7 +66,7 @@ pre.terminal .code-block-terminal {
   grid-template-rows: auto;
   gap: var(--ws-2);
 
-  background-color: hsl(from var(--t-color-neutral-100) h s l / 0.05);
+  background-color: var(--t-shiki-color-header-background);
 
   .terminal-ui {
     grid-column: 1 / 2;
@@ -81,15 +81,15 @@ pre.terminal .code-block-terminal {
     }
 
     .terminal-ui-btn-1{
-      background-color: rgba(244, 63, 94, 1);
+      background-color: var(--t-shiki-color-ui-button-red);
     }
 
     .terminal-ui-btn-2{
-      background-color: rgba(234, 179, 8, 1);
+      background-color: var(--t-shiki-color-ui-button-yellow);
     }
 
     .terminal-ui-btn-3{
-      background-color: rgba(16, 185, 129, 1);
+      background-color: var(--t-shiki-color-ui-button-green);
     }
   }
 
@@ -119,34 +119,34 @@ pre.terminal .code-block-terminal {
 }
 
 .line-number.diff.remove {
-  color: var(--t-color-danger-400);
+  color: var(--t-shiki-color-line-number-danger);
   mix-blend-mode: normal;
   opacity: 1;
 }
 
 
 .line-number.diff.add {
-  color: var(--t-color-success-300);
+  color: var(--t-shiki-color-line-number-success);
   mix-blend-mode: normal;
   opacity: 1;
 }
 
 .highlighted-word {
-  background-color: #202127;;
-  border: 1px solid #3c3f44;
+  background-color: var(--t-shiki-color-word-highlight-background);
+  border: 1px solid var(--t-shiki-color-word-highlight-border);
   padding: 1px 3px;
   margin: -1px -3px;
   border-radius: 4px;
 }
 
 .line.diff.add .highlighted-word {
-  background-color: rgba(16, 185, 129, .20);
-  border-color: rgba(16, 185, 129, .20);
+  background-color: var(--t-shiki-color-highlight-success);
+  border-color: var(--t-shiki-color-highlight-success);
 }
 
 .line.diff.remove .highlighted-word {
-  background-color: rgba(244, 63, 94, .20);
-  border-color: rgba(244, 63, 94, .20);
+  background-color: var(--t-shiki-color-highlight-danger);
+  border-color: var(--t-shiki-color-highlight-danger);
 }
 
 .copy-code {
@@ -154,8 +154,9 @@ pre.terminal .code-block-terminal {
   inset-block-start: 10px;
   inset-inline-end: 10px;
 
+  font-size: var(--font-size-3);
   padding: var(--ws-2);
-  background-color: hsl(from var(--t-color-primary-100) h s l / 0.15);
+  background-color: var(--t-shiki-color-copy-button-background);
   color: var(--t-color-neutral-100);
   outline: none;
   border: none;

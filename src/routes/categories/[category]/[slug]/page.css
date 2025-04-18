@@ -109,7 +109,7 @@ section section section {
 }
 
 .content span.icon.icon-link {
-  opacity: 0.4;
+  opacity: 0.2;
   padding-inline-start: var(--ws-3);
 
   translate: 0 5px;
@@ -129,13 +129,14 @@ section section section {
   gap: var(--ws-6);
 }
 
-.content p code,
-.content li code,
-.content h2 code,
-.content h3 code,
-.content h4 code,
-.content h5 code,
-.content h6 code {
+.content p > code,
+.content span > code,
+.content li > code,
+.content h2 > code,
+.content h3 > code,
+.content h4 > code,
+.content h5 > code,
+.content h6 > code {
   padding-inline: var(--ws-2);
   font-weight: var(--font-weight-bold);
   font-size: 0.8em;
