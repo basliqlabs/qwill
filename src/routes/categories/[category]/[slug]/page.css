@@ -128,3 +128,25 @@ section section section {
   flex-direction: column;
   gap: var(--ws-6);
 }
+
+.content p code,
+.content li code,
+.content h2 code,
+.content h3 code,
+.content h4 code,
+.content h5 code,
+.content h6 code {
+  padding-inline: var(--ws-2);
+  font-weight: var(--font-weight-bold);
+  font-size: 0.8em;
+  border-radius: var(--radius-sm);
+  background-color: var(--t-color-primary-50);
+  border: 1px solid var(--t-color-primary-100);
+  color: var(--t-color-primary-900);
+  transition: all var(--transition-sm) ease-in-out;
+
+  &:hover {
+    background-color: var(--t-color-primary-100);
+    border-color: var(--t-color-primary-200);
+  }
+}
