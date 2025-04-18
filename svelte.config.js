@@ -7,6 +7,8 @@ import { createHighlighter } from 'shiki'
 import toc from '@jsdevtools/rehype-toc'
 import rehypeHighlightLines from 'rehype-highlight-code-lines'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import { rehypeFigure } from './rehype-figure.js'
+
 import {
   transformerNotationDiff,
   transformerNotationErrorLevel,
@@ -36,6 +38,7 @@ const highlighter = await createHighlighter({
 const mdsvexOptions = {
   extensions: ['.md'],
   rehypePlugins: [
+    rehypeFigure,
     rehypeSlug,
     [toc, { headings: ['h2'] }],
     rehypeHighlightLines,

@@ -61,9 +61,10 @@ section section section {
 .content p,
 .content ul,
 .content ol,
-.content blockquote {
+.content blockquote,
+.content img,
+.content .rehype-figure-container {
   grid-column: content;
-  /*border-inline-end: 2px solid var(--t-color-border-divider-dim);*/
 }
 
 .content ul,
@@ -83,11 +84,6 @@ section section section {
   align-items: center;
   gap: var(--ws-4);
   grid-column: extended;
-  scale: 1.02;
-
-  img {
-    border-radius: var(--radius-sm);
-  }
 
   figcaption {
     font-size: var(--font-size-4);
@@ -95,9 +91,12 @@ section section section {
   }
 }
 
+.content img {
+  border-radius: var(--radius-sm);
+}
+
 .content pre {
   grid-column: extended;
-  scale: 1.02;
 }
 
 .content blockquote {
@@ -122,4 +121,10 @@ section section section {
 
 .content span.icon.icon-link:hover {
   opacity: 1;
+}
+
+.content .rehype-figure-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ws-6);
 }

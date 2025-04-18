@@ -199,10 +199,7 @@ if (name === 'atareversei') { // [!code ++]
 استانداردهای کدنویسی در تیم هستن. با فعال‌سازی اجباری کد ریویو برای برنچ‌های اصلی، می‌توان از ادغام کدهای تست نشده یا
 غیراستاندارد جلوگیری کرد.
 
-<figure>
-    <img src="/src/content/posts/presentation/reduce-software-error/github-code-review.webp" alt="عکس کد ریویو در گیت‌هاب" />
-    <figcaption>یک مثال از کد ریویو در گیت‌هاب؛ در این تصویر می‌توان کد قبلی و کد جدید و کامنت فرد ریویوکننده رو مشاهده کرد.</figcaption>
-</figure>
+![یک مثال از کد ریویو در گیت‌هاب؛ در این تصویر می‌توان کد قبلی و کد جدید و کامنت فرد ریویوکننده رو مشاهده کرد.](/src/content/posts/presentation/reduce-software-error/github-code-review.webp)
 
 #### اصول بررسی کد:
 
@@ -502,7 +499,3 @@ func TestRichError_GetKind(t *testing.T) {
 - LogRocket
 
 ## نتیجه‌گیری
-
-```text terminal
-npm install --save-dev react react-dom
-```
