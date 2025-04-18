@@ -6,6 +6,7 @@ import rehypeSlug from 'rehype-slug'
 import { createHighlighter } from 'shiki'
 import toc from '@jsdevtools/rehype-toc'
 import rehypeHighlightLines from 'rehype-highlight-code-lines'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import {
   transformerNotationDiff,
   transformerNotationErrorLevel,
@@ -31,11 +32,15 @@ const highlighter = await createHighlighter({
   themes: [highlightTheme],
   langs: highlightedLanguages
 })
-
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
   extensions: ['.md'],
-  rehypePlugins: [rehypeSlug, [toc, { headings: ['h2'] }], rehypeHighlightLines],
+  rehypePlugins: [
+    rehypeSlug,
+    [toc, { headings: ['h2'] }],
+    rehypeHighlightLines,
+    [rehypeAutolinkHeadings, { behavior: 'append' }]
+  ],
   remarkPlugins: [sectionize],
   highlight: {
     highlighter: async (code, lang = 'text', metastring) => {
