@@ -3,14 +3,15 @@ title: "Formal Methods vs. Plain Text Descriptions in Software Engineering"
 description: "In software engineering, how we define system behavior can make the difference between a reliable application and one riddled with bugs."
 ---
 
-:::
-stuff
-:::
-
 ## Introduction
 
 In software engineering, how we define system behavior can make the difference between a reliable application and one
 riddled with bugs. Two common approaches are:
+
+:::
+**Hey**
+stuff
+:::
 
 1. Plain text descriptions (natural language, user stories).
 2. Formal methods (mathematical modeling, logic-based specifications).

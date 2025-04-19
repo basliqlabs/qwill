@@ -75,6 +75,8 @@ section section section {
 .content aside,
 .content .sidebar {
   grid-column: extended-end / sidebar-end;
+  font-size: var(--font-size-6);
+  line-height: var(--line-height-5);
 }
 
 .content ul,
@@ -221,4 +223,8 @@ section section section {
   ul li::marker, ol li::marker {
     color: var(--rc-color-light);
   }
+}
+
+.display-none {
+  display: none;
 }
