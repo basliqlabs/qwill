@@ -3,6 +3,10 @@ title: "Formal Methods vs. Plain Text Descriptions in Software Engineering"
 description: "In software engineering, how we define system behavior can make the difference between a reliable application and one riddled with bugs."
 ---
 
+:::
+stuff
+:::
+
 ## Introduction
 
 In software engineering, how we define system behavior can make the difference between a reliable application and one
@@ -22,10 +26,16 @@ Plain text descriptions use natural language to define requirements. Examples:
 
 An example would be:
 
-> [!warning] Text Description 
+> [!caution] Text Description 
 > When the `switch` is pressed:
 > - If the light is off, it turns on.
 > - If the light is on, it turns off.
+> ```js
+> const name = 12;
+> ```
+> > [!note] A note
+> > haha
+> 
 > Initial state: off.
 
 
@@ -38,6 +48,10 @@ Formal methods use mathematical logic to specify and verify systems. Examples:
 - **Alloy** (lightweight modeling)
 - **TLA+** (for distributed systems)
 - **Z notation** (rigorous specs)
+
+<div class="sidebar">
+    Formal methods use mathematical logic to specify and verify systems. Examples:
+</div>
 
 ### Example: Light Switch in Alloy
 

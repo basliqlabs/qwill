@@ -9,6 +9,7 @@ import rehypeHighlightLines from 'rehype-highlight-code-lines'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import { rehypeFigure } from './rehype-figure.js'
 import rehypeCallouts from 'rehype-callouts'
+import { remarkAside } from './remark-aside.js'
 
 import {
   transformerNotationDiff,
@@ -46,7 +47,7 @@ const mdsvexOptions = {
     [rehypeAutolinkHeadings, { behavior: 'append' }],
     [rehypeCallouts, { theme: 'github' }]
   ],
-  remarkPlugins: [sectionize],
+  remarkPlugins: [sectionize, remarkAside],
   highlight: {
     highlighter: async (code, lang = 'text', metastring) => {
       const html = setupHighlighter(code, lang, metastring)

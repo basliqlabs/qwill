@@ -499,3 +499,10 @@ func TestRichError_GetKind(t *testing.T) {
 - LogRocket
 
 ## نتیجه‌گیری
+
+
+:::
+```js
+code
+```
+:::

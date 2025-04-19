@@ -1,7 +1,6 @@
 article {
   margin-inline: auto;
   max-inline-size: var(--t-post-article-inline-size);
-  margin-block: var(--ws-10);
   padding-inline: var(--ws-4);
 }
 
@@ -71,6 +70,11 @@ section section section {
 .content .rehype-figure-container,
 .content .callout {
   grid-column: content;
+}
+
+.content aside,
+.content .sidebar {
+  grid-column: extended-end / sidebar-end;
 }
 
 .content ul,
@@ -194,6 +198,13 @@ section section section {
 .content .callout {
   padding-block: 1rem;
   border-left-width: 5px;
+  background-color: color-mix(in srgb, var(--rc-color-light) 4%, transparent 96%);
+  border-start-end-radius: var(--radius-md);
+  border-end-end-radius: var(--radius-md);
+
+  .callout {
+    margin-block-start: var(--ws-5);
+  }
 
   .callout-title {
     align-items: center;
@@ -201,11 +212,9 @@ section section section {
     font-size: var(--font-size-6);
     font-weight: var(--font-weight-bold);
   }
-}
 
-.content .callout {
-  ::selection {
-    background-color: color-mix(in srgb, var(--rc-color-light) 5%, transparent 95%);
+  :not(pre, span.line > span, .copy-code)::selection {
+    background-color: color-mix(in srgb, var(--rc-color-light) 7%, transparent 93%);
     color: var(--rc-color-light);
   }
 
