@@ -8,6 +8,7 @@ import toc from '@jsdevtools/rehype-toc'
 import rehypeHighlightLines from 'rehype-highlight-code-lines'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import { rehypeFigure } from './rehype-figure.js'
+import rehypeCallouts from 'rehype-callouts'
 
 import {
   transformerNotationDiff,
@@ -42,7 +43,8 @@ const mdsvexOptions = {
     rehypeSlug,
     [toc, { headings: ['h2'] }],
     rehypeHighlightLines,
-    [rehypeAutolinkHeadings, { behavior: 'append' }]
+    [rehypeAutolinkHeadings, { behavior: 'append' }],
+    [rehypeCallouts, { theme: 'github' }]
   ],
   remarkPlugins: [sectionize],
   highlight: {

@@ -2,5 +2,5 @@
 	"display_title": "Presentations",
 	"description": "Presentation content written as blog posts.",
 	"cover_image": null,
-	"archive": true
+	"archive": false
 }
