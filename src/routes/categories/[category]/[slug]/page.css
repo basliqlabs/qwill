@@ -75,8 +75,20 @@ section section section {
 .content aside,
 .content .sidebar {
   grid-column: extended-end / sidebar-end;
-  font-size: var(--font-size-6);
   line-height: var(--line-height-5);
+  padding-inline-start: var(--ws-5);
+  opacity: 0.7;
+  transition: opacity var(--transition-sm) ease-in-out;
+  font-size: var(--font-size-4);
+
+  p, li, a {
+    font-size: inherit;
+  }
+
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .content ul,
