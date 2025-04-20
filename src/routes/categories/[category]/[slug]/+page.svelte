@@ -46,7 +46,7 @@
 <article>
   <header>
     <hgroup>
-      <h1>{post.title}</h1>
+      <h1 class="blog-title">{post.title}</h1>
     </hgroup>
   </header>
   <main>

@@ -493,9 +493,23 @@ func TestRichError_GetKind(t *testing.T) {
 
 حتی با تمام این تدابیر، برخی خطاها فقط در محیط تولید ظاهر میشون. ابزارهای مانیتورینگ:
 
+:::
+
+- تست یک
+- تست دو
+
+:::
+
 - Sentry
 - Datadog
 - New Relic
 - LogRocket
 
 ## نتیجه‌گیری
+
+
+:::
+```js
+code
+```
+:::
