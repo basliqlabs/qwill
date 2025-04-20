@@ -13,7 +13,8 @@
     const nextLanguage = availableLanguageTags[nextLanguageIndex]
     const canonicalPath = i18n.route(page.url.pathname)
     const localizedPath = i18n.resolveRoute(canonicalPath, nextLanguage)
-    goto(localizedPath)
+    // @ts-expect-error: TODO: find a solution for the mismatch of types
+    window.location = localizedPath
   }
 </script>
 
