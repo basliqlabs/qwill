@@ -66,7 +66,6 @@ export function remarkAside(options) {
 
           for (let i = 0; i < node.children.length; i++) {
             const el = node.children[i]
-            console.log('el', el)
             if (typeof el.value === 'string' && el.type === 'text' && el.value.includes(':::')) {
               counter++
 
@@ -78,9 +77,6 @@ export function remarkAside(options) {
           }
 
           if (counter !== 2) return
-
-          console.log('NODE', node)
-          console.log('brrrrrrrrr')
 
           if (counter === 2) {
             const nodes = []

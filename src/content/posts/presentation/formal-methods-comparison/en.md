@@ -125,8 +125,7 @@ Formal methods use mathematical logic to specify and verify systems.
 
 > [!note] Formal Method Example
 > Activity diagram (though UML is not exactly formal) for the textual description mentioned above:
-> <br />
-> <img src="/src/content/posts/presentation/formal-methods-comparison/activity-diagram.webp" />
+> <img src="/images/formal-methods-activity-diagram.webp" alt="activity diagram" />
 
 ```go
 package main

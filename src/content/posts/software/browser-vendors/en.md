@@ -55,12 +55,7 @@ we can add another 5% to the percentage above?
 Safari always the top three browsers that your target audience uses? In the image below you can see stats for my local
 browser market share that I have taken from [gs.statcounter.com](https://gs.statcounter.com).
 
-<figure>
-    <img alt="gstat browser market share in Iran" src="/src/content/posts/software/browser-vendors/gstat.png" />
-    <figcaption>
-        Browser market share in Iran (Nov 2022 - Nov 2023)
-    </figcaption>
-</figure>
+![Browser market share in Iran (Nov 2022 - Nov 2023)](/images/browser-vendors-gstat.png)
 
 You can see that Samsung Internet Browser holds the second position. I bet many developers (including me before seeing
 this) didn't test their web application against this browser because it went unnoticed.

@@ -107,6 +107,14 @@ section section section {
   line-height: var(--line-height-5);
 }
 
+.content p + p {
+  padding-block-start: var(--ws-5);
+}
+
+.content pre + :is(p, ul, ol, figure) {
+  padding-block-start: var(--ws-6);
+}
+
 .content figure {
   display: flex;
   flex-direction: column;
