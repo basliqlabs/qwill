@@ -1,6 +1,7 @@
 <script lang="ts">
   import './page.css'
   import { base } from '$app/paths'
+  import { i18n } from '$lib/i18n'
 
   const { data } = $props()
   const post = $derived(data.post.meta)
@@ -61,12 +62,23 @@
     const threshold = 50
 
     function handleSwipe() {
-      if (touchEndX < touchStartX - threshold) {
-        showSidebarOnMobile = true
-      }
+      const dir = i18n.config.textDirection[i18n.config.runtime.languageTag()]
+      if (dir === 'ltr') {
+        if (touchEndX < touchStartX - threshold) {
+          showSidebarOnMobile = true
+        }
 
-      if (touchEndX > touchStartX + threshold) {
-        showSidebarOnMobile = false
+        if (touchEndX > touchStartX + threshold) {
+          showSidebarOnMobile = false
+        }
+      } else {
+        if (touchEndX > touchStartX + threshold) {
+          showSidebarOnMobile = true
+        }
+
+        if (touchEndX < touchStartX - threshold) {
+          showSidebarOnMobile = false
+        }
       }
     }
   })

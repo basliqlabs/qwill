@@ -21,20 +21,30 @@
   const categoryId = $derived(page.params.category)
 </script>
 
-<div class="header">
-  <h1>{info.display_title}</h1>
-  <p class="description">{info.description}</p>
-</div>
+<div class="container">
+  <div class="header">
+    <h1>{info.display_title}</h1>
+    <p class="description">{info.description}</p>
+  </div>
 
-<div class="post-list">
-  {#each posts as post}
-    <BlogPostCard {post} />
-  {/each}
-</div>
+  <div class="post-list">
+    {#each posts as post}
+      <BlogPostCard {post} />
+    {/each}
+  </div>
 
-<Pagination {totalPages} currentPage={pageNumber} baseLink={`/categories/${categoryId}/list`} />
+  <Pagination {totalPages} currentPage={pageNumber} baseLink={`/categories/${categoryId}/list`} />
+</div>
 
 <style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ws-8);
+
+    padding-inline: var(--ws-5);
+  }
+
   .header {
     display: flex;
     flex-direction: column;

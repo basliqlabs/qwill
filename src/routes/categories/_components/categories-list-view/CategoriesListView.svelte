@@ -14,19 +14,29 @@
   const totalPages = $derived(categories.totalPages)
 </script>
 
-<div class="header">
-  <h1>{m.header_categories()}</h1>
-</div>
+<div class="container">
+  <div class="header">
+    <h1>{m.header_categories()}</h1>
+  </div>
 
-<div class="category-list">
-  {#each categoriesList as category}
-    <CategoryCard {category} />
-  {/each}
+  <div class="category-list">
+    {#each categoriesList as category}
+      <CategoryCard {category} />
+    {/each}
+  </div>
 </div>
 
 <Pagination {totalPages} currentPage={1} baseLink="/categories/list" />
 
 <style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ws-8);
+
+    padding-inline: var(--ws-5);
+  }
+
   .header {
     display: flex;
     flex-direction: column;

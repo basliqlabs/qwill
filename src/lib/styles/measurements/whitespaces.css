@@ -15,3 +15,11 @@
   --ws-14: 19.2rem;
   --ws-15: 25.6rem;
 }
+
+:root[dir='rtl'] {
+  --translate-x-direction: 1;
+}
+
+:root[dir='ltr'] {
+  --translate-x-direction: -1;
+}
