@@ -20,3 +20,10 @@ body {
 code {
 	font-family: var(--font-family-code), monospace;
 }
+
+
+@media screen and (max-width: 500px) {
+	html {
+		font-size: 50%;
+	}
+}
