@@ -1,3 +1,3 @@
 export function getBasePath() {
-  return process.argv.includes('dev') ? '' : '/experiences'
+  return process.argv.includes('dev') ? '' : '/qwill'
 }
