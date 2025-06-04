@@ -85,6 +85,9 @@ export default config
 function setupHighlighter(code, lang, metastring) {
   const fileNameKey = 'fileName'
   const terminalKey = 'terminal'
+  const noLineNumberKey = 'noLineNumber'
+  const noCopyKey = 'noCopy'
+
   const extIcon = {
     c: '/icons/icons8-c.svg',
     cpp: '/icons/icons8-cpp.svg',
@@ -111,17 +114,19 @@ function setupHighlighter(code, lang, metastring) {
   const meta = getMeta(metastring)
   const lineNumbers = getLines(code, meta)
   let html = getHtml(highlighter, code, lang, highlightTheme)
-  html = addLineNumbersToHtml(html, lineNumbers)
+  html = addLineNumbersToHtml(html, lineNumbers, meta)
   html = addFileNameToHtml(html, meta)
   html = addTerminalHeader(html, meta)
   html = highlightTerminal(html, code, meta)
-  html = addCopyButton(html, code)
+  html = addCopyButton(html, code, meta)
   return escapeSvelte(html)
 
   function getMeta(meta) {
     let fileName = ''
     let icon = ''
     let terminal = false
+    let noLineNumber = false
+    let noCopy = false
 
     if (meta) {
       const metaParts = meta.split(' ')
@@ -129,6 +134,10 @@ function setupHighlighter(code, lang, metastring) {
         if (!m) continue
 
         if (m === terminalKey) terminal = true
+
+        if (m === noLineNumberKey) noLineNumber = true
+
+        if (m === noCopyKey) noCopy = true
 
         if (m.startsWith(fileNameKey)) {
           fileName = m.substring(10, m.length - 1)
@@ -138,7 +147,7 @@ function setupHighlighter(code, lang, metastring) {
       }
     }
 
-    return { fileName, icon, terminal }
+    return { fileName, icon, terminal, noLineNumber, noCopy }
   }
 
   function getHtml(highlighter, code, lang, theme) {
@@ -169,7 +178,13 @@ function setupHighlighter(code, lang, metastring) {
       .join('\n')
   }
 
-  function addLineNumbersToHtml(html, lineNumbers) {
+  function addLineNumbersToHtml(html, lineNumbers, meta) {
+    if (meta.noLineNumber) {
+      return html
+        .replace('<pre class="shiki', `<pre class="shiki no-line-numbers`)
+        .replace('<code>', `<div class="content"><code>`)
+        .replace('</code>', '</code></div>')
+    }
     return html
       .replace('<pre class="shiki', `<pre class="shiki line-numbers`)
       .replace(
@@ -249,7 +264,8 @@ function setupHighlighter(code, lang, metastring) {
       .replace(/'/g, '&#039;')
   }
 
-  function addCopyButton(html, code) {
+  function addCopyButton(html, code, meta) {
+    if (meta.noCopy) return html
     html = html.replace(
       '</pre>',
       `<button data-code="${escapeHtml(code)}" class="copy-code">copy</button>`

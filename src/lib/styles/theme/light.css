@@ -4,7 +4,8 @@
 // properly if something goes wrong.
 */
 
-:root, :root[data-theme='basliq-light'] {
+:root,
+:root[data-theme='basliq-light'] {
   --t-color-primary-50: var(--raw-color-violet-50);
   --t-color-primary-100: var(--raw-color-violet-100);
   --t-color-primary-200: var(--raw-color-violet-200);
@@ -63,7 +64,11 @@
   --t-color-shadow-distant: color-mix(in hsl, var(--t-color-neutral-900) 5%, transparent);
 
   --t-opacity-popover: 90%;
-  --t-color-popover-bg: color-mix(in hsl, var(--t-color-neutral-900) var(--t-opacity-popover), transparent);
+  --t-color-popover-bg: color-mix(
+    in hsl,
+    var(--t-color-neutral-900) var(--t-opacity-popover),
+    transparent
+  );
   --t-color-text-popover: var(--t-color-neutral-100);
 
   --t-header-background-color: hsl(from var(--t-color-primary-50) h s l / 0.8);
@@ -87,7 +92,7 @@
   --t-shiki-color-neutral: rgba(101, 117, 133, var(--t-shiki-color-opacity));
   --t-shiki-color-danger: rgba(244, 63, 94, var(--t-shiki-color-opacity));
   --t-shiki-color-success: rgba(16, 185, 129, var(--t-shiki-color-opacity));
-  --t-shiki-color-warning: rgba(16, 185, 129, var(--t-shiki-color-opacity));
+  --t-shiki-color-warning: rgba(234, 179, 8, var(--t-shiki-color-opacity));
   --t-shiki-color-word-highlight-background: hsl(231, 10%, 14%);
   --t-shiki-color-word-highlight-border: hsl(218, 6%, 25%);
   --t-shiki-color-highlight: var(--t-shiki-color-neutral);
@@ -96,11 +101,9 @@
   --t-shiki-color-highlight-warning: var(--t-shiki-color-warning);
   --t-shiki-color-line-number-danger: var(--t-color-danger-400);
   --t-shiki-color-line-number-success: var(--t-color-success-300);
-  --t-shiki-color-header-background: hsl(from var(--t-color-neutral-100) h s l / 0.05);;
+  --t-shiki-color-header-background: hsl(from var(--t-color-neutral-100) h s l / 0.05);
   --t-shiki-color-ui-button-red: rgba(244, 63, 94, 1);
   --t-shiki-color-ui-button-yellow: rgba(234, 179, 8, 1);
   --t-shiki-color-ui-button-green: rgba(16, 185, 129, 1);
   --t-shiki-color-copy-button-background: hsl(from var(--t-color-primary-100) h s l / 0.15);
-
 }
-

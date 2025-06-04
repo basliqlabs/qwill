@@ -1,12 +1,12 @@
 ---
-title: "ارائه کاهش خطاهای نرم‌افزاری: راه‌کارهای عملی برای توسعه پایدار"
-description: "در دنیای توسعه نرم‌افزار، خطاها و باگ‌ها اجتناب‌ناپذیر هستند، اما با اتخاذ روش‌ها و ابزارهای مناسب می‌توان میزان و تأثیر آن‌ها را به حداقل رساند. در این مقاله جامع، به بررسی استراتژی‌های مختلف برای کاهش خطاهای نرم‌افزاری می‌پردازیم."
+title: 'ارائه کاهش خطاهای نرم‌افزاری: راه‌کارهای عملی برای توسعه پایدار'
+description: 'در دنیای توسعه نرم‌افزار، خطاها و باگ‌ها اجتناب‌ناپذیر هستند، اما با اتخاذ روش‌ها و ابزارهای مناسب می‌توان میزان و تأثیر آن‌ها را به حداقل رساند. در این مقاله جامع، به بررسی استراتژی‌های مختلف برای کاهش خطاهای نرم‌افزاری می‌پردازیم.'
 publishDate: '8 Apr 2025'
 updatedDate: null
 coverImage: null
 series: null
-collections: [ 'presentation', 'software', 'test', 'lint' ]
-authors: [ 'atareversei' ]
+collections: ['presentation', 'software', 'test', 'lint']
+authors: ['atareversei']
 draft: false
 outdated: false
 external: false
@@ -64,8 +64,9 @@ Production Environment) جلوگیری کرد. برای پروژه‌های کو
 
 اگه خیلی ساده بخوام زبان‌ها رو از لحاظ داشتن تایپ دسته‌بندی کنم و روح طراحان زبان رو هم نخراشم، میتونم بگم یک سری از
 زبان‌ها سیستم تایپشون داینامیکه (dynamically typed) و یه سری هم تایپشون استاتیکه (statically typed). تایپ داینامیک یعنی
-اینکه متغیر تایپ نداره و عملا میتونه هر نوع داده‌ای باشه ولی توی استاتیک، این تایپ‌ها باید زمان اجرا مشخص باشن، یا حداقل
-موقع ران‌تایم چک بشن.
+اینکه متغیر تایپ صریحی نداره و عملا میتونه به صورت ضمنی هر نوع داده‌ای باشه ولی توی استاتیک، این تایپ‌ها باید در زمان کامپایل به صورت صریح مشخص شده باشن.
+
+برای مثال زبان پایتون، زبانی داینامیک و زبان جاوا زبانی استاتیک است.
 
 ```python fileName="example.py"
 name = "amirata"
@@ -75,8 +76,8 @@ name = True
 
 ```java fileName="example.java"
 public String name = "amirata";
-name = 12; // [!code error]
-name = true; // [!code error]
+name = 12; // name is of type String, we can't assign a value of type Integer to it // [!code error]
+name = true; // name is of type String, we can't assign a value of type Boolean to it // [!code error]
 ```
 
 این قسمت رو عاشقان پایتون و جاوااسکریپت از من نشنیده بگیرن، ولی بهتره که واسه پروژه‌های بزرگ از زبانی استفاده کنیم که یه
@@ -85,22 +86,22 @@ name = true; // [!code error]
 
 ```js fileName="popup.js"
 function displayPopup(config) {
-    if (config.name === 'warning') {
-        config.display_duration = 12_000;
-    } else {
-        cconfig.display_duration = false;
-    }
-    config.data = undefined;
-    // ...
+  if (config.name === 'warning') {
+    config.display_duration = 12_000
+  } else {
+    cconfig.display_duration = false
+  }
+  config.data = undefined
+  // ...
 }
 ```
 
 این قطعه کد برگرفته از یه تجربه واقعیه. من توی یکی از پروژه‌هایی که بودم توی اولین تسکم به این مورد برخوردم و بعدها
-فهمیدم این کد پونزده سال پیش‌تر از زمان این تجربه، نوشته شده بود. حالا جدای بحث اینکه توی فیلد `name` چه رشته‌هایی
+فهمیدم این کد پونزده سال پیش‌تر از زمان این اتفاق، نوشته شده بود. حالا جدای بحث اینکه توی فیلد `name` چه رشته‌هایی
 میتونن قرار بگیرن و بر چه معیاری باید پترن مچینگ کنیم و اینکه `display_duration` چرا هم مقدار `false` داره و هم عدد، بحث
 مهم‌تر این بود که چرا فیلد `data` رو مساوی `undefined` قرار میدیم؟ **جواب دادن به این سوال سه ماه طول کشید** و **آخر سر
 هم کاملا مطمئن نشدیم** که با تغییر دادن اون آیا دچار مشکل میشیم حین اجرا یا نه، مشکلاتی از این دسته که تو پروژه‌های بزرگ
-مشکل‌آفرین میشه.
+مشکل‌آفرین میشه، نمی‌تونیم با اطمینان کامل بفهمیم که یک متغیر داخل خودش، داده‌‌هایی از چه جنس رو ذخیره می‌کنه.
 
 ## لینتینگ (Linting) و فرمتینگ (Formatting)
 
@@ -108,7 +109,13 @@ function displayPopup(config) {
 
 لینترها ابزارهایی هستن که کد رو از نظر خطاهای نحوی، الگوهای مشکوک، و نقض استانداردهای کدنویسی بررسی می‌کنن. این ابزارها
 به توسعه‌دهنده‌ها کمک می‌کنن تا مشکلات بالقوه رو قبل از اجرای کد شناسایی کنن، کیفیت کد را بهبود ببخشن و از باگ‌های رایج
-جلوگیری نمایند. با پیشرفت کامپایلرها و مفسرها، نیاز به لینترها کم‌تر حس می‌شه.
+جلوگیری کنن و در نهایت باعث یک‌دست شدن کد بشن.
+
+:::
+
+البته با پیشرفت کامپایلرها و مفسرها، نیاز به لینترها و فرمترها کم‌تر حس می‌شه.
+
+:::
 
 #### ابزارهای لینتینگ
 
@@ -116,36 +123,38 @@ function displayPopup(config) {
 - **Pylint**: برای پایتون
 - **Checkstyle**: برای جاوا
 
-#### مزایای لینتینگ:
+#### نمونه تنظیمات و نحوه کارکرد ESLint:
 
-- شناسایی خطاهای نحوی قبل از اجرا
-- اعمال استانداردهای کدنویسی
-- یک‌دست کردن سبک کدنویسی در تیم
-
-#### نمونه تنظیمات ESLint:
+برای مثال در قطعه کد زیر، `ESLint` کانفیگ شده تا به متغیرهای تعریف‌شده ولی استفاده‌نشده خطا بده و به استفاده از `console` هم اخطار نشون بده.
 
 ```javascript fileName="example.js" copy
 module.exports = {
-    rules: {
-        'no-console': 'warn', // [!code highlight]
-        'no-unused-vars': 'error', // [!code highlight]
-        'import/prefer-default-export': 'off',
-    },
-};
-
+  rules: {
+    'no-console': 'warn', // [!code highlight]
+    'no-unused-vars': 'error', // [!code highlight]
+    'import/prefer-default-export': 'off'
+  }
+}
 
 // Example
-let name = "atereversei";
-let studies = "ce" // no-unused-vars // [!code error]
+let name = 'atereversei'
+let studies = 'ce' // no-unused-vars // [!code error]
 
 console.log() // no-console // [!code warning]
 ```
+
+:::
+
+[مستندات ESLint](https://eslint.org/docs/latest/). البته لازم نیست برای پروژه‌های خودمون بشینیم و تمامی Ruleها رو بخونیم و کانفیگشون بکنیم.
+تیم‌های نرم‌افزاری تو شرکت‌‌های بزرگ مثل گوگل و فیسبوک و بقیه، برای پروژه‌های خودشون پلاگین‌های ESLintی آماده کردن که مجموعه‌از از قوانین و کافیگ‌هایی هست که از نظر اونا درسته و ما هم میتونیم از اونا استفاده کنیم.
+
+:::
 
 ### فرمتینگ
 
 فرمترها ابزارهایی هستن که به طور خودکار ساختار و ظاهر کد شما رو بر اساس استانداردهای مشخصی مرتب می‌کنن. این ابزارها
 مواردی مانند فاصله‌گذاری، ترتیب ایمپورت‌ها، شکستن خطوط بلند، و سبک نوشتاری کد را یکپارچه می‌کنن تا کد تمیزتر و خواناتر
-بشه.
+بشه. فرمترها هیچ تاثیری در منطق برنامه ندارن، فقط باعث افزایش خوانایی می‌شن تا ما برنامه‌نویس‌های انسان، کم‌تر دچار خطا بشیم.
 
 #### ابزارهای محبوب:
 
@@ -153,40 +162,49 @@ console.log() // no-console // [!code warning]
 - **Black**: برای پایتون
 - **gofmt**: برای گولنگ
 
-#### چرا فرمتینگ مهمه؟
-
-- کاهش اختلاف نظرهای بی‌اهمیت در تیم
-- خوانایی بهتر کد
-- جلوگیری از commitهای غیرضروری فقط برای تغییر فرمت
-
 #### نمونه تنظیمات Prettier:
+
+در قطعه کد زیر با کانفیگ کردن Prettier، کد رو از لحاظ استایل نوشتاری یک‌دست می‌کنیم. برای مثال فاصله‌ تورفتگی داخل بلاک کد مثل `if` و `for` رو دو واحد در نظر می‌گیریم، برای رشته‌ها، همیشه از Single Quotation استفاده می‌کنیم و از آخر خط‌ها هم Semicolon رو بر می‌داریم.
 
 ```js fileName="prettier.config.js"
 const prettierRc = {
-    printWidth: 80,
-    useTabs: false,
-    tabWidth: 2, // [!code highlight]
-    semi: true, // [!code highlight]
-    singleQuote: true, // [!code highlight]
-    bracketSpacing: false,
-    trailingComma: "es5",
-    arrowParens: "always",
+  printWidth: 80,
+  useTabs: false,
+  tabWidth: 2, // [!code highlight]
+  semi: false, // [!code highlight]
+  singleQuote: true, // [!code highlight]
+  bracketSpacing: false,
+  trailingComma: 'es5',
+  arrowParens: 'always'
 }
-
 
 // Example
 
 // inconsistent formatting
-if (name === 'atareversei') { // [!code --]
-    name = "ata" // [!code --]
+<!-- prettier-ignore --> // haha you didn't see this (👉ﾟヮﾟ)👉
+if (name === "atareversei") { // [!code --]
+    name = 'ata'; // [!code --]
 } // [!code --]
 
 // consistent formatting
 if (name === 'atareversei') { // [!code ++]
-    name = 'ata'; // [!code ++]
-} // [!code ++] 
-
+  name = 'ata' // [!code ++]
+} // [!code ++]
 ```
+
+:::
+
+[مستندات Prettier](https://prettier.io/docs/). این ابزار به صورت دیفالت، پیش‌فرض‌های مناسبی داره و می‌تونید حتی بدون کانفیگ کردنش هم، کلی ازش بهره ببرید.
+
+---
+
+```text noCopy noLineNumber
+<!-- prettier-ignore -->
+```
+
+علت این خط کد اینه که خود Prettier، موقع نوشتن این مقاله کدی که برای مثال نوشتم رو فرمت می‌کنه و به شکل پایینی درش میاره و عملا نمی‌تونم کد با فرمت ناصحیح بنویسم. برای همین به اندازه یه کد بلاک غیرفعالش می‌کنم :)
+
+:::
 
 ## کنترل ورژن با Git و GitHub
 
@@ -245,7 +263,7 @@ if (name === 'atareversei') { // [!code ++]
 # the code before getting merged:
 
 # @team-lead @senior-dev @frontend-team // [!code highlight]
- 
+
 ```
 
 ### یکپارچه‌سازی و تحویل مستمر (CI/CD) با استفاده از گیت‌هاب
@@ -261,7 +279,7 @@ if (name === 'atareversei') { // [!code ++]
 ```yaml fileName="deploy.yaml"
 name: CI Pipeline
 
-on: [ push, pull_request ]
+on: [push, pull_request]
 
 jobs:
   test:
@@ -317,22 +335,19 @@ describe('generateQueryParams', () => {
       goal: 'handles basic usage'
     },
     {
-      data: {queryParams: {}},
+      data: { queryParams: {} },
       expected: '',
-      goal: 'handles empty objects',
-    },
+      goal: 'handles empty objects'
+    }
     // other test cases...
-  ];
+  ]
 
   testCases.forEach((tc) => {
-    it(`returns '${tc.expected}' for input of ${tc.data.queryParams}`,
-      () => {
-        expect(generateQueryParams(tc.data.queryParams))
-          .toBe(tc.expected);
-      });
-  });
-});
-
+    it(`returns '${tc.expected}' for input of ${tc.data.queryParams}`, () => {
+      expect(generateQueryParams(tc.data.queryParams)).toBe(tc.expected)
+    })
+  })
+})
 ```
 
 #### تست یکپارچگی (Integration Tests)
@@ -345,38 +360,38 @@ describe('generateQueryParams', () => {
 
 ```tsx fileName="UserList.test.tsx"
 it('should handle adding a new user', async () => {
-  render(<UserList/>);
+  render(<UserList />)
 
-  await screen.findByText('Ata');
+  await screen.findByText('Ata')
 
-  userEvent.type(screen.getByLabelText(/name/i), 'Javad Vaseghi');
-  userEvent.type(screen.getByLabelText(/email/i), 'j.vas@t.com');
-  userEvent.click(screen.getByRole('button', {name: /add user/i}));
+  userEvent.type(screen.getByLabelText(/name/i), 'Javad Vaseghi')
+  userEvent.type(screen.getByLabelText(/email/i), 'j.vas@t.com')
+  userEvent.click(screen.getByRole('button', { name: /add user/i }))
 
   await waitFor(() => {
-    expect(screen.getByText('Javad Vaseghi')).toBeInTheDocument();
-  });
-});
+    expect(screen.getByText('Javad Vaseghi')).toBeInTheDocument()
+  })
+})
 ```
 
 ```tsx fileName="UserList.tsx"
 const UserList = () => {
   const handleAddUser = async (e) => {
-    e.preventDefault();
-    const response = await fetch(`${API_BASE_URL}/users`, { /* [!code highlight]*/
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(newUser),
-    });
+    e.preventDefault()
+    const response = await fetch(`${API_BASE_URL}/users`, {
+      /* [!code highlight]*/ method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newUser)
+    })
   }
 
   return (
     <div>
       <form>
-        <label htmlFor='name'>Name</label> {/*[!code highlight:5]*/}
-        <input name='name'/>
-        <label htmlFor='email'>Email</label>
-        <input name='email'/>
+        <label htmlFor="name">Name</label> {/*[!code highlight:5]*/}
+        <input name="name" />
+        <label htmlFor="email">Email</label>
+        <input name="email" />
         <button onClick={() => handleAddUser()}>Add User</button>
       </form>
 
@@ -387,21 +402,21 @@ const UserList = () => {
 ```
 
 ```js fileName="mocks.js"
-import {rest} from 'msw';
+import { rest } from 'msw'
 
 export const handlers = [
-    rest.get(`${API_BASE_URL}/users`, (req, res, ctx) => {
-        return res(ctx.json([]));
-    }),
-];
+  rest.get(`${API_BASE_URL}/users`, (req, res, ctx) => {
+    return res(ctx.json([]))
+  })
+]
 ```
 
 ```js fileName="jest.config.js"
-import {server} from './mocks/server';
+import { server } from './mocks/server'
 
-beforeAll(() => server.listen());
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
+beforeAll(() => server.listen())
+afterEach(() => server.resetHandlers())
+afterAll(() => server.close())
 ```
 
 #### تست end-to-end (E2E)
@@ -419,30 +434,30 @@ afterAll(() => server.close());
 اون رو در شرایط گوناگون بررسی کنیم.
 
 ```tsx fileName="AsyncButton.story.tsx"
-import {Meta, StoryObj} from '@storybook/react';
-import {fn} from '@storybook/test';
-import {l} from '@/languages/language';
-import {AsyncButton} from './AsyncButton';
+import { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
+import { l } from '@/languages/language'
+import { AsyncButton } from './AsyncButton'
 
 const meta: Meta<typeof AsyncButton> = {
   title: 'Async Button',
   component: AsyncButton,
   tags: ['autodocs'],
   args: {
-    clickHandler: fn(),
-  },
-};
+    clickHandler: fn()
+  }
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof AsyncButton>;
+type Story = StoryObj<typeof AsyncButton>
 
 export const States: Story = {
   args: {
     fullWidth: false,
-    children: l.publ.auth.loginSubmitButton,
-  },
-};
+    children: l.publ.auth.loginSubmitButton
+  }
+}
 ```
 
 ### تست‌های بک‌اند
@@ -507,9 +522,10 @@ func TestRichError_GetKind(t *testing.T) {
 
 ## نتیجه‌گیری
 
-
 :::
+
 ```js
 code
 ```
+
 :::

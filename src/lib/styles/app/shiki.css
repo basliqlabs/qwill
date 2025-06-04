@@ -11,16 +11,18 @@ pre {
   }
 }
 
-.line.highlighted, .line.diff {
+.line.highlighted,
+.line.diff {
   background-color: var(--t-shiki-color-highlight);
-  transition: background-color .5s;
+  transition: background-color 0.5s;
   margin: 0 -12px 0 -44px;
   padding: 0 12px 0 44px;
   width: calc(100% + 12px + 44px);
   display: inline-block;
 }
 
-.line.highlighted.error, .line.diff.remove {
+.line.highlighted.error,
+.line.diff.remove {
   background-color: var(--t-shiki-color-highlight-danger);
 }
 
@@ -41,6 +43,10 @@ pre.line-numbers .content {
   gap: var(--ws-4);
 
   overflow-x: auto;
+}
+
+pre.no-line-numbers .content {
+  padding: var(--ws-4);
 }
 
 pre.file-name .code-block-file-name {
@@ -80,15 +86,15 @@ pre.terminal .code-block-terminal {
       border-radius: 50%;
     }
 
-    .terminal-ui-btn-1{
+    .terminal-ui-btn-1 {
       background-color: var(--t-shiki-color-ui-button-red);
     }
 
-    .terminal-ui-btn-2{
+    .terminal-ui-btn-2 {
       background-color: var(--t-shiki-color-ui-button-yellow);
     }
 
-    .terminal-ui-btn-3{
+    .terminal-ui-btn-3 {
       background-color: var(--t-shiki-color-ui-button-green);
     }
   }
@@ -123,7 +129,6 @@ pre.terminal .code-block-terminal {
   mix-blend-mode: normal;
   opacity: 1;
 }
-
 
 .line-number.diff.add {
   color: var(--t-shiki-color-line-number-success);
@@ -174,4 +179,3 @@ pre.terminal .code-block-terminal {
 .copy-code.copied {
   opacity: 1;
 }
-

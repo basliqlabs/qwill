@@ -53,24 +53,24 @@ header {
 
   display: grid;
   grid-template-columns:
-      [extended-start] var(--gutter)
-      [content-start] var(--gutter)
-      [indented-start] 1fr [indented-end]
-      var(--gutter) [content-end]
-      var(--gutter) [extended-end]
-      var(--sidebar) [sidebar-end];
+    [extended-start] var(--gutter)
+    [content-start] var(--gutter)
+    [indented-start] 1fr [indented-end]
+    var(--gutter) [content-end]
+    var(--gutter) [extended-end]
+    var(--sidebar) [sidebar-end];
   row-gap: var(--ws-3);
   border-inline-start: 2px solid var(--t-color-border-divider-dim);
 
   @media screen and (max-width: 650px) {
     --gutter: calc(var(--t-blog-post-gutter-size) / 2);
-      grid-template-columns:
-          [extended-start] var(--gutter)
-          [content-start] var(--gutter)
-          [indented-start] calc(100vw - ((var(--ws-4) * 1) + (var(--gutter) * 4) + 30px)) [indented-end]
-          var(--gutter) [content-end]
-          var(--gutter) [extended-end]
-          var(--sidebar) [sidebar-end];
+    grid-template-columns:
+      [extended-start] var(--gutter)
+      [content-start] var(--gutter)
+      [indented-start] calc(100vw - ((var(--ws-4) * 1) + (var(--gutter) * 4) + 30px)) [indented-end]
+      var(--gutter) [content-end]
+      var(--gutter) [extended-end]
+      var(--sidebar) [sidebar-end];
   }
 }
 
@@ -105,10 +105,11 @@ section section section {
   transition: opacity var(--transition-sm) ease-in-out;
   font-size: var(--font-size-4);
 
-  p, li, a {
+  p,
+  li,
+  a {
     font-size: inherit;
   }
-
 
   &:hover {
     opacity: 1;
@@ -224,7 +225,8 @@ section section section {
     margin: var(--ws-6) 0;
   }
 
-  th, td {
+  th,
+  td {
     padding: var(--ws-4) var(--ws-5);
     text-align: start;
     border-bottom: var(--divider-medium-dim);
@@ -268,7 +270,8 @@ section section section {
     color: var(--rc-color-light);
   }
 
-  ul li::marker, ol li::marker {
+  ul li::marker,
+  ol li::marker {
     color: var(--rc-color-light);
   }
 }
@@ -277,8 +280,19 @@ section section section {
   display: none;
 }
 
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ws-4);
+}
+
+.content aside p {
+  padding-block-start: 0;
+}
+
 @media screen and (max-width: 500px) {
-  header, nav {
+  header,
+  nav {
     padding-inline: var(--ws-4);
   }
 }
