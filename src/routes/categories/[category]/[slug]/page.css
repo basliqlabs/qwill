@@ -146,6 +146,7 @@ section section {
   align-items: center;
   gap: var(--ws-4);
   grid-column: extended;
+  margin-inline-start: var(--ws-4);
 
   figcaption {
     font-size: var(--font-size-4);
@@ -154,6 +155,7 @@ section section {
 }
 
 .content img {
+  border: 1px solid var(--t-color-border-divider);
   border-radius: var(--radius-sm);
 }
 
@@ -264,6 +266,10 @@ section section {
   :not(pre, span.line > span, .copy-code)::selection {
     background-color: color-mix(in srgb, var(--rc-color-light) 7%, transparent 93%);
     color: var(--rc-color-light);
+  }
+
+  ul, ol {
+    padding-block-start: var(--ws-5);
   }
 
   ul li::marker,
