@@ -2,6 +2,7 @@
   import './page.css'
   import { base } from '$app/paths'
   import { i18n } from '$lib/i18n'
+  import CenteredLayout from '$lib/components/centered-layout/CenteredLayout.svelte'
 
   const { data } = $props()
   const post = $derived(data.post.meta)

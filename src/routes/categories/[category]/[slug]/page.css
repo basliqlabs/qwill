@@ -25,12 +25,12 @@ header {
 }
 
 .blog-title {
-  font-size: var(--font-size-15);
+  font-size: var(--font-size-12);
   font-weight: var(--font-weight-black);
   line-height: 1;
 
   @media screen and (max-width: 500px) {
-    font-size: var(--font-size-12);
+    font-size: var(--font-size-11);
   }
 }
 
@@ -41,10 +41,6 @@ header {
 
   max-inline-size: calc(100vw - 5px);
   overflow-x: hidden;
-}
-
-.content > section {
-  padding-inline: var(--ws-4);
 }
 
 .content section {
@@ -74,8 +70,8 @@ header {
   }
 }
 
-section section section {
-  padding-block-start: var(--ws-6);
+section section {
+  margin-block-start: var(--ws-6);
   grid-column: indented-start / sidebar-end;
 }
 
