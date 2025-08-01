@@ -74,7 +74,7 @@
   --t-header-background-color: hsl(from var(--t-color-primary-50) h s l / 0.8);
   --t-navbar-logo-text: var(--t-color-primary-900);
   --t-navbar-background-color: var(--t-color-primary-50);
-  --t-navbar-inline-size: 120rem;
+  --t-navbar-inline-size: 75rem;
   --t-navbar-border-radius: var(--radius-xl);
   --t-navbar-margin-block: var(--ws-4);
   --t-navbar-padding: var(--ws-4);
@@ -82,11 +82,11 @@
   --t-navbar-link-bg: var(--t-color-btn-primary-bg);
   --t-navbar-link-text: var(--t-color-primary-900);
 
-  --t-post-article-inline-size: 120rem;
+  --t-post-article-inline-size: 75rem;
   --t-blog-post-gutter-size: 1rem;
   --t-blog-post-sidebar-size: 30rem;
 
-  --t-container-inline-size: 120rem;
+  --t-container-inline-size: 75rem;
 
   --t-shiki-color-opacity: 0.2;
   --t-shiki-color-neutral: rgba(101, 117, 133, var(--t-shiki-color-opacity));
