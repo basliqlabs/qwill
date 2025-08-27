@@ -41,49 +41,55 @@
   <meta property="og:title" content={post.title} />
 </svelte:head>
 
-<article>
-  <header>
-    <div>
-      <BlogCategoryCard {category} />
-    </div>
-    <div class="header-heading-container">
-      <h1 class="blog-title">{post.title}</h1>
-      <p>{post.description}</p>
-    </div>
-    <div class="header-sub-container">
-      {#if post.publishDate || post.updatedDate}
-        <div class="header-date-container">
-          {#if post.publishDate}
-            <Date
-              dateString={post.publishDate}
-              title={m.date_published()}
-              dimTitle={true}
-              calendar={currentCalendar}
-            />
-          {/if}
+<div class="article-wrapper">
+  <div class="cover-image-container">
+    <div class="cover-image"></div>
+    <div class="cover-image-overlay"></div>
+  </div>
+  <article>
+    <header class="header-container">
+      <div>
+        <BlogCategoryCard {category} />
+      </div>
+      <div class="header-heading-container">
+        <h1 class="blog-title">{post.title}</h1>
+        <p>{post.description}</p>
+      </div>
+      <div class="header-sub-container">
+        {#if post.publishDate || post.updatedDate}
+          <div class="header-date-container">
+            {#if post.publishDate}
+              <Date
+                dateString={post.publishDate}
+                title={m.date_published()}
+                dimTitle={true}
+                calendar={currentCalendar}
+              />
+            {/if}
 
-          {#if post.updatedDate}
-            <Date
-              dateString={post.updatedDate}
-              title={m.date_updated()}
-              dimTitle={true}
-              calendar={currentCalendar}
-            />
-          {/if}
+            {#if post.updatedDate}
+              <Date
+                dateString={post.updatedDate}
+                title={m.date_updated()}
+                dimTitle={true}
+                calendar={currentCalendar}
+              />
+            {/if}
+          </div>
+        {/if}
+        <div class="header-authors-container">
+          {#each post.authors as author}
+            <BlogAuthor {author} />
+          {/each}
+        </div>
+      </div>
+    </header>
+    <main>
+      {#if content}
+        <div class="content">
+          <svelte:component this={content} />
         </div>
       {/if}
-      <div class="header-authors-container">
-        {#each post.authors as author}
-          <BlogAuthor {author} />
-        {/each}
-      </div>
-    </div>
-  </header>
-  <main>
-    {#if content}
-      <div class="content">
-        <svelte:component this={content} />
-      </div>
-    {/if}
-  </main>
-</article>
+    </main>
+  </article>
+</div>

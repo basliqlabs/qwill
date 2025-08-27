@@ -1,20 +1,58 @@
+.article-wrapper {
+  position: relative;
+}
+
+.cover-image-container {
+  position: absolute;
+  z-index: -1;
+  inset-inline: 0;
+  inset-block-start: 0;
+}
+
+.cover-image {
+  background-image: url('/images/whatever.jpg');
+  block-size: 95dvh;
+}
+
+.cover-image-overlay {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 0;
+  block-size: 95dvh;
+  background-image: linear-gradient(
+    to top,
+    var(--t-color-bg) 5%,
+    color-mix(in hsl, var(--t-color-bg), transparent 80%)
+  );
+  backdrop-filter: blur(2px);
+}
+
 article {
   margin-inline: auto;
   max-inline-size: var(--t-post-article-inline-size);
-  padding-inline: var(--ws-4);
-  padding-block-end: var(--ws-10);
+  padding-block: var(--ws-12);
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  padding: var(--ws-4);
+  gap: var(--ws-6);
+
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+  border-bottom-left-radius: var(--radius-xs);
+  border-bottom-right-radius: var(--radius-xs);
+  background-image: linear-gradient(
+    to top,
+    color-mix(in hsl, var(--t-color-bg), transparent 40%),
+    color-mix(in hsl, var(--t-color-bg), transparent 80%)
+  );
+  backdrop-filter: blur(2px);
 
   @media screen and (max-width: 500px) {
     padding-inline: 0;
   }
-}
-
-header {
-  display: flex;
-  flex-direction: column;
-  gap: var(--ws-6);
-
-  padding-block-end: var(--ws-10);
 }
 
 .header-heading-container {
@@ -57,9 +95,29 @@ header {
 }
 
 .content {
+  margin-block-start: var(--ws-2);
+
   display: flex;
   flex-direction: column;
+  padding: var(--ws-4);
+  padding-block-start: var(--ws-6);
   gap: var(--ws-10);
+
+  border-top-left-radius: var(--radius-xs);
+  border-top-right-radius: var(--radius-xs);
+  border-bottom-left-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+
+  background-image: linear-gradient(
+    to top,
+    var(--t-color-bg) 90%,
+    color-mix(in hsl, var(--t-color-bg), transparent 40%)
+  );
+  backdrop-filter: blur(2px);
+
+  @media screen and (max-width: 500px) {
+    padding-inline: 0;
+  }
 
   section {
     display: grid;

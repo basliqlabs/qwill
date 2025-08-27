@@ -45,15 +45,17 @@
 
 <style>
   header {
-    inset-block-start: 0;
     display: grid;
     place-items: center;
     /* TODO: 'backdrop-filter: blur()' is not working as expected */
     /*backdrop-filter: blur(10px);*/
     z-index: 999;
+    position: absolute;
+    inset-inline: 0;
   }
 
   nav {
+    margin-block-start: var(--ws-6);
     display: flex;
     align-items: center;
     gap: var(--ws-6);
@@ -62,7 +64,6 @@
     box-shadow: var(--t-navbar-box-shadow);
     padding: var(--t-navbar-padding);
     border-radius: var(--t-navbar-border-radius);
-    margin-block: var(--t-navbar-margin-block);
   }
 
   div.logo {

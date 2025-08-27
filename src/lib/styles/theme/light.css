@@ -48,7 +48,7 @@
   --t-color-btn-danger-text: var(--t-color-danger-900);
   --t-color-btn-disabled-bg: var(--t-color-neutral-300);
   --t-color-btn-disabled-text: var(--t-color-neutral-500);
-  --t-color-btn-muted-bg: hsl(from var(--t-color-neutral-300) h s l / 0.3);
+  --t-color-btn-muted-bg: hsl(from var(--t-color-neutral-600) h s l / 0.1);
 
   --t-color-anchor: var(--t-color-primary-600);
   --t-color-anchor-hover: var(--t-color-primary-800);
