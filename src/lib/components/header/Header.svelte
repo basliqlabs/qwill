@@ -3,6 +3,7 @@
   import SwitchLanguageButton from '../switch-language-button/SwitchLanguageButton.svelte'
   import Anchor from '$lib/components/anchor/Anchor.svelte'
   import { base } from '$app/paths'
+  import SwitchThemeButton from '../switch-theme-button/SwitchThemeButton.svelte'
 
   let name = m.site_name()
 
@@ -37,6 +38,7 @@
 
     <div class="actions">
       <SwitchLanguageButton />
+      <SwitchThemeButton />
     </div>
   </nav>
 </header>
@@ -109,5 +111,10 @@
       background-color: hsl(from var(--t-navbar-link-bg) h s l / 0.2);
       transform: scale(0.93);
     }
+  }
+
+  .actions {
+    display: flex;
+    gap: var(--ws-3);
   }
 </style>

@@ -1,10 +1,4 @@
-/*
-// This is the default themes so we also put the variables in the
-// :root to guarantee that our application is going to display
-// properly if something goes wrong.
-*/
-
-:root[data-theme='qwill-light'] {
+:root[data-theme='qwill-dark'] {
   --t-color-primary-50: var(--raw-color-violet-50);
   --t-color-primary-100: var(--raw-color-violet-100);
   --t-color-primary-200: var(--raw-color-violet-200);
@@ -17,29 +11,29 @@
   --t-color-primary-900: var(--raw-color-violet-900);
   --t-color-primary-950: var(--raw-color-violet-950);
 
-  --t-color-bg: var(--t-color-neutral-100);
-  --t-color-on-bg: var(--t-color-neutral-50);
+  --t-color-bg: var(--t-color-neutral-900);
+  --t-color-on-bg: var(--t-color-neutral-800);
 
-  --t-color-text: var(--t-color-neutral-800);
-  --t-color-text-muted: var(--t-color-neutral-500);
+  --t-color-text: var(--t-color-neutral-100);
+  --t-color-text-muted: var(--t-color-neutral-200);
   --t-color-highlight-background: var(--t-color-primary-600);
   --t-color-highlight-text: var(--t-color-neutral-50);
-  --t-color-underline: var(--t-color-primary-600);
-  --t-color-brand-text: var(--t-color-primary-600);
+  --t-color-underline: var(--t-color-primary-300);
+  --t-color-brand-text: var(--t-color-primary-300);
 
-  --t-color-selection-text: var(--t-color-primary-900);
-  --t-color-selection-bg: var(--t-color-primary-200);
+  --t-color-selection-text: var(--t-color-primary-50);
+  --t-color-selection-bg: var(--t-color-primary-500);
 
   --t-color-scrollbar-thumb-hover: var(--t-color-neutral-600);
   --t-color-scrollbar-thumb: var(--t-color-neutral-500);
   --t-color-scrollbar-track: var(--t-color-neutral-200);
 
-  --t-color-bullet-point: var(--t-color-primary-600);
+  --t-color-bullet-point: var(--t-color-primary-300);
 
   --t-btn-padding: var(--ws-3);
   --t-color-btn-overlay: hsl(0deg 0% 0%);
-  --t-color-btn-primary-bg: var(--t-color-primary-500);
-  --t-color-btn-primary-text: var(--t-color-primary-50);
+  --t-color-btn-primary-bg: var(--t-color-primary-300);
+  --t-color-btn-primary-text: var(--t-color-primary-500);
   --t-color-btn-secondary-bg: var(--t-color-primary-100);
   --t-color-btn-secondary-text: var(--t-color-primary-900);
   --t-color-btn-tertiary-bg: transparent;
@@ -49,15 +43,15 @@
   --t-color-btn-disabled-bg: var(--t-color-neutral-300);
   --t-color-btn-disabled-text: var(--t-color-neutral-500);
 
-  --t-color-anchor: var(--t-color-primary-600);
-  --t-color-anchor-hover: var(--t-color-primary-800);
-  --t-color-anchor-visited: var(--t-color-primary-700);
+  --t-color-anchor: var(--t-color-primary-300);
+  --t-color-anchor-hover: var(--t-color-primary-500);
+  --t-color-anchor-visited: var(--t-color-primary-400);
   --t-color-anchor-active: var(--t-color-primary-500);
   --t-color-anchor-focus: var(--t-color-primary-500);
 
-  --t-color-border-divider-dim: var(--t-color-neutral-100);
-  --t-color-border-divider: var(--t-color-neutral-200);
-  --t-color-focus-outline: var(--t-color-primary-300);
+  --t-color-border-divider-dim: var(--t-color-neutral-800);
+  --t-color-border-divider: var(--t-color-neutral-700);
+  --t-color-focus-outline: var(--t-color-primary-700);
 
   --t-color-shadow-close: color-mix(in hsl, var(--t-color-neutral-900) 10%, transparent);
   --t-color-shadow-distant: color-mix(in hsl, var(--t-color-neutral-900) 5%, transparent);
@@ -70,16 +64,16 @@
   );
   --t-color-text-popover: var(--t-color-neutral-100);
 
-  --t-header-background-color: hsl(from var(--t-color-primary-50) h s l / 0.8);
-  --t-navbar-logo-text: var(--t-color-primary-900);
-  --t-navbar-background-color: var(--t-color-primary-50);
+  --t-header-background-color: hsl(from var(--t-color-neutral-800) h s l / 0.8);
+  --t-navbar-logo-text: var(--t-color-primary-200);
+  --t-navbar-background-color: var(--t-color-neutral-800);
   --t-navbar-inline-size: 75rem;
   --t-navbar-border-radius: var(--radius-xl);
   --t-navbar-margin-block: var(--ws-4);
   --t-navbar-padding: var(--ws-4);
   --t-navbar-box-shadow: none;
   --t-navbar-link-bg: var(--t-color-btn-primary-bg);
-  --t-navbar-link-text: var(--t-color-primary-900);
+  --t-navbar-link-text: var(--t-color-primary-200);
 
   --t-post-article-inline-size: 75rem;
   --t-blog-post-gutter-size: 1rem;
