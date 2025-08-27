@@ -2,6 +2,7 @@ article {
   margin-inline: auto;
   max-inline-size: var(--t-post-article-inline-size);
   padding-inline: var(--ws-4);
+  padding-block: var(--ws-10);
 
   @media screen and (max-width: 500px) {
     padding-inline: 0;

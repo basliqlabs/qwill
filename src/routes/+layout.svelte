@@ -4,8 +4,11 @@
   import Header from '$lib/components/header/Header.svelte'
   import { i18n } from '$lib/i18n'
   import { ParaglideJS } from '@inlang/paraglide-sveltekit'
+  import { language } from '$lib/i18n.js';
 
   let { data, children } = $props()
+  
+  $language = data.language;
 </script>
 
 <svelte:head>

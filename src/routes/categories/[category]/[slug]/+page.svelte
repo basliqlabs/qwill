@@ -1,11 +1,14 @@
 <script lang="ts">
   import './page.css'
   import { base } from '$app/paths'
+  import BlogAuthor from '$lib/components/blog-author/blog-author.svelte'
 
   const { data } = $props()
   const post = $derived(data.post.meta)
   const content = $derived(data.post.content)
   let showSidebarOnMobile = $state(false)
+
+  console.log(post)
 
   $effect(() => {
     const handler = (event) => {
@@ -36,9 +39,12 @@
 
 <article>
   <header>
-    <hgroup>
-      <h1 class="blog-title">{post.title}</h1>
-    </hgroup>
+    <div>
+      {#each post.authors as author}
+        <BlogAuthor {author} />
+      {/each}
+    </div>
+    <h1 class="blog-title">{post.title}</h1>
   </header>
   <main>
     {#if content}

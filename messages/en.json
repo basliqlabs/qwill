@@ -1,15 +1,18 @@
 {
-	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"hello_world": "Hello, {name} from en!",
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "hello_world": "Hello, {name} from en!",
 
-	"site_name": "Qwill",
+  "site_name": "Qwill",
 
-	"published_at": "Published at {date}",
+  "published_at": "Published at {date}",
 
-	"header_all_blog_posts": "All",
-	"header_categories": "Categories",
-	"header_collections": "Collections",
-	"header_series": "Series",
+  "header_all_blog_posts": "All",
+  "header_categories": "Categories",
+  "header_collections": "Collections",
+  "header_series": "Series",
 
-	"atareversei_bio": "Thinking hard with my last 3 brain cells 🧠"
+  "atareversei_display_name": "Ata!",
+  "atareversei_first_name": "Amirata",
+  "atareversei_last_name": "Faraji",
+  "atareversei_bio": "Thinking hard with my last 3 brain cells 🧠"
 }

@@ -15,7 +15,7 @@
   --t-color-on-bg: var(--t-color-neutral-800);
 
   --t-color-text: var(--t-color-neutral-100);
-  --t-color-text-muted: var(--t-color-neutral-200);
+  --t-color-text-muted: var(--t-color-neutral-400);
   --t-color-highlight-background: var(--t-color-primary-600);
   --t-color-highlight-text: var(--t-color-neutral-50);
   --t-color-underline: var(--t-color-primary-300);
