@@ -40,6 +40,6 @@ a.subtle {
   display: inline-block;
 
   &:hover {
-    background-color: hsl(from var(--t-color-btn-primary-bg) h s l / 0.1);
+    background-color: var(--t-color-btn-muted-bg);
   }
 }

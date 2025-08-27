@@ -1,3 +1,7 @@
+:lang(fa) ol {
+  list-style-type: persian;
+}
+
 ul, ol {
   padding-inline-start: var(--ws-7);
 }

@@ -6,14 +6,15 @@
   type Props = {
     href: string
     noBase?: boolean
+    className?: string
     children: Snippet
   }
 
-  let { href, noBase, children }: Props = $props()
+  let { href, noBase, className, children }: Props = $props()
   const link = $derived.by(() => {
     let h = href
     return (noBase ? '' : base) + h
   })
 </script>
 
-<a href={link} data-sveltekit-reload>{@render children()}</a>
+<a href={link} class={className} data-sveltekit-reload>{@render children()}</a>

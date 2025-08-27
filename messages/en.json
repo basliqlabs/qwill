@@ -11,8 +11,10 @@
   "header_collections": "Collections",
   "header_series": "Series",
 
-  "date_published": "Publish date",
-  "date_updated": "Update date",
+  "date_published": "Published at",
+  "date_updated": "Updated at",
+
+  "category": "category",
 
   "atareversei_display_name": "Ata!",
   "atareversei_first_name": "Amirata",

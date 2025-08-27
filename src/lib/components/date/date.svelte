@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { i18n } from '$lib/i18n'
-
   type Props = {
     dateString: string
     title?: string
@@ -26,14 +24,16 @@
   })
 </script>
 
-<div class="date-container">
-  {#if title}
-    <p class="date-title {dimTitle ? 'dimmed' : ''}">{title}</p>
-  {/if}
-  <p class="date-representation" title={fullGeorgianDate.format(date)}>
-    {calendar === 'gregory' ? fullGeorgianDate.format(date) : fullJalaliDate.format(date)}
-  </p>
-</div>
+<a href="/" class="subtle">
+  <div class="date-container">
+    {#if title}
+      <p class="date-title {dimTitle ? 'dimmed' : ''}">{title}</p>
+    {/if}
+    <p class="date-representation" title={fullGeorgianDate.format(date)}>
+      {calendar === 'gregory' ? fullGeorgianDate.format(date) : fullJalaliDate.format(date)}
+    </p>
+  </div>
+</a>
 
 <style>
   .date-container {
