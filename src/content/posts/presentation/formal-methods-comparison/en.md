@@ -1,6 +1,7 @@
 ---
 title: "Formal Methods vs. Plain Text Descriptions in Software Engineering"
 description: "In software engineering, how we define system behavior can make the difference between a reliable application and one riddled with bugs."
+archived: true
 ---
 
 ## Introduction

@@ -8,6 +8,7 @@ series: null
 category: 'management'
 collections: ['management']
 authors: ['atareversei']
+archived: true
 draft: false
 outdated: false
 external: false

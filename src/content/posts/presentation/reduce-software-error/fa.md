@@ -7,6 +7,7 @@ coverImage: null
 series: null
 collections: ['presentation', 'software', 'test', 'lint']
 authors: ['atareversei']
+archived: true
 draft: false
 outdated: false
 external: false

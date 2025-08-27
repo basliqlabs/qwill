@@ -48,7 +48,7 @@ header {
     &::before {
       content: '';
       position: absolute;
-      left: -20px;
+      inset-inline-start: -20px;
       top: 0;
       height: 100%;
       width: 4px;

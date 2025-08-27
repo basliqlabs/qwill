@@ -35,7 +35,7 @@ export async function getPosts(config?: Config) {
     ) {
       const metadata = file.metadata as Omit<Post, 'slug' | 'category' | 'lang'>
       const post = { ...metadata, category, slug, language } satisfies Post
-      if (!post.draft) posts.push(post)
+      if (!post.draft && !post.archived) posts.push(post)
     }
   }
 

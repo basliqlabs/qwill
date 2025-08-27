@@ -18,8 +18,8 @@ import {
   transformerNotationWordHighlight
 } from '@shikijs/transformers'
 import { transformerColorizedBrackets } from '@shikijs/colorized-brackets'
-import { rehypeImageSrc } from './rehype-image-src.js'
 import { getBasePath } from './utils.js'
+import { rehypeCustomTweaks } from './rehype-custom-tweaks.js'
 
 const highlightTheme = 'night-owl'
 const highlightedLanguages = [
@@ -48,7 +48,7 @@ const mdsvexOptions = {
     rehypeHighlightLines,
     [rehypeAutolinkHeadings, { behavior: 'append' }],
     [rehypeCallouts, { theme: 'github' }],
-    rehypeImageSrc
+    rehypeCustomTweaks
   ],
   remarkPlugins: [sectionize, remarkAside],
   highlight: {
