@@ -1,14 +1,16 @@
 <script lang="ts">
   import './page.css'
-  import { base } from '$app/paths'
+  import * as m from '$lib/paraglide/messages'
   import BlogAuthor from '$lib/components/blog-author/blog-author.svelte'
+  import Date from '$lib/components/date/date.svelte'
+  import { page } from '$app/state'
+  import { i18n } from '$lib/i18n'
 
   const { data } = $props()
   const post = $derived(data.post.meta)
   const content = $derived(data.post.content)
-  let showSidebarOnMobile = $state(false)
-
-  console.log(post)
+  const currentLanguage = i18n.getLanguageFromUrl(page.url)
+  const currentCalendar = currentLanguage === 'en' ? 'gregory' : 'persian'
 
   $effect(() => {
     const handler = (event) => {
@@ -44,7 +46,31 @@
         <BlogAuthor {author} />
       {/each}
     </div>
-    <h1 class="blog-title">{post.title}</h1>
+    <div class="header-heading-container">
+      <h1 class="blog-title">{post.title}</h1>
+      <p>{post.description}</p>
+    </div>
+    {#if post.publishDate || post.updatedDate}
+      <div class="header-date-container">
+        {#if post.publishDate}
+          <Date
+            dateString={post.publishDate}
+            title={m.date_published()}
+            dimTitle={true}
+            calendar={currentCalendar}
+          />
+        {/if}
+
+        {#if post.updatedDate}
+          <Date
+            dateString={post.updatedDate}
+            title={m.date_published()}
+            dimTitle={true}
+            calendar={currentCalendar}
+          />
+        {/if}
+      </div>
+    {/if}
   </header>
   <main>
     {#if content}

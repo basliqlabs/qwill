@@ -1,7 +1,7 @@
 ---
 title: 'داستان QUIC'
 description: 'پروتکل QUIC چیه و چه ربطی به HTTP/3 داره؟'
-publishDate: '27 Aug 2025'
+publishDate: '2025-08-27'
 updatedDate: null
 coverImage: null
 series: null

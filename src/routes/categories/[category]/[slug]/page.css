@@ -2,7 +2,7 @@ article {
   margin-inline: auto;
   max-inline-size: var(--t-post-article-inline-size);
   padding-inline: var(--ws-4);
-  padding-block: var(--ws-10);
+  padding-block-end: var(--ws-10);
 
   @media screen and (max-width: 500px) {
     padding-inline: 0;
@@ -12,9 +12,21 @@ article {
 header {
   display: flex;
   flex-direction: column;
-  gap: var(--ws-5);
+  gap: var(--ws-6);
 
   padding-block-end: var(--ws-10);
+}
+
+.header-heading-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ws-4);
+}
+
+.header-date-container {
+  display: flex;
+  flex-direction: row;
+  gap: var(--ws-4);
 }
 
 .blog-title {
