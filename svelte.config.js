@@ -10,6 +10,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import { rehypeFigure } from './rehype-figure.js'
 import rehypeCallouts from 'rehype-callouts'
 import { remarkAside } from './remark-aside.js'
+import { rehypeImageSrc } from './rehype-image-src.js'
 
 import {
   transformerNotationDiff,
@@ -48,6 +49,7 @@ const mdsvexOptions = {
     rehypeHighlightLines,
     [rehypeAutolinkHeadings, { behavior: 'append' }],
     [rehypeCallouts, { theme: 'github', showIndicator: true, callouts: { note: { title: '' } } }],
+    rehypeImageSrc,
     rehypeCustomTweaks
   ],
   remarkPlugins: [sectionize, remarkAside],
