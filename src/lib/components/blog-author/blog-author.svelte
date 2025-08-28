@@ -13,7 +13,7 @@
 </script>
 
 {#if info}
-  <a href="/" class="subtle">
+  <a href="#" class="subtle">
     <div class="link-content">
       <img src={info.avatar} alt="" />
       <div class="author-info">

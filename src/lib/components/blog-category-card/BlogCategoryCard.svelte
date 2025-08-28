@@ -11,7 +11,7 @@
 </script>
 
 {#if category}
-  <Anchor className="subtle" href={`/categories/${category.id}`}>
+  <Anchor className="subtle" href={`/categories/network`}>
     <div class="category-container">
       {#if category.cover_image}
         <div class="category-image-container"></div>

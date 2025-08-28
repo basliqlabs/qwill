@@ -24,7 +24,7 @@
   })
 </script>
 
-<a href="/" class="subtle">
+<a href="#" class="subtle">
   <div class="date-container">
     {#if title}
       <p class="date-title {dimTitle ? 'dimmed' : ''}">{title}</p>

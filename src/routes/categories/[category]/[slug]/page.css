@@ -52,7 +52,7 @@ article {
   backdrop-filter: blur(2px);
 
   @media screen and (max-width: 500px) {
-    padding-inline: 0;
+    padding-inline: var(--ws-3);
   }
 }
 
@@ -113,7 +113,7 @@ article {
   backdrop-filter: blur(2px);
 
   @media screen and (max-width: 500px) {
-    padding-inline: 0;
+    padding-inline: var(--ws-3);
   }
 
   section {
