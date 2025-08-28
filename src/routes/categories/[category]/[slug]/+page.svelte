@@ -6,6 +6,7 @@
   import { page } from '$app/state'
   import { i18n } from '$lib/i18n'
   import BlogCategoryCard from '$lib/components/blog-category-card/BlogCategoryCard.svelte'
+  import { base } from '$app/paths'
 
   const { data } = $props()
   const post = $derived(data.post.meta)
@@ -43,7 +44,7 @@
 
 <div class="article-wrapper">
   <div class="cover-image-container">
-    <div class="cover-image" style="background-image: url({post?.coverImage?.src});"></div>
+    <div class="cover-image" style="background-image: url({base}{post?.coverImage?.src});"></div>
     <div class="cover-image-overlay"></div>
   </div>
   <article>

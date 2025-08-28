@@ -52,7 +52,7 @@ article {
   backdrop-filter: blur(2px);
 
   @media screen and (max-width: 500px) {
-    padding-inline: var(--ws-3);
+    padding-inline: var(--ws-5);
   }
 }
 
@@ -102,6 +102,8 @@ article {
   padding-block-start: var(--ws-7);
   gap: var(--ws-7);
 
+  overflow-x: hidden;
+
   border-bottom-left-radius: var(--radius-md);
   border-bottom-right-radius: var(--radius-md);
 
@@ -113,7 +115,7 @@ article {
   backdrop-filter: blur(2px);
 
   @media screen and (max-width: 500px) {
-    padding-inline: var(--ws-3);
+    padding-inline: var(--ws-5);
   }
 
   section {
