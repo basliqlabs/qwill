@@ -1,13 +1,18 @@
 <script lang="ts">
   import './page.css'
-  import { base } from '$app/paths'
+  import * as m from '$lib/paraglide/messages'
+  import BlogAuthor from '$lib/components/blog-author/blog-author.svelte'
+  import Date from '$lib/components/date/date.svelte'
+  import { page } from '$app/state'
   import { i18n } from '$lib/i18n'
-  import CenteredLayout from '$lib/components/centered-layout/CenteredLayout.svelte'
+  import BlogCategoryCard from '$lib/components/blog-category-card/BlogCategoryCard.svelte'
 
   const { data } = $props()
   const post = $derived(data.post.meta)
   const content = $derived(data.post.content)
-  let showSidebarOnMobile = $state(false)
+  const category = $derived(data.post.category)
+  const currentLanguage = i18n.getLanguageFromUrl(page.url)
+  const currentCalendar = currentLanguage === 'en' ? 'gregory' : 'persian'
 
   $effect(() => {
     const handler = (event) => {
@@ -24,64 +29,9 @@
       }, 2_000)
     }
 
-    const article = document.querySelector('article')
-
     document.querySelectorAll('button.copy-code').forEach((btn) => {
       btn.addEventListener('click', handler)
     })
-
-    document.querySelectorAll('img').forEach((img) => {
-      if (img.src.includes('/src')) {
-        img.src = img.src.replace('/src', `${base}/src`)
-      }
-    })
-
-    document.querySelectorAll('span.icon.icon-link').forEach((elm) => {
-      elm.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="M11 17H7q-2.075 0-3.537-1.463T2 12t1.463-3.537T7 7h4v2H7q-1.25 0-2.125.875T4 12t.875 2.125T7 15h4zm-3-4v-2h8v2zm5 4v-2h4q1.25 0 2.125-.875T20 12t-.875-2.125T17 9h-4V7h4q2.075 0 3.538 1.463T22 12t-1.463 3.538T17 17z"/></svg>`
-    })
-
-    let touchStartX = 0
-    let touchEndX = 0
-
-    article?.addEventListener(
-      'touchstart',
-      (e: TouchEvent) => {
-        touchStartX = e.changedTouches[0].screenX
-      },
-      false
-    )
-
-    article?.addEventListener(
-      'touchend',
-      (e: TouchEvent) => {
-        touchEndX = e.changedTouches[0].screenX
-        handleSwipe()
-      },
-      false
-    )
-
-    const threshold = 50
-
-    function handleSwipe() {
-      const dir = i18n.config.textDirection[i18n.config.runtime.languageTag()]
-      if (dir === 'ltr') {
-        if (touchEndX < touchStartX - threshold) {
-          showSidebarOnMobile = true
-        }
-
-        if (touchEndX > touchStartX + threshold) {
-          showSidebarOnMobile = false
-        }
-      } else {
-        if (touchEndX > touchStartX + threshold) {
-          showSidebarOnMobile = true
-        }
-
-        if (touchEndX < touchStartX - threshold) {
-          showSidebarOnMobile = false
-        }
-      }
-    }
   })
 </script>
 
@@ -91,17 +41,55 @@
   <meta property="og:title" content={post.title} />
 </svelte:head>
 
-<article data-show-sidebar={showSidebarOnMobile}>
-  <header>
-    <hgroup>
-      <h1 class="blog-title">{post.title}</h1>
-    </hgroup>
-  </header>
-  <main>
-    {#if content}
-      <div class="content">
-        <svelte:component this={content} />
+<div class="article-wrapper">
+  <div class="cover-image-container">
+    <div class="cover-image" style="background-image: url({post?.coverImage?.src});"></div>
+    <div class="cover-image-overlay"></div>
+  </div>
+  <article>
+    <header class="header-container">
+      <div>
+        <BlogCategoryCard {category} />
       </div>
-    {/if}
-  </main>
-</article>
+      <div class="header-heading-container">
+        <h1 class="blog-title">{post.title}</h1>
+        <p>{post.description}</p>
+      </div>
+      <div class="header-sub-container">
+        {#if post.publishDate || post.updatedDate}
+          <div class="header-date-container">
+            {#if post.publishDate}
+              <Date
+                dateString={post.publishDate}
+                title={m.date_published()}
+                dimTitle={true}
+                calendar={currentCalendar}
+              />
+            {/if}
+
+            {#if post.updatedDate}
+              <Date
+                dateString={post.updatedDate}
+                title={m.date_updated()}
+                dimTitle={true}
+                calendar={currentCalendar}
+              />
+            {/if}
+          </div>
+        {/if}
+        <div class="header-authors-container">
+          {#each post.authors as author}
+            <BlogAuthor {author} />
+          {/each}
+        </div>
+      </div>
+    </header>
+    <main>
+      {#if content}
+        <div class="content">
+          <svelte:component this={content} />
+        </div>
+      {/if}
+    </main>
+  </article>
+</div>

@@ -10,6 +10,6 @@
   .container {
     max-inline-size: var(--t-container-inline-size);
     margin-inline: auto;
-    margin-block: var(--ws-8);
+    padding-block: var(--ws-14);
   }
 </style>

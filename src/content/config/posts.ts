@@ -20,6 +20,7 @@ export type Post = {
 	category: string
 	collections: string[]
 	authors: string[]
+	archived: boolean;
 	draft: boolean
 	outdated: boolean
 	external: boolean

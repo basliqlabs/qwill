@@ -1,13 +1,14 @@
 ---
 title: 'The History of Management in the 20th Century: From Scientific Management to Strategic Thinking'
 description: 'The 20th century was a defining era for the development of modern management, shaped by industrial growth, wars, globalization, and technological change.'
-publishDate: '16 Jul 2025'
+publishDate: '2025-07-16'
 updatedDate: null
 coverImage: null
 series: null
 category: 'management'
 collections: ['management']
 authors: ['atareversei']
+archived: true
 draft: false
 outdated: false
 external: false

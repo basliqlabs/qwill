@@ -18,8 +18,8 @@ import {
   transformerNotationWordHighlight
 } from '@shikijs/transformers'
 import { transformerColorizedBrackets } from '@shikijs/colorized-brackets'
-import { rehypeImageSrc } from './rehype-image-src.js'
 import { getBasePath } from './utils.js'
+import { rehypeCustomTweaks } from './rehype-custom-tweaks.js'
 
 const highlightTheme = 'night-owl'
 const highlightedLanguages = [
@@ -47,8 +47,8 @@ const mdsvexOptions = {
     [toc, { headings: ['h2'] }],
     rehypeHighlightLines,
     [rehypeAutolinkHeadings, { behavior: 'append' }],
-    [rehypeCallouts, { theme: 'github' }],
-    rehypeImageSrc
+    [rehypeCallouts, { theme: 'github', showIndicator: true, callouts: { note: { title: '' } } }],
+    rehypeCustomTweaks
   ],
   remarkPlugins: [sectionize, remarkAside],
   highlight: {
@@ -182,14 +182,14 @@ function setupHighlighter(code, lang, metastring) {
     if (meta.noLineNumber) {
       return html
         .replace('<pre class="shiki', `<pre class="shiki no-line-numbers`)
-        .replace('<code>', `<div class="content"><code>`)
+        .replace('<code>', `<div class="code-block-content"><code>`)
         .replace('</code>', '</code></div>')
     }
     return html
       .replace('<pre class="shiki', `<pre class="shiki line-numbers`)
       .replace(
         '<code>',
-        `<div class="content"><span class="line-numbers-rows">${lineNumbers}</span><code>`
+        `<div class="code-block-content"><span class="line-numbers-rows">${lineNumbers}</span><code>`
       )
       .replace('</code>', '</code></div>')
   }
@@ -198,11 +198,11 @@ function setupHighlighter(code, lang, metastring) {
     if (meta.terminal) return html
     if (meta.fileName) {
       return html.replace('<pre class="shiki', '<pre class="shiki file-name').replace(
-        '<div class="content"',
+        '<div class="code-block-content"',
         `<div class='code-block-file-name'>
                         <img class="file-name-icon" alt="Downloaded from Icons8" src="${getBasePath()}${meta.icon}" />
                         <span class="file-name-text">${meta.fileName}</span>
-                </div><div class="content"`
+                </div><div class="code-block-content"`
       )
     }
     return html
@@ -211,13 +211,13 @@ function setupHighlighter(code, lang, metastring) {
   function addTerminalHeader(html, meta) {
     if (meta.terminal) {
       return html.replace('<pre class="shiki', '<pre class="shiki terminal').replace(
-        '<div class="content"',
+        '<div class="code-block-content"',
         `<div class='code-block-terminal'>
                         <div class="terminal-ui"><div class="terminal-ui-btn-1"></div><div class="terminal-ui-btn-2"></div><div class="terminal-ui-btn-3"></div></div>
                         <div class="terminal-name">
                         <img class="terminal-icon" alt="Downloaded from Icons8" src="${getBasePath()}/icons/icons8-bash.svg"     />
                         <span class="terminal-text">terminal</span></div>
-                </div><div class="content"`
+                </div><div class="code-block-content"`
       )
     }
     return html

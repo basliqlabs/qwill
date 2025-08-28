@@ -25,3 +25,21 @@ a:focus-visible {
   color: var(--t-color-anchor-focus);
   outline-color: var(--t-color-anchor-focus);
 }
+
+a.subtle {
+  text-decoration: none;
+  color: var(--t-color-text);
+  font-family: inherit;
+  padding: var(--t-btn-padding);
+  background-color: transparent;
+  font-size: var(--font-size-5);
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+  border: none;
+  transition: all var(--transition-sm) ease-in-out;
+  display: inline-block;
+
+  &:hover {
+    background-color: var(--t-color-btn-muted-bg);
+  }
+}

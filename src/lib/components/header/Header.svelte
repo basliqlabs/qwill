@@ -43,24 +43,25 @@
 
 <style>
   header {
-    inset-block-start: 0;
     display: grid;
     place-items: center;
     /* TODO: 'backdrop-filter: blur()' is not working as expected */
-    /*backdrop-filter: blur(10px);*/
     z-index: 999;
+    position: absolute;
+    inset-inline: 0;
   }
 
   nav {
+    margin-block-start: var(--ws-6);
     display: flex;
     align-items: center;
     gap: var(--ws-6);
     max-inline-size: var(--t-navbar-inline-size);
-    background-color: var(--t-navbar-background-color);
+    background-color: color-mix(in hsl, var(--t-navbar-background-color), transparent 60%);
+    backdrop-filter: blur(10px);
     box-shadow: var(--t-navbar-box-shadow);
     padding: var(--t-navbar-padding);
     border-radius: var(--t-navbar-border-radius);
-    margin-block: var(--t-navbar-margin-block);
   }
 
   div.logo {
@@ -109,5 +110,10 @@
       background-color: hsl(from var(--t-navbar-link-bg) h s l / 0.2);
       transform: scale(0.93);
     }
+  }
+
+  .actions {
+    display: flex;
+    gap: var(--ws-3);
   }
 </style>

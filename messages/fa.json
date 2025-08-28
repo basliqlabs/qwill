@@ -1,15 +1,23 @@
 {
-	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"hello_world": "Hello, {name} from fa!",
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "hello_world": "Hello, {name} from fa!",
 
-	"site_name": "کوئیل",
+  "site_name": "کوئیل",
 
-	"published_at": "منتشر شده در {date}",
+  "published_at": "منتشر شده در {date}",
 
-	"header_all_blog_posts": "همه",
-	"header_categories": "دسته‌بندی‌ها‌",
-	"header_collections": "مجموعه‌",
-	"header_series": "‌سری",
+  "header_all_blog_posts": "همه",
+  "header_categories": "دسته‌بندی‌ها‌",
+  "header_collections": "مجموعه‌",
+  "header_series": "‌سری",
 
-	"atareversei_bio": "بیو بیو"
+  "date_published": "تارخ انتشار",
+  "date_updated": "تاریخ به‌روزرسانی",
+
+  "category": "دسته‌بندی",
+
+  "atareversei_display_name": "عطا!",
+  "atareversei_first_name": "امیرعطا",
+  "atareversei_last_name": "فرجی",
+  "atareversei_bio": "بیو بیو🚨"
 }

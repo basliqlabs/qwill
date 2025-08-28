@@ -1,0 +1,6 @@
+body {
+  position: relative;
+  min-block-size: 100dvh;
+  background-color: var(--t-color-bg);
+  color: var(--t-color-text);
+}

@@ -6,6 +6,7 @@
 @import './app/scrollbar.css';
 @import './app/selection.css';
 @import './app/shiki.css';
+@import './app/root.css';
 @import './color/default.css';
 @import './color/tailwind-colors.css';
 @import './elevation/shadows.css';
@@ -13,6 +14,7 @@
 @import './measurements/whitespaces.css';
 @import './motion/durations.css';
 @import './theme/light.css';
+@import './theme/dark.css';
 @import './typography/typography.css';
 @import './typography/font-sizes.css';
 @import './typography/text-properties.css';
