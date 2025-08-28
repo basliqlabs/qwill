@@ -12,6 +12,9 @@
 .cover-image {
   background-image: url('/images/whatever.jpg');
   block-size: 95dvh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .cover-image-overlay {
@@ -24,7 +27,7 @@
     var(--t-color-bg) 5%,
     color-mix(in hsl, var(--t-color-bg), transparent 80%)
   );
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(6px);
 }
 
 article {
@@ -36,17 +39,15 @@ article {
 .header-container {
   display: flex;
   flex-direction: column;
-  padding: var(--ws-4);
+  padding: var(--ws-5);
   gap: var(--ws-6);
 
   border-top-left-radius: var(--radius-md);
   border-top-right-radius: var(--radius-md);
-  border-bottom-left-radius: var(--radius-xs);
-  border-bottom-right-radius: var(--radius-xs);
   background-image: linear-gradient(
     to top,
     color-mix(in hsl, var(--t-color-bg), transparent 40%),
-    color-mix(in hsl, var(--t-color-bg), transparent 80%)
+    color-mix(in hsl, var(--t-color-bg), transparent 60%)
   );
   backdrop-filter: blur(2px);
 
@@ -95,16 +96,12 @@ article {
 }
 
 .content {
-  margin-block-start: var(--ws-2);
-
   display: flex;
   flex-direction: column;
-  padding: var(--ws-4);
-  padding-block-start: var(--ws-6);
-  gap: var(--ws-10);
+  padding: var(--ws-5);
+  padding-block-start: var(--ws-7);
+  gap: var(--ws-7);
 
-  border-top-left-radius: var(--radius-xs);
-  border-top-right-radius: var(--radius-xs);
   border-bottom-left-radius: var(--radius-md);
   border-bottom-right-radius: var(--radius-md);
 
@@ -192,6 +189,7 @@ article {
   }
 
   h2 {
+    font-size: var(--font-size-9);
     line-height: 1;
 
     & + p,
@@ -253,7 +251,10 @@ article {
 
   .callout {
     padding-block: 1rem;
-    border-left-width: 5px;
+    border-inline-start-width: 5px;
+    border-inline-start-style: solid;
+    border-left-color: transparent;
+    border-inline-start-color: var(--rc-color-light);
     background-color: color-mix(in srgb, var(--rc-color-light) 4%, transparent 96%);
     border-start-end-radius: var(--radius-md);
     border-end-end-radius: var(--radius-md);
@@ -299,7 +300,7 @@ article {
   }
 }
 
-.content .content .rehype-figure-container {
+.content .rehype-figure-container {
   display: flex;
   flex-direction: column;
   gap: var(--ws-6);

@@ -2,6 +2,7 @@
   import { availableLanguageTags } from '$lib/paraglide/runtime'
   import { i18n } from '$lib/i18n'
   import { page } from '$app/state'
+  import TabLanguage from '../icons/TABLanguage.svelte'
 
   function switchToLanguage() {
     const currentLanguage = i18n.getLanguageFromUrl(page.url)
@@ -20,5 +21,13 @@
 </script>
 
 <div>
-  <button class="subtle" onclick={() => switchToLanguage()}>🌐</button>
+  <button class="subtle" onclick={() => switchToLanguage()}><div class="icon-container"><TabLanguage /></div></button>
 </div>
+
+<style>
+  .icon-container {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1;
+  }
+</style>

@@ -34,7 +34,7 @@ pre {
   background-color: var(--t-shiki-color-highlight-warning);
 }
 
-pre.line-numbers .content {
+pre.line-numbers .code-block-content {
   font-family: var(--font-family-code), monospace;
   padding: var(--ws-4);
 
@@ -45,7 +45,7 @@ pre.line-numbers .content {
   overflow-x: auto;
 }
 
-pre.no-line-numbers .content {
+pre.no-line-numbers .code-block-content {
   padding: var(--ws-4);
 }
 

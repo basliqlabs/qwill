@@ -3,7 +3,6 @@
   import SwitchLanguageButton from '../switch-language-button/SwitchLanguageButton.svelte'
   import Anchor from '$lib/components/anchor/Anchor.svelte'
   import { base } from '$app/paths'
-  import SwitchThemeButton from '../switch-theme-button/SwitchThemeButton.svelte'
 
   let name = m.site_name()
 
@@ -38,7 +37,6 @@
 
     <div class="actions">
       <SwitchLanguageButton />
-      <SwitchThemeButton />
     </div>
   </nav>
 </header>
@@ -48,7 +46,6 @@
     display: grid;
     place-items: center;
     /* TODO: 'backdrop-filter: blur()' is not working as expected */
-    /*backdrop-filter: blur(10px);*/
     z-index: 999;
     position: absolute;
     inset-inline: 0;
@@ -60,7 +57,8 @@
     align-items: center;
     gap: var(--ws-6);
     max-inline-size: var(--t-navbar-inline-size);
-    background-color: var(--t-navbar-background-color);
+    background-color: color-mix(in hsl, var(--t-navbar-background-color), transparent 60%);
+    backdrop-filter: blur(10px);
     box-shadow: var(--t-navbar-box-shadow);
     padding: var(--t-navbar-padding);
     border-radius: var(--t-navbar-border-radius);

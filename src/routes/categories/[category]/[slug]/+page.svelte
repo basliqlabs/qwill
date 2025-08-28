@@ -43,7 +43,7 @@
 
 <div class="article-wrapper">
   <div class="cover-image-container">
-    <div class="cover-image"></div>
+    <div class="cover-image" style="background-image: url({post?.coverImage?.src});"></div>
     <div class="cover-image-overlay"></div>
   </div>
   <article>
