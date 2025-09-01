@@ -43,15 +43,23 @@
 </svelte:head>
 
 <div class="article-wrapper">
-  <div class="cover-image-container">
-    <div class="cover-image" style="background-image: url({base}{post?.coverImage?.src});"></div>
-    <div class="cover-image-overlay"></div>
+  <div class="background-image-container">
+    <div
+      class="background-image"
+      style="background-image: url({base}{category?.cover_image});"
+    ></div>
+    <div class="background-image-overlay"></div>
   </div>
   <article>
     <header class="header-container">
       <div>
         <BlogCategoryCard {category} />
       </div>
+      {#if post?.coverImage}
+        <figure class="header-cover-image">
+          <img src={post.coverImage.src} alt={post.coverImage.alt} />
+        </figure>
+      {/if}
       <div class="header-heading-container">
         <h1 class="blog-title">{post.title}</h1>
         <p>{post.description}</p>

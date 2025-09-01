@@ -14,7 +14,10 @@
   <Anchor className="subtle" href={`/categories/network`}>
     <div class="category-container">
       {#if category.cover_image}
-        <div class="category-image-container"></div>
+        <div
+          class="category-image-container"
+          style="background-image: url({category.cover_image})"
+        ></div>
       {/if}
       <div class="category-text-content">
         <p class="category-text">{m.category()}</p>
@@ -34,10 +37,10 @@
   .category-image-container {
     inline-size: 35px;
     block-size: 35px;
+    border-radius: var(--radius-sm);
     overflow: hidden;
-    background-image: url({category.cover_image.src});
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
   }
 

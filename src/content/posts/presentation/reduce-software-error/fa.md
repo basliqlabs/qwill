@@ -7,7 +7,7 @@ coverImage: null
 series: null
 collections: ['presentation', 'software', 'test', 'lint']
 authors: ['atareversei']
-archived: true
+archived: false
 draft: false
 outdated: false
 external: false
@@ -508,25 +508,3 @@ func TestRichError_GetKind(t *testing.T) {
 ## مانیتورینگ در محیط عملیاتی
 
 حتی با تمام این تدابیر، برخی خطاها فقط در محیط تولید ظاهر میشون. ابزارهای مانیتورینگ:
-
-:::
-
-- تست یک
-- تست دو
-
-:::
-
-- Sentry
-- Datadog
-- New Relic
-- LogRocket
-
-## نتیجه‌گیری
-
-:::
-
-```js
-code
-```
-
-:::
