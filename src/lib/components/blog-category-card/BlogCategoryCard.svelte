@@ -2,6 +2,7 @@
   import { type Category } from '../../../content/config/categories'
   import Anchor from '../anchor/Anchor.svelte'
   import * as m from '$lib/paraglide/messages'
+  import { base } from '$app/paths'
 
   type Props = {
     category: Category | undefined
