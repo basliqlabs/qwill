@@ -57,7 +57,7 @@
       </div>
       {#if post?.coverImage}
         <figure class="header-cover-image">
-          <img src={post.coverImage.src} alt={post.coverImage.alt} />
+          <img src="{base}{post.coverImage.src}" alt={post.coverImage.alt} />
         </figure>
       {/if}
       <div class="header-heading-container">
