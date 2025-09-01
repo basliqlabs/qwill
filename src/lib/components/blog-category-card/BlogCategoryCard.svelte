@@ -16,7 +16,7 @@
       {#if category.cover_image}
         <div
           class="category-image-container"
-          style="background-image: url({category.cover_image})"
+          style="background-image: url({base}{category.cover_image})"
         ></div>
       {/if}
       <div class="category-text-content">
