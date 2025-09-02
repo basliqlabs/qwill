@@ -389,23 +389,13 @@ aside {
   display: flex;
   flex-direction: column;
   gap: var(--ws-4);
-
-  position: absolute;
-  inset-inline-end: -350px;
-  inset-block-start: 50px;
-  inline-size: 300px;
+  padding-inline-start: var(--ws-6);
+  margin-block-start: var(--ws-4);
+  opacity: 0.7;
+  transition: opacity var(--transition-sm) ease-in;
 
   &:hover {
     opacity: 1;
-  }
-
-  @media screen and (max-width: 1600px) {
-    position: initial;
-    inset: initial;
-    inline-size: auto;
-    padding-inline-start: var(--ws-6);
-    margin-block-start: var(--ws-4);
-    opacity: 0.7;
   }
 }
 
