@@ -37,6 +37,7 @@ pre {
 pre.line-numbers .code-block-content {
   font-family: var(--font-family-code), monospace;
   padding: var(--ws-4);
+  color: var(--t-color-text);
 
   display: grid;
   grid-template-columns: 20px 1fr;
@@ -60,6 +61,7 @@ pre.file-name .code-block-file-name {
 
   .file-name-icon {
     inline-size: 20px;
+    border: none;
   }
 }
 
@@ -166,7 +168,7 @@ pre.terminal .code-block-terminal {
   outline: none;
   border: none;
   border-radius: var(--radius-xs);
-  opacity: 0.6;
+  opacity: 0.4;
   transition: all var(--transition-xs) ease-in-out;
   cursor: pointer;
   font-family: inherit;

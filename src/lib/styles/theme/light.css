@@ -83,13 +83,19 @@
     --t-navbar-link-bg: var(--t-color-btn-primary-bg);
     --t-navbar-link-text: var(--t-color-primary-900);
 
+    --t-code-tag-background-color: var(--t-color-primary-50);
+    --t-code-tag-border: 1px solid var(--t-color-primary-100);
+    --t-code-tag-color: var(--t-color-primary-900);
+    --t-code-tag-background-color-hover: var(--t-color-primary-100);
+    --t-code-tag-border-color-hover: var(--t-color-primary-200);
+
     --t-post-article-inline-size: 75rem;
     --t-blog-post-gutter-size: 1rem;
     --t-blog-post-sidebar-size: 30rem;
 
     --t-container-inline-size: 75rem;
 
-    --t-shiki-color-opacity: 0.2;
+    --t-shiki-color-opacity: 0.07;
     --t-shiki-color-neutral: rgba(101, 117, 133, var(--t-shiki-color-opacity));
     --t-shiki-color-danger: rgba(244, 63, 94, var(--t-shiki-color-opacity));
     --t-shiki-color-success: rgba(16, 185, 129, var(--t-shiki-color-opacity));
@@ -102,7 +108,7 @@
     --t-shiki-color-highlight-warning: var(--t-shiki-color-warning);
     --t-shiki-color-line-number-danger: var(--t-color-danger-400);
     --t-shiki-color-line-number-success: var(--t-color-success-300);
-    --t-shiki-color-header-background: hsl(from var(--t-color-neutral-100) h s l / 0.05);
+    --t-shiki-color-header-background: color-mix(in hsl, var(--t-color-neutral-200), transparent 50%);
     --t-shiki-color-ui-button-red: rgba(244, 63, 94, 1);
     --t-shiki-color-ui-button-yellow: rgba(234, 179, 8, 1);
     --t-shiki-color-ui-button-green: rgba(16, 185, 129, 1);

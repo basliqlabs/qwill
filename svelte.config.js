@@ -22,7 +22,8 @@ import { transformerColorizedBrackets } from '@shikijs/colorized-brackets'
 import { getBasePath } from './utils.js'
 import { rehypeCustomTweaks } from './rehype-custom-tweaks.js'
 
-const highlightTheme = 'night-owl'
+const highlightLightTheme = 'material-theme-lighter'
+const highlightDarkTheme = 'github-dark-default'
 const highlightedLanguages = [
   'javascript',
   'typescript',
@@ -36,7 +37,7 @@ const highlightedLanguages = [
   'yaml'
 ]
 const highlighter = await createHighlighter({
-  themes: [highlightTheme],
+  themes: [highlightLightTheme, highlightDarkTheme],
   langs: highlightedLanguages
 })
 /** @type {import('mdsvex').MdsvexOptions} */
@@ -115,7 +116,7 @@ function setupHighlighter(code, lang, metastring) {
 
   const meta = getMeta(metastring)
   const lineNumbers = getLines(code, meta)
-  let html = getHtml(highlighter, code, lang, highlightTheme)
+  let html = getHtml(highlighter, code, lang)
   html = addLineNumbersToHtml(html, lineNumbers, meta)
   html = addFileNameToHtml(html, meta)
   html = addTerminalHeader(html, meta)
@@ -152,11 +153,14 @@ function setupHighlighter(code, lang, metastring) {
     return { fileName, icon, terminal, noLineNumber, noCopy }
   }
 
-  function getHtml(highlighter, code, lang, theme) {
+  function getHtml(highlighter, code, lang) {
     return escapeSvelte(
       highlighter.codeToHtml(code, {
         lang,
-        theme,
+        themes: {
+          light: highlightLightTheme,
+          dark: highlightDarkTheme
+        },
         transformers: [
           transformerNotationHighlight({ matchAlgorithm: 'v3' }),
           transformerNotationErrorLevel({ matchAlgorithm: 'v3' }),

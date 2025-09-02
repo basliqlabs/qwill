@@ -25,9 +25,9 @@
     --t-color-selection-text: var(--t-color-primary-50);
     --t-color-selection-bg: var(--t-color-primary-500);
 
-    --t-color-scrollbar-thumb-hover: var(--t-color-neutral-600);
-    --t-color-scrollbar-thumb: var(--t-color-neutral-500);
-    --t-color-scrollbar-track: var(--t-color-neutral-200);
+    --t-color-scrollbar-thumb-hover: var(--t-color-neutral-800);
+    --t-color-scrollbar-thumb: var(--t-color-neutral-700);
+    --t-color-scrollbar-track: var(--t-color-neutral-900);
 
     --t-color-bullet-point: var(--t-color-primary-300);
 
@@ -76,6 +76,12 @@
     --t-navbar-box-shadow: none;
     --t-navbar-link-bg: var(--t-color-btn-primary-bg);
     --t-navbar-link-text: var(--t-color-primary-200);
+
+    --t-code-tag-background-color: var(--t-color-neutral-700);
+    --t-code-tag-border: 1px solid var(--t-color-neutral-700);
+    --t-code-tag-color: var(--t-color-primary-50);
+    --t-code-tag-background-color-hover: var(--t-color-neutral-800);
+    --t-code-tag-border-color-hover: var(--t-color-neutral-600);
 
     --t-post-article-inline-size: 75rem;
     --t-blog-post-gutter-size: 1rem;
