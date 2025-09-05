@@ -187,11 +187,22 @@ article {
   }
 
   hr {
+    border: none;
     border-top: 1px solid var(--t-color-border-divider-dim);
+    margin-block: var(--ws-9);
+
+    & > * {
+      padding-block-start: 0;
+      margin-block-start: 0;
+    }
   }
 
   p {
     line-height: var(--line-height-5);
+
+    & + ul, & + ol {
+      padding-block-start: var(--ws-3);
+    }
 
     & + p {
       padding-block-start: var(--ws-6);
@@ -209,6 +220,7 @@ article {
   h2 {
     font-size: var(--font-size-9);
     line-height: 1;
+    margin-block-start: var(--ws-10);
 
     & + p,
     & + ol,

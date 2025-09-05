@@ -93,6 +93,7 @@
         </div>
       </div>
     </header>
+
     <main>
       {#if content}
         <div class="content">
