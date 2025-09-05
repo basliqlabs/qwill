@@ -34,6 +34,7 @@ article {
   margin-inline: auto;
   max-inline-size: var(--t-post-article-inline-size);
   padding-block: var(--ws-12);
+  overflow-x: hidden;
 }
 
 .header-container {
@@ -133,6 +134,15 @@ article {
     grid-template-columns: 30px 1fr;
     position: relative;
 
+    @media screen and (max-width: 500px) {
+      grid-template-columns: 12px 1fr;
+
+      &L::before {
+        inset-inline-start: -8px;
+        width: 2px;
+      }
+    }
+
     & > * {
       grid-column: 1 / 3;
     }
@@ -200,7 +210,8 @@ article {
   p {
     line-height: var(--line-height-5);
 
-    & + ul, & + ol {
+    & + ul,
+    & + ol {
       padding-block-start: var(--ws-3);
     }
 
