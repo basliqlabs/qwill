@@ -41,7 +41,8 @@ export async function getPosts(config?: Config) {
 
   posts = posts.sort(
     (first, second) =>
-      new Date(second.updatedDate).getTime() - new Date(first.updatedDate).getTime()
+      new Date(second.updatedDate ?? second.publishDate).getTime() -
+      new Date(first.updatedDate ?? first.publishDate).getTime()
   )
 
   return getPaginatedResponse(posts, config?.page ?? 1, config?.pageSize ?? PostPageSize)

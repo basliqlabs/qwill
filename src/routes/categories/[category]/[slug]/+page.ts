@@ -29,8 +29,6 @@ export async function load({ url, params }) {
     category = categoryFiles[`${categoryKey}/en.json`] as { default: Category }
   }
 
-  console.log(category)
-
   if (!md) {
     const entries = Object.entries(mdFiles)
     for (let i = 0; i < entries.length; i++) {
@@ -41,5 +39,11 @@ export async function load({ url, params }) {
     }
   }
 
-  return { post: { meta: md.metadata, content: md.default, category: category.default } }
+  return {
+    post: {
+      meta: md.metadata,
+      content: md.default,
+      category: { ...category.default, id: params.category }
+    }
+  }
 }
